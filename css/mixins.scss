@@ -1,0 +1,22 @@
+
+$window-medium: 768px;
+$window-large: 992px;
+$window-xlarge: 1200px;
+
+@mixin medium {
+  @media (min-width: #{$window-medium}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$window-large}) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @media (min-width: #{$window-xlarge}) {
+    @content;
+  }
+}

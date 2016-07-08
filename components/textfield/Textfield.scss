@@ -1,0 +1,102 @@
+
+/**
+ * http://www.google.com/design/spec/components/text-fields.html
+ */
+$font-big: 16px;
+$font-small: 12px;
+$padding: 4px;
+$transition-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+$transition-duration: 0.25s;
+$error-color: rgb(244, 67, 54);
+
+.Textfield {
+  display: block;
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+
+.Textfield-icon-wrapper {
+  display: flex;
+}
+
+.Textfield-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.Textfield-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.Textfield-label {
+  order: 1;
+  display: block;
+  font-size: $font-big;
+  color: rgba($blue-dark, 0.6);
+  transform: translate3d(0, 20px, 0);
+  transform-origin: left top;
+  transition: $transition-function $transition-duration;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Textfield-input {
+  order: 2;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  font-size: $font-big;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid $black-012;
+  transition: $transition-duration;
+  padding-bottom: $padding;
+}
+
+.Textfield-input:focus {
+  border-bottom-color: $blue-dark;
+  box-shadow: 0 1px 0 0 $blue-dark;
+}
+
+.Textfield-input--error {
+  border-bottom-color: $error-color;
+}
+
+.Textfield-input--error:focus {
+  border-bottom-color: $error-color;
+  box-shadow: 0 1px 0 0 $error-color;
+}
+
+.Textfield-input:focus ~ .Textfield-label,
+.Textfield-label.is-not-empty {
+  transform: translate3d(0, -$padding, 0);
+  font-size: $font-small;
+}
+
+.Textfield-label.is-not-empty {
+  color: rgba($blue-dark, 0.6);
+}
+
+.Textfield-input:focus ~ .Textfield-label {
+  color: $blue-dark;
+}
+
+.Textfield-input:disabled {
+  background-color: transparent;
+  color: rgba($blue-dark, 0.6);
+  border-bottom: 1px dotted rgba($blue-dark, 0.3);
+}
+
+.Textfield-error {
+  order: 3;
+  display: block;
+  margin-top: 6px;
+  font-size: $font-small;
+  color: $error-color;
+}

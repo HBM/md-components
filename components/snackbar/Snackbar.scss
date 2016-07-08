@@ -1,0 +1,70 @@
+
+/**
+ * http://www.google.com/design/spec/components/snackbars-toasts.html#snackbars-toasts-specs
+ */
+
+.Snackbar {
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include xlarge {
+    left: $navigation-width;
+  }
+}
+
+.Snackbar-background {
+  background-color: #323232;
+  min-width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include medium {
+    border-radius: 2px;
+    min-width: 288px;
+    max-width: 658px;
+  }
+}
+
+/**
+ * Start opacity animation slightly after translate animation.
+ * Also make it shorter so they both end at the same time.
+ */
+.Snackbar-content {
+  min-width: 100%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Snackbar-text {
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+ * Color is blue 400.
+ * http://www.google.com/design/spec/style/color.html#color-color-palette
+ * The darkest blue that is possible with dark background
+ */
+
+.Snackbar-action {
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  margin: 0 0 0 24px;
+  padding: 0;
+  color: #42A5F5;
+  outline: none;
+}

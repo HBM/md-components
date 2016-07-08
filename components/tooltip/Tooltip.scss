@@ -1,0 +1,20 @@
+
+/**
+ * http://www.google.com/design/spec/components/tooltips.html#
+ */
+
+.Tooltip {
+  position: absolute;
+  z-index: 100;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 0 16px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transform-origin: center top;
+}

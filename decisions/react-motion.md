@@ -1,0 +1,6 @@
+
+# react-motion for animation
+
+Material Design makes heavy use of animations. Therefore we need lots of animations inside our components. We started with [ReactCSSTransitionGroup](https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup), used [Khan Academy Timeout Transition Group](http://khan.github.io/react-components/#timeout-transition-group), tried [ReactTransitionGroup](https://facebook.github.io/react/docs/animation.html#low-level-api-reacttransitiongroup) and finally settled with [react-motion](https://github.com/chenglou/react-motion).
+
+The previous libraries had the problem that they relied on browser vendors to completely implement CSS standards. However browsers still have issues sending transition events ([#1326: CSSTransitionGroup buggy due to transition events not firing reliably](https://github.com/facebook/react/issues/1326)). That means we never know when an animation is done. That's why Khan Academy Timeout Transition Group was born with a hard coded timer which was later added to React's built-in Transition Group. It allows using the same timeouts in JavaScript that are being used in CSS. Having hard coded timers which are duplicated in CSS and JS is kind of ugly and error prone. That's why we chose react-motion.

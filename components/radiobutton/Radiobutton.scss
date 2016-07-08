@@ -1,0 +1,58 @@
+
+/**
+ * http://www.google.com/design/spec/components/switches.html#switches-radio-button
+ */
+
+/**
+ * Implementation from http://wtfforms.com/
+ */
+
+.RadioButton {
+  display: flex;
+  flex-direction: column;
+}
+
+.RadioButton-item {
+  display: flex;
+  align-items: center;
+  flex: 0 1 48px;
+  position: relative;
+}
+
+.RadioButton-input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.RadioButton-label {
+  color: rgba(0, 0, 0, 0.54);
+  margin-left: 10px;
+}
+
+.RadioButton-icon {
+  line-height: 0;
+  fill: rgba(0, 0, 0, 0.54);
+}
+
+
+
+/**
+ * checked
+ */
+.RadioButton-input:checked ~ .RadioButton-icon,
+.RadioButton-input:checked ~ .RadioButton-label {
+  color: $blue-dark;
+  fill: $blue-dark;
+}
+
+
+
+/**
+ * disabled
+ */
+.RadioButton-input:disabled ~ .RadioButton-icon,
+.RadioButton-input:disabled ~ .RadioButton-label {
+  fill: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.26);
+}

@@ -1,0 +1,70 @@
+
+/**
+ * CSS variables
+ */
+$padding: 24px;
+$border-color: #e5e5e5;
+
+
+
+
+/**
+ * Styles
+ */
+.Modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.Modal {
+  position: relative;
+  margin: 0 10px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid $border-color;
+  border-radius: 2px;
+
+  @include medium {
+    margin: 0;
+    width: 600px;
+  }
+}
+
+.Modal-content {
+  padding: $padding;
+}
+
+.Modal-header {
+  color: #0D0D0D;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.Modal-footer {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+
+/**
+ * Fix button styles
+ */
+.Modal .Button {
+  margin-left: 8px;
+  margin-right: 0;
+}

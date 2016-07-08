@@ -1,0 +1,93 @@
+
+/**
+ * http://www.google.com/design/spec/components/switches.html#switches-switch
+ */
+$thumb-on: $blue-dark;
+$thumb-off: #fafafa;
+$thumb-disabled: #BDBDBD;
+$thumb-size: 20px;
+
+$track-on: rgba($blue-dark, 0.5);
+$track-off: rgba(0, 0, 0, 0.26);
+$track-disabled: rgba(0, 0, 0, 0.12);
+$track-width: 36px;
+$track-height: 14px;
+$track-border-radius: 8px;
+
+$transition-duration: 0.15s;
+$transition-function: ease;
+
+.Switch {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.Switch-input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+}
+
+.Switch-track {
+  position: relative;
+  width: $track-width;
+  height: $track-height;
+  border-radius: $track-border-radius;
+  background: $track-off;
+  transition: background $transition-duration $transition-function;
+}
+
+.Switch-thumb {
+  position: absolute;
+  top: -($thumb-size - $track-height) / 2;
+  left: 0;
+  width: $thumb-size;
+  height: $thumb-size;
+  border-radius: 50%;
+  background: $thumb-off;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: $transition-duration $transition-function;
+}
+
+
+
+/**
+ * focus
+ */
+.Switch-input:checked.Switch-input:focus ~ .Switch-track .Switch-thumb {
+  box-shadow: 0 0 0 15px rgba($blue-dark, 0.12);
+}
+
+.Switch-input:not(:checked).Switch-input:focus ~ .Switch-track .Switch-thumb {
+  box-shadow: 0 0 0 15px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/**
+ * checked
+ */
+
+.Switch-input:checked ~ .Switch-track {
+  background: $track-on;
+}
+
+.Switch-input:checked ~ .Switch-track .Switch-thumb {
+  left: $track-width - $thumb-size;
+  background: $thumb-on;
+}
+
+
+
+/**
+ * disabled
+ */
+
+.Switch-input:disabled ~ .Switch-track {
+  background: $track-disabled;
+}
+
+.Switch-input:disabled ~ .Switch-track .Switch-thumb {
+  background: $thumb-disabled;
+}

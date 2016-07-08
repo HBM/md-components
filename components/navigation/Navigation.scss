@@ -1,0 +1,121 @@
+
+/**
+ * http://www.google.com/design/spec/layout/structure.html#structure-app-bar
+ */
+
+nav {
+  color: #333;
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $navigation-width;
+  background: #fff;
+  font-size: 13px;
+  visibility: hidden;
+  transform: translateX(-$navigation-width);
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+  overflow: auto;
+
+  @include xlarge {
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+nav.is-visible {
+  visibility: visible;
+  transform: translateX(0);
+  /**
+   * Show overlay first and then slide in navigation
+   */
+  transition-delay: 0.1s;
+}
+
+.Navigation-logo {
+  height: 48px;
+  padding: 12px 24px 10px 2px;
+  border-bottom: 1px solid #e0e0e0;
+
+  @include medium {
+    height: 64px;
+    padding-left: 11px;
+  }
+}
+
+.Navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 12px 0 10px 0;
+}
+
+.Navigation-link {
+  display: block;
+  text-decoration: none;
+  padding: 15px 0 15px 22px;
+  color: #333;
+  font-weight: 700;
+}
+
+.Navigation-link.active {
+  color: $blue-dark;
+}
+
+.Navigation-link:focus {
+  background-color: #eee;
+  outline: 0;
+}
+
+.Navigation-hamburger {
+  fill: #fff;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 4px;
+
+  @include medium {
+    top: 8px;
+  }
+
+  @include xlarge {
+    display: none;
+  }
+
+}
+
+.Navigation-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.Navigation-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/**
+ * Nested navigation
+ */
+.Navigation .Navigation {
+  padding: 0;
+}
+
+.Navigation-item > .Navigation > .Navigation-item > .Navigation-link {
+  padding: 10px 24px 10px 46px;
+  font-weight: 400;
+}
+
+.Navigation-item > .Navigation > .Navigation-item > .Navigation-link.active {
+  font-weight: 500;
+}

@@ -1,0 +1,56 @@
+
+/**
+ * http://www.google.com/design/spec/components/cards.html#cards-usage
+ */
+
+.Card {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+.Card-title {
+  font-size: 24px;
+  padding: 24px 16px 16px 16px;
+}
+
+.Card-actions {
+  padding: 8px;
+}
+
+.Card-content {
+  padding: 24px 16px;
+}
+
+/**
+ * Align left most button text with title and card text
+ */
+.Card-actions > .Button {
+  margin: 0;
+  text-align: left;
+  min-width: 0;
+}
+
+.Card-actions .Button + .Button {
+  margin-left: 8px;
+}
+
+.Card-text {
+  font-size: 14px;
+  padding: 16px;
+  line-height: 1.5em;
+}
+
+/**
+ * Fix left alignment for Checkbox component 10px + 3px
+ */
+.Card-text > .Checkbox {
+  margin-left: -13px;
+
+  @include medium {
+    /**
+     * 5px + 3px
+     */
+    margin-left: -8px;
+  }
+}

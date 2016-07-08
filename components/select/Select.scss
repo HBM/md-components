@@ -1,0 +1,96 @@
+
+.Select {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  font-size: 16px;
+  /**
+   * align text horizontally with textfields / text inputs
+   */
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
+.Select-label {
+  font-size: 12px;
+  padding: 0 0 8px 0;
+  color: rgba($blue-dark, 0.6)
+}
+
+/**
+ * Select-body is of type <button />
+ */
+.Select-body {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid $black-012;
+  padding-bottom: 7px;
+  text-align: left;
+  outline: 0;
+}
+
+.Select-placeholder {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.Select-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top-color: rgba(0, 0, 0, 0.24);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+/**
+ * Select-list is of type <ul />
+ */
+.Select-list {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  position: absolute;
+  left: -16px;
+  top: -8px;
+  background: #fff;
+  padding: 8px 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, .4);
+  overflow-y: auto;
+  /**
+   * max-height is equal to 5 elements + margin top and margin bottom
+   */
+  max-height: 256px;
+}
+
+/**
+ * Select-listItem is of type <li />
+ */
+.Select-listItem {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Select-listItemLink is of type <a />
+ */
+.Select-listItemLink {
+  color: initial;
+  text-decoration: none;
+  min-height: 48px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.Select-listItem:hover {
+  background: #eee;
+}

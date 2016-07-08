@@ -1,0 +1,82 @@
+
+/**
+ * http://www.google.com/design/spec/layout/metrics-keylines.html#metrics-keylines-keylines-spacing
+ */
+
+/**
+ * HTML5 header element
+ */
+header {
+  height: 48px;
+  background: $blue-dark;
+  color: #fff;
+  display: flex;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  @include medium {
+    height: 64px;
+  }
+}
+
+
+
+/**
+ * Header component CSS class
+ */
+.Header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @include xlarge {
+    margin-left: $navigation-width;
+  }
+}
+
+.Header-block {
+  display: flex;
+  align-items: center;
+}
+
+.Header-title {
+  margin-left: 56px;
+  font-size: 20px;
+  display: none;
+
+  @include medium {
+    font-size: 24px;
+    display: block;
+  }
+}
+
+.Header-chevron {
+  fill: #fff;
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  display: none;
+
+  @include medium {
+    display: block;
+  }
+}
+
+.Header-subtitle {
+  margin-left: 56px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+
+  @include medium {
+    font-size: 24px;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+script.bundle.js
+styles.bundle.css
+npm-debug.log
+*.swp
+coverage/

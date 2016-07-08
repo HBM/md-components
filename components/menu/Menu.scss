@@ -1,0 +1,76 @@
+
+/**
+ * http://www.google.com/design/spec/components/menus.html#menus-specs
+ */
+
+$padding: 16px;
+$item-height-mobile: 48px;
+$item-height: 32px;
+$item-padding-mobile: 16px;
+$item-padding: 24px;
+
+.Menu {
+  position: relative;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.Menu-list {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transform-origin: right top;
+
+  @include medium {
+    top: 0;
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+}
+
+.Menu-list-item {
+  color: #333;
+  display: block;
+  white-space: nowrap;
+}
+
+/**
+ * Menu-list-item-link is of type <a href="#" ...>...</a>
+ */
+.Menu-list-item-link {
+  text-decoration: none;
+  color: initial;
+  height: $item-height-mobile;
+  padding: 0 $item-padding-mobile;
+  display: flex;
+  align-items: center;
+
+  @include medium {
+    height: $item-height;
+    padding-left: $item-padding;
+    padding-right: $item-padding;
+  }
+}
+
+.Menu-list-item-link:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.Menu-divider {
+  height: 1px;
+  margin: 7px 0;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.Menu-icon {
+  display: inline-block;
+  margin-right: 16px;
+  min-width: 24px;
+}
