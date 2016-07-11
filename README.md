@@ -2,7 +2,7 @@
 # react-components
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Build Status](https://travis-ci.com/HBM/react-components.svg?branch=master)](https://travis-ci.com/HBM/react-components)
+[![Build Status](https://travis-ci.org/HBM/react-components.svg?branch=master)](https://travis-ci.com/HBM/react-components)
 [![Coverage Status](https://coveralls.io/repos/github/HBM/react-components/badge.svg)](https://coveralls.io/github/HBM/react-components)
 
 ## Installation
