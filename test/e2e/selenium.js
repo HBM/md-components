@@ -1,11 +1,11 @@
+/* global describe, before, after, it */
 
 var webdriver = require('selenium-webdriver')
 
-describe('hbm-react-components', function() {
-
+describe('hbm-react-components', function () {
   var driver
 
-  before(function() {
+  before(function () {
     driver = new webdriver.Builder()
       .withCapabilities({
         'browserName': 'chrome',
@@ -14,15 +14,15 @@ describe('hbm-react-components', function() {
         'username': process.env.SAUCE_USERNAME,
         'accessKey': process.env.SAUCE_ACCESS_KEY
       })
-      .usingServer("http://" + process.env.SAUCE_USERNAME + ":" + process.env.SAUCE_ACCESS_KEY + "@ondemand.saucelabs.com")
+      .usingServer('http://' + process.env.SAUCE_USERNAME + ':' + process.env.SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com')
       .build()
   })
 
-  after(function() {
+  after(function () {
     driver.quit()
   })
 
-  it('should work', function(done) {
+  it('should work', function (done) {
     driver.get('http://www.google.com')
     driver.getTitle().then(function (title) {
       console.log(title)
