@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:hbm-team/react-components.git"
+    "url": "git@github.com:hbm/react-components.git"
   },
   "author": "Mirco Zeiss <mirco.zeiss@hbm.com>",
   "license": "MIT",
