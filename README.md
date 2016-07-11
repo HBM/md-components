@@ -1,5 +1,5 @@
 
-# react-components
+# hbm-react-components
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/HBM/react-components.svg?branch=master)](https://travis-ci.com/HBM/react-components)
@@ -8,7 +8,7 @@
 ## Installation
 
 ```bash
-$ npm install --save hbm/react-components
+$ npm install --save hbm-react-components
 ```
 
 ## Usage
