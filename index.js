@@ -1,7 +1,7 @@
 
 export Button from './components/button/'
 export Card from './components/card/'
-export {Linear, Circular} from './components/circular-progress/'
+export {Linear, Circular} from './components/progress/'
 export Checkbox from './components/checkbox/'
 export Header from './components/header/'
 export Icon from './components/icon/'
