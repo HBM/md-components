@@ -4,7 +4,8 @@
   "description": "HBM React components",
   "main": "index.js",
   "scripts": {
-    "test": "standard && karma start"
+    "test": "standard && karma start",
+    "selenium": "mocha --timeout 3000 test/e2e/selenium.js"
   },
   "repository": {
     "type": "git",
@@ -49,11 +50,13 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-spec-reporter": "0.0.26",
+    "mocha": "^2.5.3",
     "node-sass": "^3.6.0",
     "react": "^15.2.0",
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.5.2",
+    "selenium-webdriver": "^2.53.3",
     "standard": "^7.0.1"
   },
   "dependencies": {
