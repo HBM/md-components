@@ -18,8 +18,8 @@ describe('hbm-react-components', function () {
       .build()
   })
 
-  after(function () {
-    driver.quit()
+  after(function (done) {
+    driver.quit(done)
   })
 
   it('should work', function (done) {
