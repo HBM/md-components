@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && karma start",
-    "selenium": "mocha --timeout 3000 test/e2e/selenium.js"
+    "selenium": "mocha --timeout 10000 test/e2e/selenium.js"
   },
   "repository": {
     "type": "git",
