@@ -1,10 +1,8 @@
 
 import React from 'react'
+import classnames from 'classnames'
 
-/**
- * Textfield
- */
-var Textfield = ({
+const Textfield = ({
   autoFocus,
   disabled,
   error,
@@ -28,7 +26,10 @@ var Textfield = ({
         <div className='Textfield-wrapper'>
           <input
             autoFocus={autoFocus}
-            className={`Textfield-input${error ? ' Textfield-input--error' : ''}${empty ? '' : ' is-not-empty'}`}
+            className={classnames('Textfield-input', {
+              'Textfield-input--error': error,
+              'is-not-empty': !empty
+            })}
             disabled={disabled}
             name={name}
             onChange={onChange}
@@ -36,7 +37,11 @@ var Textfield = ({
             type={type}
             value={value}
           />
-          <span className={`Textfield-label${empty ? '' : ' is-not-empty'}`}>
+          <span
+            className={classnames('Textfield-label', {
+              'is-not-empty': !empty
+            })}
+          >
             {label}
           </span>
           {error
@@ -49,9 +54,6 @@ var Textfield = ({
   )
 }
 
-/**
- * Property types
- */
 Textfield.propTypes = {
   autoFocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
@@ -71,9 +73,6 @@ Textfield.propTypes = {
   ])
 }
 
-/**
- * Default properties
- */
 Textfield.defaultProps = {
   autoFocus: false,
   disabled: false,
@@ -85,7 +84,4 @@ Textfield.defaultProps = {
   value: ''
 }
 
-/**
- * Export component
- */
 export default Textfield

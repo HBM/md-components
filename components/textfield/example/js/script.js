@@ -1,9 +1,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Textfield from '../../Textfield'
-// var Select = require('hbm-select')
-// import Icon from 'hbm-icon'
+import Textfield from '../../'
 
 /**
  * Create parent component and include button.
