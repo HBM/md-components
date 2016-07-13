@@ -2,8 +2,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, hashHistory} from 'react-router'
-import Navigation from '../../Navigation'
-import Header from '../../../header/Header'
+import Navigation from '../../'
+import Header from '../../../header/'
 
 /**
  * Create parent component and include button.
