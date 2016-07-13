@@ -1,12 +1,12 @@
 
 import React from 'react'
+import classnames from 'classnames'
 
-/**
- * Button
- */
-var Button = ({disabled, children, onClick, raised, type}) => (
+const Button = ({disabled, children, onClick, raised, type}) => (
   <button
-    className={`Button${raised ? ' Button--raised' : ''}`}
+    className={classnames('Button', {
+      'Button--raised': raised
+    })}
     disabled={disabled}
     onClick={onClick}
     type={type}
@@ -15,9 +15,6 @@ var Button = ({disabled, children, onClick, raised, type}) => (
   </button>
 )
 
-/**
- * Property types
- */
 Button.propTypes = {
   disabled: React.PropTypes.bool,
   onClick: React.PropTypes.func.isRequired,
@@ -25,9 +22,6 @@ Button.propTypes = {
   type: React.PropTypes.oneOf(['submit', 'reset', 'button'])
 }
 
-/**
- * Default properties
- */
 Button.defaultProps = {
   disabled: false,
   raised: false,

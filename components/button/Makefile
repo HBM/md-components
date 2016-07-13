@@ -1,5 +1,5 @@
 
-BIN = ../node_modules/.bin
+BIN = ../../node_modules/.bin
 SASS = $(BIN)/node-sass
 BROWSERIFY = $(BIN)/browserify
 ESLINT = $(BIN)/eslint
