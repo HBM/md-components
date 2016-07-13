@@ -72,7 +72,6 @@ export class Circular extends React.Component {
         width={svgSize}
         height={svgSize}
         viewBox={viewBox}
-        xmlns='http://www.w3.org/2000/svg'
       >
         <circle
           style={style}

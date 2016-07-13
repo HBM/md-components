@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Progress from '../../Progress'
+import {Linear} from '../../'
 
 class App extends React.Component {
 
@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <Progress percentage={this.state.width} />
+      <Linear percentage={this.state.width} />
     )
   }
 
