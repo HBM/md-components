@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Radiobutton from '../../Radiobutton'
+import Radiobutton from '../../'
 import ReactDOM from 'react-dom'
 
 /**
