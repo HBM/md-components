@@ -1,0 +1,52 @@
+
+import React from 'react'
+import {
+  Header,
+  Navigation
+} from '../../../'
+
+export default class App extends React.Component {
+
+  state = {
+    subtitle: 'Home'
+  }
+
+  onChange = (link) => {
+    this.setState({
+      subtitle: link.text
+    })
+  }
+
+  render () {
+    const links = [
+      {text: 'Home', link: '/'},
+      {text: 'Button', link: '/button'},
+      {text: 'Card', link: '/card'},
+      {text: 'Checkbox', link: '/checkbox'},
+      {text: 'Icon', link: '/icon'},
+      {text: 'Menu', link: '/menu'},
+      {text: 'Modal', link: '/modal'},
+      {text: 'Progress', link: '/progress'},
+      {text: 'Radiobutton', link: '/radiobutton'},
+      {text: 'Select', link: '/select'},
+      {text: 'Slider', link: '/slider'},
+      {text: 'Snackbar', link: '/snackbar'},
+      {text: 'Sparkline', link: '/sparkline'},
+      {text: 'Switch', link: '/switch'},
+      {text: 'Tabs', link: '/tabs'},
+      {text: 'Textfield', link: '/textfield'},
+      {text: 'Tooltip', link: '/tooltip'}
+    ]
+
+    return (
+      <div>
+        <Header title='HBM/react-components' subtitle={this.state.subtitle} />
+        <Navigation links={links} onChange={this.onChange} />
+        <main>
+          {this.props.children}
+        </main>
+      </div>
+    )
+  }
+
+}
