@@ -1,11 +1,11 @@
 
 export Button from './components/button/'
-export Card from './components/card/'
+export {Card, Title, Actions, Text, Content} from './components/card/'
 export {Linear, Circular} from './components/progress/'
 export Checkbox from './components/checkbox/'
 export Header from './components/header/'
 export Icon from './components/icon/'
-export {Menu, Divider} from './components/menu/'
+export {Menu, DIVIDER} from './components/menu/'
 export Modal from './components/modal/'
 export Navigation from './components/navigation/'
 export Progress from './components/progress/'
