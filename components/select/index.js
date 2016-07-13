@@ -1,13 +1,7 @@
 
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {Motion, spring} from 'react-motion'
 import objectAssign from 'object-assign'
-
-// keycodes
-// const ENTER = 13
-// const ESCAPE = 27
-// const SPACE = 32
 
 // CSS space
 const PADDING_TOP = 12
@@ -23,9 +17,6 @@ const MAX_LIST_LENGTH = 5
  */
 export default class Select extends React.Component {
 
-  /**
-   * Property types
-   */
   static propTypes = {
     label: React.PropTypes.string,
     items: React.PropTypes.array,
@@ -34,18 +25,12 @@ export default class Select extends React.Component {
     selectedIndex: React.PropTypes.number
   }
 
-  /**
-   * Default properties
-   */
   static defaultProps = {
     items: ['one', 'two', 'three'],
     placeholder: 'Placeholder',
     selectedIndex: -1
   }
 
-  /**
-   * Initial state
-   */
   state = {
     open: false
   }
@@ -74,8 +59,7 @@ export default class Select extends React.Component {
    * Make dropdown list as wide as parent placeholder including caret
    */
   componentDidMount () {
-    var select = ReactDOM.findDOMNode(this)
-    var selectRect = select.getBoundingClientRect()
+    const selectRect = this.ref.getBoundingClientRect()
     this.setState({
       width: selectRect.width
     })
@@ -94,17 +78,14 @@ export default class Select extends React.Component {
     return true
   }
 
-  /**
-   * Render component
-   */
   render () {
-    var {selectedIndex, label} = this.props
-    var {open} = this.state
-    var empty = selectedIndex === -1
-    var text = empty ? this.props.placeholder : this.props.items[selectedIndex]
+    const {selectedIndex, label} = this.props
+    const {open} = this.state
+    const empty = selectedIndex === -1
+    const text = empty ? this.props.placeholder : this.props.items[selectedIndex]
 
     return (
-      <div className='Select'>
+      <div className='Select' ref={(c) => { this.ref = c }}>
         {label &&
           <span className='Select-label'>{this.props.label}</span>
         }
@@ -142,9 +123,6 @@ export default class Select extends React.Component {
  */
 class List extends React.Component {
 
-  /**
-   * Property types
-   */
   static propTypes = {
     hasLabel: React.PropTypes.bool,
     items: React.PropTypes.array.isRequired,
@@ -157,16 +135,15 @@ class List extends React.Component {
    * Scroll to correct list item
    */
   componentDidMount () {
-    var list = ReactDOM.findDOMNode(this)
-    var index = this.props.selectedIndex
+    const index = this.props.selectedIndex
 
     // create boolean helper variables
-    var scrollable = this.props.items.length > MAX_LIST_LENGTH
-    var indexWithinFirstTwoItems = index < 2
+    const scrollable = this.props.items.length > MAX_LIST_LENGTH
+    const indexWithinFirstTwoItems = index < 2
 
     if (scrollable && !indexWithinFirstTwoItems) {
-      var scrollTop = (LIST_ITEM_HEIGHT * (index - 2))
-      list.scrollTop = scrollTop
+      const scrollTop = (LIST_ITEM_HEIGHT * (index - 2))
+      this.ref.scrollTop = scrollTop
     }
   }
 
@@ -182,12 +159,12 @@ class List extends React.Component {
    * Render list component
    */
   render () {
-    var {items, selectedIndex} = this.props
+    const {items, selectedIndex} = this.props
 
     // handle list absolute position top
-    var paddingTop = this.props.hasLabel ? PADDING_TOP_WITH_LABEL : PADDING_TOP
+    const paddingTop = this.props.hasLabel ? PADDING_TOP_WITH_LABEL : PADDING_TOP
 
-    var top
+    let top
     if (selectedIndex === -1) {
       // set position to first element, i.e. selectedIndex = 0
       top = -1 * paddingTop
@@ -209,13 +186,17 @@ class List extends React.Component {
       }
     }
 
-    var style = {
+    const style = {
       top: top,
       width: this.props.width + (2 * PADDING_LEFT)
     }
 
     return (
-      <ul className='Select-list' style={objectAssign(style, this.props.style)}>
+      <ul
+        ref={(c) => { this.ref = c }}
+        className='Select-list'
+        style={objectAssign(style, this.props.style)}
+      >
         {items.map((item, i) =>
           <li key={i} className='Select-listItem'>
             <a href

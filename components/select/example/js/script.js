@@ -1,7 +1,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Select from '../../Select'
+import Select from '../../'
 
 /**
  * Create parent component and include button.
