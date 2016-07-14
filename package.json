@@ -57,6 +57,7 @@
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.5.2",
+    "saucelabs": "^1.2.0",
     "selenium-webdriver": "^2.53.3",
     "standard": "^7.0.1"
   },
