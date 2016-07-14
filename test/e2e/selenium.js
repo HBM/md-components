@@ -10,69 +10,96 @@ var saucelabs = new Saucelabs({
   password: accessKey
 })
 
-describe('hbm-react-components', function () {
-  var id
-  var driver
+var capabilities = [
+    {
+      platform: 'Linux',
+      browserName: 'Chrome',
+      version: '48'
+    },
+    {
+      platform: 'Linux',
+      browserName: 'Firefox',
+      version: '45'
+    },
+    {
+      platform: 'Windows 10',
+      browserName: 'Chrome',
+      version: '51'
+    },
+    {
+      platform: 'Windows 10',
+      browserName: 'Firefox',
+      version: '47'
+    },
+    {
+      platform: 'Windows 10',
+      browserName: 'MicrosoftEdge',
+      version: '13.10586'
+    },
+    {
+      platform: 'Windows 10',
+      browserName: 'Internet Explorer',
+      version: '11.103'
+    },
+    {
+      platform: 'OS X 10.11',
+      browserName: 'Safari',
+      version: '9'
+    }
+]
 
-  before(function (done) {
-    driver = new webdriver.Builder()
-      .withCapabilities([
-        {
-          'platform': 'Windows 10',
-          'browserName': 'chrome',
-          'version': '51',
-          'username': username,
-          'accessKey': accessKey
-        },
-        {
-          'platform': 'Windows 10',
-          'browserName': 'firefox',
-          'version': '47',
-          'username': username,
-          'accessKey': accessKey
-        }
-      ])
-      // .withCapabilities({
-      //   'browserName': 'chrome',
-      //   'platform': 'Windows XP',
-      //   'version': '43.0',
-      //   'username': process.env.SAUCE_USERNAME,
-      //   'accessKey': process.env.SAUCE_ACCESS_KEY
-      // })
-      .usingServer('http://' + username + ':' + accessKey + '@ondemand.saucelabs.com:80/wd/hub')
-      .build()
+capabilities.forEach(function (capability) {
 
-    driver.getSession().then(function (sessionID) {
-      id = sessionID.id_
-      done()
+  describe(capability.platform + ': ' + capability.browserName, function () {
+    var id
+    var driver
+
+    before(function (done) {
+      driver = new webdriver.Builder()
+        .withCapabilities({
+          platform: capability.platform,
+          browserName: capability.browserName,
+          version: capability.version,
+          username: username,
+          accessKey: accessKey
+        })
+        .usingServer('http://' + username + ':' + accessKey + '@ondemand.saucelabs.com:80/wd/hub')
+        // .usingServer('http://localhost:4445/wd/hub')
+        .build()
+
+      driver.getSession().then(function (sessionID) {
+        id = sessionID.id_
+        done()
+      })
+    })
+
+    afterEach(function (done) {
+      var title = this.currentTest.title
+      var passed = this.currentTest.state === 'passed'
+      saucelabs.updateJob(id, {
+        name: title,
+        passed: passed
+      }, done)
+    })
+
+    after(function (done) {
+      // get sauce labs job id
+      driver.quit()
+      // without timeout sauce labs tests do not end properly and
+      // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
+      setTimeout(function () {
+        done()
+      }, 1000)
+    })
+
+    it('should work', function (done) {
+      driver.get('http://www.google.com')
+      driver.getTitle().then(function (title) {
+        console.log(title)
+        done()
+      })
     })
   })
 
-  afterEach(function (done) {
-    var title = this.currentTest.title
-    var passed = this.currentTest.state === 'passed'
-    saucelabs.updateJob(id, {
-      name: title,
-      passed: passed
-    }, done)
-  })
-
-  after(function (done) {
-    // get sauce labs job id
-    driver.quit()
-    // without timeout sauce labs tests do not end properly and
-    // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
-    setTimeout(function () {
-      done()
-    }, 1000)
-  })
-
-  it('should work', function (done) {
-    driver.get('http://www.google.com')
-    driver.getTitle().then(function (title) {
-      console.log(title)
-      done()
-    })
-  })
 })
 

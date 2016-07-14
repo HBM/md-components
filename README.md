@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/HBM/react-components.svg?branch=master)](https://travis-ci.com/HBM/react-components)
 [![npm](https://img.shields.io/npm/v/hbm-react-components.svg)](https://www.npmjs.com/package/hbm-react-components)
 [![Coverage Status](https://coveralls.io/repos/github/HBM/react-components/badge.svg)](https://coveralls.io/github/HBM/react-components)
-[![Sauce Test Status](https://saucelabs.com/buildstatus/zemirco)](https://saucelabs.com/u/zemirco)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/zemirco.svg)](https://saucelabs.com/u/zemirco)
 
 ## Installation
 
