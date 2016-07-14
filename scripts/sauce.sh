@@ -16,12 +16,12 @@ __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # update sauce labs job id in README.md
 # sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
 
-git clone `git config remote.origin.url` out
+# git clone `git config remote.origin.url` out
+# cd out
+mkdir out
 cd out
 git checkout gh-pages || git checkout --orphan gh-pages
 cd ..
-
-rm -rf out/*
 
 git rebase master
 npm run examples
@@ -39,4 +39,5 @@ git commit -m "travis-ci: update sauce labs job id in readme"
 eval "$(ssh-agent -s)"
 chmod 600 ${__dir}/travis
 ssh-add ${__dir}/travis
+git remote -v
 git push origin gh-pages
