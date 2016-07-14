@@ -16,13 +16,29 @@ describe('hbm-react-components', function () {
 
   before(function (done) {
     driver = new webdriver.Builder()
-      .withCapabilities({
-        'browserName': 'chrome',
-        'platform': 'Windows XP',
-        'version': '43.0',
-        'username': process.env.SAUCE_USERNAME,
-        'accessKey': process.env.SAUCE_ACCESS_KEY
-      })
+      .withCapabilities([
+        {
+          'platform': 'Windows 10',
+          'browserName': 'chrome',
+          'version': '51',
+          'username': username,
+          'accessKey': accessKey
+        },
+        {
+          'platform': 'Windows 10',
+          'browserName': 'firefox',
+          'version': '47',
+          'username': username,
+          'accessKey': accessKey
+        }
+      ])
+      // .withCapabilities({
+      //   'browserName': 'chrome',
+      //   'platform': 'Windows XP',
+      //   'version': '43.0',
+      //   'username': process.env.SAUCE_USERNAME,
+      //   'accessKey': process.env.SAUCE_ACCESS_KEY
+      // })
       .usingServer('http://' + username + ':' + accessKey + '@ondemand.saucelabs.com:80/wd/hub')
       .build()
 
