@@ -16,6 +16,9 @@ script:
   - npm test
   - npm run selenium
   - echo $SAUCE_JOB_ID
+  - echo SAUCE_JOB_ID
+  - echo "$SAUCE_JOB_ID"
+  - echo "'$SAUCE_JOB_ID'"
 
 after_success:
   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
