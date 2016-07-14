@@ -21,8 +21,9 @@ describe('hbm-react-components', function () {
   after(function (done) {
     // get sauce labs job id
     driver.getSession().then(function (sessionID) {
-      console.log(sessionID)
-      console.log(sessionID.id_)
+      // console.log(sessionID.id_)
+      process.env.SAUCE_JOB_ID = sessionID.id_
+      // set environment variable so we can update README.md in after_success script with sed
       driver.quit()
       // without timeout sauce labs tests do not end properly and
       // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
