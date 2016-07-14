@@ -5,7 +5,7 @@ var accessKey = process.env.SAUCE_ACCESS_KEY
 
 var webdriver = require('selenium-webdriver')
 var Saucelabs = require('saucelabs')
-var saucelabs = new SauceLabs({
+var saucelabs = new Saucelabs({
   username: username,
   password: accessKey
 })
