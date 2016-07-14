@@ -77,7 +77,9 @@ capabilities.forEach(function (capability) {
       var passed = this.currentTest.state === 'passed'
       saucelabs.updateJob(id, {
         name: title,
-        passed: passed
+        passed: passed,
+        // we have to set a build id to make the badges work
+        build: 1
       }, done)
     })
 
