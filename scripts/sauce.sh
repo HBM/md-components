@@ -15,8 +15,8 @@ set -o pipefail
 # sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
 
 # add and commit changes to readme
-## git config user.name "travis ci"
-## git config user.email "noreply@travis.com"
+git config user.name "Travis CI"
+git config user.email "builds@travis-ci.org"
 git add .
 git commit -m "travis-ci: update sauce labs job id in readme"
 

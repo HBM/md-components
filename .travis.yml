@@ -18,7 +18,7 @@ script:
 
 after_success:
   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - "./scripts/sauce.sh"
+    # - "./scripts/sauce.sh"
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_489ba0155f1c_key -iv $encrypted_489ba0155f1c_iv -in hbm-react-components-travis.pub.enc -out hbm-react-components-travis.pub -d
