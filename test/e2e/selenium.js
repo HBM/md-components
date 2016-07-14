@@ -1,5 +1,6 @@
 /* global describe, before, after, it */
 
+var fs = require('fs')
 var webdriver = require('selenium-webdriver')
 
 describe('hbm-react-components', function () {
@@ -21,9 +22,11 @@ describe('hbm-react-components', function () {
   after(function (done) {
     // get sauce labs job id
     driver.getSession().then(function (sessionID) {
-      // console.log(sessionID.id_)
-      process.env.SAUCE_JOB_ID = sessionID.id_
-      // set environment variable so we can update README.md in after_success script with sed
+      var id = sessionID.id_
+      var filepath = path.join(__dirname, '..', '..', 'README.md')
+      var old = fs.readFileSync(filepath, 'utf8')
+      var readme = old.replace(/saucelabs.com\/beta\/tests\/[^\)]*/'saucelabs.com/beta/tests/' + id)
+      fs.writeFileSync(filepath, readme)
       driver.quit()
       // without timeout sauce labs tests do not end properly and
       // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."

@@ -12,7 +12,7 @@ set -o pipefail
 # from https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 
 # update sauce labs job id in README.md
-sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
+# sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
 
 # add and commit changes to readme
 ## git config user.name "travis ci"
