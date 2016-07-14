@@ -36,6 +36,6 @@ git commit -m "travis-ci: update sauce labs job id in readme"
 # https://docs.travis-ci.com/user/deployment/custom/
 eval "ssh-agent -s"
 ls
-chmod 600 ./travis
-ssh-add ./travis
+chmod 600 ../scripts/travis
+ssh-add ../scripts/travis
 git push origin gh-pages
