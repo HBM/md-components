@@ -36,9 +36,7 @@ git add --all .
 git commit -m "travis-ci: update sauce labs job id in readme"
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 # https://docs.travis-ci.com/user/deployment/custom/
-eval "ssh-agent -s"
-ls
-echo awesome
+eval "$(ssh-agent -s)"
 chmod 600 ${__dir}/travis
 ssh-add ${__dir}/travis
 git push origin gh-pages
