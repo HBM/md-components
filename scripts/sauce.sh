@@ -30,11 +30,12 @@ cd out
 # add and commit changes to readme
 git config user.name "Travis CI"
 git config user.email "builds@travis-ci.org"
-git add .
+git add --all .
 git commit -m "travis-ci: update sauce labs job id in readme"
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 # https://docs.travis-ci.com/user/deployment/custom/
 eval "ssh-agent -s"
-chmod 600 travis
-ssh-add travis
+ls
+chmod 600 ./travis
+ssh-add ./travis
 git push origin gh-pages
