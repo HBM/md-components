@@ -1,4 +1,4 @@
-/* global describe, before, after, it */
+/* global describe, before, after, it, afterEach */
 
 var username = process.env.SAUCE_USERNAME
 var accessKey = process.env.SAUCE_ACCESS_KEY
