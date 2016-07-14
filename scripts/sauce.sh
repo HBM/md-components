@@ -9,6 +9,8 @@ set -o nounset
 # Catch the error in case mysqldump fails (but gzip succeeds) in `mysqldump |gzip`
 set -o pipefail
 
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # from https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 
 # update sauce labs job id in README.md
@@ -36,6 +38,7 @@ git commit -m "travis-ci: update sauce labs job id in readme"
 # https://docs.travis-ci.com/user/deployment/custom/
 eval "ssh-agent -s"
 ls
-chmod 600 ../scripts/travis
-ssh-add ../scripts/travis
+echo awesome
+chmod 600 ${__dir}/travis
+ssh-add ${__dir}/travis
 git push origin gh-pages
