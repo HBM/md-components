@@ -1,6 +1,7 @@
 /* global describe, before, after, it */
 
 var fs = require('fs')
+var path = require('path')
 var webdriver = require('selenium-webdriver')
 
 describe('hbm-react-components', function () {
