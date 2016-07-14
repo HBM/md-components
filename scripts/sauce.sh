@@ -14,15 +14,27 @@ set -o pipefail
 # update sauce labs job id in README.md
 # sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
 
-# add and commit changes to readme
-git config user.name "Travis CI"
-git config user.email "builds@travis-ci.org"
-git add .
-git commit -m "travis-ci: update sauce labs job id in readme"
+git clone `git config remote.origin.url` out
+cd out
+git checkout gh-pages || git checkout --orphan gh-pages
+cd ..
 
-# Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
-# https://docs.travis-ci.com/user/deployment/custom/
-eval "ssh-agent -s"
-chmod 600 travis.pub
-ssh-add travis.pub
-git push origin master
+rm -rf out/*
+
+git rebase master
+npm run examples
+cp -r examples/* out/
+
+cd out
+
+# add and commit changes to readme
+# git config user.name "Travis CI"
+# git config user.email "builds@travis-ci.org"
+# git add .
+# git commit -m "travis-ci: update sauce labs job id in readme"
+# # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
+# # https://docs.travis-ci.com/user/deployment/custom/
+# eval "ssh-agent -s"
+# chmod 600 travis.pub
+# ssh-add travis.pub
+# git push origin master
