@@ -30,8 +30,8 @@ cp -r examples/* out/
 cd out
 
 # add and commit changes to readme
-git config user.name "Travis CI"
-git config user.email "builds@travis-ci.org"
+git config user.name "Mirco Zeiss"
+git config user.email "mirco.zeiss@gmail.com"
 git add --all .
 git commit -m "travis-ci: update sauce labs job id in readme"
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
