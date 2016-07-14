@@ -11,45 +11,44 @@ var saucelabs = new Saucelabs({
 })
 
 var capabilities = [
-    {
-      platform: 'Linux',
-      browserName: 'Chrome',
-      version: '48'
-    },
-    {
-      platform: 'Linux',
-      browserName: 'Firefox',
-      version: '45'
-    },
-    {
-      platform: 'Windows 10',
-      browserName: 'Chrome',
-      version: '51'
-    },
-    {
-      platform: 'Windows 10',
-      browserName: 'Firefox',
-      version: '47'
-    },
-    {
-      platform: 'Windows 10',
-      browserName: 'MicrosoftEdge',
-      version: '13.10586'
-    },
-    {
-      platform: 'Windows 10',
-      browserName: 'Internet Explorer',
-      version: '11.103'
-    },
-    {
-      platform: 'OS X 10.11',
-      browserName: 'Safari',
-      version: '9'
-    }
+  {
+    platform: 'Linux',
+    browserName: 'Chrome',
+    version: '48'
+  },
+  {
+    platform: 'Linux',
+    browserName: 'Firefox',
+    version: '45'
+  },
+  {
+    platform: 'Windows 10',
+    browserName: 'Chrome',
+    version: '51'
+  },
+  {
+    platform: 'Windows 10',
+    browserName: 'Firefox',
+    version: '47'
+  },
+  {
+    platform: 'Windows 10',
+    browserName: 'MicrosoftEdge',
+    version: '13.10586'
+  },
+  {
+    platform: 'Windows 10',
+    browserName: 'Internet Explorer',
+    version: '11.103'
+  },
+  {
+    platform: 'OS X 10.11',
+    browserName: 'Safari',
+    version: '9'
+  }
 ]
 
 capabilities.forEach(function (capability) {
-
   describe(capability.platform + ': ' + capability.browserName, function () {
     var id
     var driver
@@ -100,6 +99,5 @@ capabilities.forEach(function (capability) {
       })
     })
   })
-
 })
 
