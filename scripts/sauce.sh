@@ -11,14 +11,15 @@ set -o pipefail
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+REPO=`git config remote.origin.url`
+SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+
 # from https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 
 # update sauce labs job id in README.md
 # sed -i 's:saucelabs.com/beta/tests/[^\)]*:saucelabs.com/beta/tests/'$SAUCE_JOB_ID':' README.md
 
-# git clone `git config remote.origin.url` out
-# cd out
-mkdir out
+git clone $REPO out
 cd out
 git checkout gh-pages || git checkout --orphan gh-pages
 cd ..
@@ -40,4 +41,4 @@ eval "$(ssh-agent -s)"
 chmod 600 ${__dir}/travis
 ssh-add ${__dir}/travis
 git remote -v
-git push origin gh-pages
+git push $SSH_REPO gh-pages
