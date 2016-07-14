@@ -19,12 +19,17 @@ describe('hbm-react-components', function () {
   })
 
   after(function (done) {
-    driver.quit()
-    // without timeout sauce labs tests do not end properly and
-    // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
-    setTimeout(function () {
-      done()
-    }, 1000)
+    // get sauce labs job id
+    driver.getSession().then(function (sessionID) {
+      console.log(sessionID)
+      console.log(sessionID.id_)
+      driver.quit()
+      // without timeout sauce labs tests do not end properly and
+      // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
+      setTimeout(function () {
+        done()
+      }, 1000)
+    })
   })
 
   it('should work', function (done) {
