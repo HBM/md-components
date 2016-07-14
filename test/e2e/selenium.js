@@ -25,7 +25,7 @@ describe('hbm-react-components', function () {
       var id = sessionID.id_
       var filepath = path.join(__dirname, '..', '..', 'README.md')
       var old = fs.readFileSync(filepath, 'utf8')
-      var readme = old.replace(/saucelabs.com\/beta\/tests\/[^\)]*/'saucelabs.com/beta/tests/' + id)
+      var readme = old.replace(/saucelabs.com\/beta\/tests\/[^\)]*/g, 'saucelabs.com/beta/tests/' + id)
       fs.writeFileSync(filepath, readme)
       driver.quit()
       // without timeout sauce labs tests do not end properly and
