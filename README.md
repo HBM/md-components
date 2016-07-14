@@ -3,7 +3,7 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Build Status](https://travis-ci.org/HBM/react-components.svg?branch=master)](https://travis-ci.com/HBM/react-components)
-[![npm](https://img.shields.io/npm/v/hbm-react-components.svg?maxAge=2592000)](https://www.npmjs.com/package/hbm-react-components)
+[![npm](https://img.shields.io/npm/v/hbm-react-components.svg)](https://www.npmjs.com/package/hbm-react-components)
 [![Coverage Status](https://coveralls.io/repos/github/HBM/react-components/badge.svg)](https://coveralls.io/github/HBM/react-components)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/zemirco)](https://saucelabs.com/u/zemirco)
 
