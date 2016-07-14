@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && karma start",
-    "selenium": "mocha --timeout 20000 test/e2e/selenium.js",
+    "selenium": "mocha --timeout 60000 test/e2e/selenium.js",
     "examples": "rimraf examples/js/script.min.js examples/css/styles.min.css && standard && node-sass examples/css/styles.scss examples/css/styles.min.css && browserify examples/js/script.js --outfile examples/js/script.min.js --transform [babelify --presets [es2015 stage-0 react]]"
   },
   "repository": {
