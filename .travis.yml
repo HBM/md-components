@@ -15,7 +15,7 @@ addons:
 script:
   - npm test
   # build minified css and js
-  - npm run example
+  - npm run examples
   - npm run selenium
 
 after_success:
