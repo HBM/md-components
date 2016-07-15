@@ -12,11 +12,11 @@ const saucelabs = new Saucelabs({
 })
 
 // serve static files so they are available for selenium
-var http = require('http')
-var path = require('path')
-var st = require('st')
+const http = require('http')
+const path = require('path')
+const st = require('st')
 
-filepath = path.join(__dirname, '..', '..', 'examples')
+const filepath = path.join(__dirname, '..', '..', 'examples')
 http.createServer(st({
   path: filepath
 })).listen(1337)
@@ -46,17 +46,17 @@ var capabilities = [
     platform: 'Windows 10',
     browserName: 'MicrosoftEdge',
     version: '13.10586'
+  },
+  {
+    platform: 'Windows 10',
+    browserName: 'Internet Explorer',
+    version: '11.103'
+  },
+  {
+    platform: 'OS X 10.11',
+    browserName: 'Safari',
+    version: '9'
   }
-  // {
-  //   platform: 'Windows 10',
-  //   browserName: 'Internet Explorer',
-  //   version: '11.103'
-  // }
-  //{
-  //  platform: 'OS X 10.11',
-  //  browserName: 'Safari',
-  //  version: '9'
-  //}
 ]
 
 var driver
