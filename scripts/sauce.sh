@@ -25,7 +25,7 @@ git checkout gh-pages || git checkout --orphan gh-pages
 cd ..
 
 # Clean out existing contents
-rm -rf out/* out/.* || exit 0
+rm -rf out/* || exit 0
 
 git rebase master
 npm run examples
