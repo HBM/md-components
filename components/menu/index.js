@@ -2,7 +2,7 @@
 import React from 'react'
 import {Motion, spring} from 'react-motion'
 
-export const DIVIDER = 'DIVIDER'
+export const Divider = 'DIVIDER'
 
 /**
  * Menu component
@@ -28,7 +28,7 @@ export function Menu ({items, children, visible, onClick}) {
               transform: `scale(${style.val})`
             }}>
               {items.map((item, index) => {
-                if (item === DIVIDER) {
+                if (item === Divider) {
                   return <li key={index} className='Menu-divider' />
                 }
                 return (

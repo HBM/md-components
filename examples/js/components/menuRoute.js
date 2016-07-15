@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {Menu, DIVIDER} from '../../../'
+import {Menu, Divider} from '../../../'
 import Icon from '../../../components/icon/'
 
 export default class MenuRoute extends React.Component {
@@ -31,7 +31,7 @@ export default class MenuRoute extends React.Component {
     let items = [
       {content: 'one', id: 'one'},
       {content: 'two', icon: <Icon.Done />, id: 'two'},
-      DIVIDER,
+      Divider,
       {content: 'three'},
       {content: 'long string without linebreak'}
     ]

@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Icon from '../../../icon/Icon'
-import {Menu, DIVIDER} from '../../Menu'
+import {Menu, Divider} from '../../Menu'
 
 /**
  * Create parent component
@@ -53,7 +53,7 @@ class App extends React.Component {
                 icon: <Icon.Done />,
                 id: 'two'
               },
-              DIVIDER,
+              Divider,
               {
                 content: 'three'
               },
