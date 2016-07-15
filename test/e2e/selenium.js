@@ -1,14 +1,25 @@
 /* global describe, before, after, it, afterEach */
 
-var username = process.env.SAUCE_USERNAME
-var accessKey = process.env.SAUCE_ACCESS_KEY
+const username = process.env.SAUCE_USERNAME
+const accessKey = process.env.SAUCE_ACCESS_KEY
 
-var webdriver = require('selenium-webdriver')
-var Saucelabs = require('saucelabs')
-var saucelabs = new Saucelabs({
+const webdriver = require('selenium-webdriver')
+const By = webdriver.By
+const Saucelabs = require('saucelabs')
+const saucelabs = new Saucelabs({
   username: username,
   password: accessKey
 })
+
+// serve static files so they are available for selenium
+var http = require('http')
+var path = require('path')
+var st = require('st')
+
+filepath = path.join(__dirname, '..', '..', 'examples')
+http.createServer(st({
+  path: filepath
+})).listen(1337)
 
 var capabilities = [
   {
@@ -35,23 +46,33 @@ var capabilities = [
     platform: 'Windows 10',
     browserName: 'MicrosoftEdge',
     version: '13.10586'
-  },
-  {
-    platform: 'Windows 10',
-    browserName: 'Internet Explorer',
-    version: '11.103'
-  },
-  {
-    platform: 'OS X 10.11',
-    browserName: 'Safari',
-    version: '9'
   }
+  // {
+  //   platform: 'Windows 10',
+  //   browserName: 'Internet Explorer',
+  //   version: '11.103'
+  // }
+  //{
+  //  platform: 'OS X 10.11',
+  //  browserName: 'Safari',
+  //  version: '9'
+  //}
 ]
 
+var driver
+after(function (done) {
+  driver.quit()
+  // without timeout sauce labs tests do not end properly and
+  // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
+  setTimeout(function () {
+    done()
+  }, 1000)
+})
+
 capabilities.forEach(function (capability) {
-  describe(capability.platform + ': ' + capability.browserName, function () {
+  const description = capability.platform + ': ' + capability.browserName + ' ' + capability.version + ': '
+  describe(description, function () {
     var id
-    var driver
 
     before(function (done) {
       driver = new webdriver.Builder()
@@ -72,34 +93,22 @@ capabilities.forEach(function (capability) {
       })
     })
 
-    afterEach(function (done) {
-      var title = this.currentTest.title
-      var passed = this.currentTest.state === 'passed'
-      saucelabs.updateJob(id, {
-        name: title,
-        passed: passed,
-        // we have to set a build id to make the badges work
-        build: 1
-      }, done)
-    })
+    describe('Button', function () {
+      afterEach(function (done) {
+        var title = this.currentTest.fullTitle()
+        var passed = this.currentTest.state === 'passed'
+        saucelabs.updateJob(id, {
+          name: title,
+          passed: passed,
+          // we have to set a build id to make the badges work
+          build: 1
+        }, done)
+      })
 
-    after(function (done) {
-      // get sauce labs job id
-      driver.quit()
-      // without timeout sauce labs tests do not end properly and
-      // report "Your test errored. Test did not see a new command for 90 seconds. Timing out."
-      setTimeout(function () {
-        done()
-      }, 1000)
-    })
-
-    it('should work', function (done) {
-      driver.get('http://www.google.com')
-      driver.getTitle().then(function (title) {
-        console.log(title)
-        done()
+      it('should be clickable', function () {
+        driver.get('http://localhost:1337/index.html#/button')
+        driver.findElement(By.className('Button')).click()
       })
     })
   })
 })
-
