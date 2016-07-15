@@ -46,17 +46,17 @@ var capabilities = [
     platform: 'Windows 10',
     browserName: 'MicrosoftEdge',
     version: '13.10586'
-  },
-  {
-    platform: 'Windows 10',
-    browserName: 'Internet Explorer',
-    version: '11.103'
-  },
-  {
-    platform: 'OS X 10.11',
-    browserName: 'Safari',
-    version: '9'
   }
+  // {
+  //   platform: 'Windows 10',
+  //   browserName: 'Internet Explorer',
+  //   version: '11.103'
+  // },
+  // {
+  //   platform: 'OS X 10.11',
+  //   browserName: 'Safari',
+  //   version: '9'
+  // }
 ]
 
 var driver
@@ -93,18 +93,18 @@ capabilities.forEach(function (capability) {
       })
     })
 
-    describe('Button', function () {
-      afterEach(function (done) {
-        var title = this.currentTest.fullTitle()
-        var passed = this.currentTest.state === 'passed'
-        saucelabs.updateJob(id, {
-          name: title,
-          passed: passed,
-          // we have to set a build id to make the badges work
-          build: 1
-        }, done)
-      })
+    afterEach(function (done) {
+      var title = this.currentTest.fullTitle()
+      var passed = this.currentTest.state === 'passed'
+      saucelabs.updateJob(id, {
+        name: title,
+        passed: passed,
+        // we have to set a build id to make the badges work
+        build: 1
+      }, done)
+    })
 
+    describe('Button', function () {
       it('should be clickable', function () {
         driver.get('http://localhost:1337/index.html#/button')
         driver.findElement(By.className('Button')).click()
