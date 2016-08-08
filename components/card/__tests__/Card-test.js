@@ -1,21 +1,17 @@
 /* global describe, it, expect */
 
 import React from 'react'
+import {shallow} from 'enzyme'
 import {Card, Title} from '../'
-import {createRenderer} from 'react-addons-test-utils'
 
 describe('Card', () => {
   it('should work', () => {
-    let renderer = createRenderer()
-    renderer.render(<Card />)
-    let card = renderer.getRenderOutput()
-    expect(card).toBeTruthy()
+    const wrapper = shallow(<Card />)
+    expect(wrapper.find('.Card').length).toBe(1)
   })
 
   it('should render the title', () => {
-    let renderer = createRenderer()
-    renderer.render(<Title>some title</Title>)
-    let card = renderer.getRenderOutput()
-    expect(card.props.children).toEqual('some title')
+    const wrapper = shallow(<Title>some title</Title>)
+    expect(wrapper.find('.Card-title').text()).toEqual('some title')
   })
 })
