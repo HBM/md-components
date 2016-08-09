@@ -11,19 +11,24 @@ header {
   background: $blue-dark;
   color: #fff;
   display: flex;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 2;
+  transition: box-shadow 0.5s ease;
 
   @include medium {
     height: 64px;
   }
 }
 
-
+/**
+ * Add shadow to header when scrolling down.
+ */
+header.Header--shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
 
 /**
  * Header component CSS class
