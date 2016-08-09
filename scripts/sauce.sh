@@ -37,7 +37,7 @@ cd out
 git config user.name "Travis CI"
 git config user.email "build@travis-ci.org"
 git add --all .
-git commit -m "travis-ci: update sauce labs job id in readme"
+git commit -m "travis-ci: build gh-pages"
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 # https://docs.travis-ci.com/user/deployment/custom/
 eval "$(ssh-agent -s)"
