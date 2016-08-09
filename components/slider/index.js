@@ -112,15 +112,12 @@ export default class Slider extends React.Component {
           onTouchMove={this.onMouseMove}
           ref='slider'>
           <div className='Slider-track-off'>
-            <div
-              className='Slider-track-on'
-              style={{width: `${position}px`}}>
-            </div>
+            <div className='Slider-track-on' style={{width: `${position}px`}} />
           </div>
           <div
             className={`Slider-thumb${this.state.value === 0 ? ' is-zero' : ''}`}
-            style={{left: `${position}px`}}>
-          </div>
+            style={{left: `${position}px`}}
+          />
         </div>
       </label>
     )

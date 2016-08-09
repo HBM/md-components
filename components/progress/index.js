@@ -32,8 +32,7 @@ export class Linear extends React.Component {
         {(value) => value.x !== 0 &&
           <div className='Progress-linear'>
             <div className='Progress-linear-background' style={{height: value.x}}>
-              <div className='Progress-linear-inner' style={{width: `${this.props.percentage}%`}}>
-              </div>
+              <div className='Progress-linear-inner' style={{width: `${this.props.percentage}%`}} />
             </div>
           </div>
         }

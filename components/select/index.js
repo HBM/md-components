@@ -93,7 +93,7 @@ export default class Select extends React.Component {
           <span className={empty ? 'Select-placeholder' : ''}>
             {text}
           </span>
-          <span className='Select-caret'></span>
+          <span className='Select-caret' />
         </button>
         <Motion style={{
           opacity: spring(open ? 1 : 0)
