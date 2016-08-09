@@ -20,16 +20,12 @@ $item-padding: 24px;
   padding: 0;
   z-index: 1;
   position: absolute;
-  top: 0;
-  right: 0;
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  transform-origin: right top;
 
   @include medium {
-    top: 0;
     padding-top: $padding;
     padding-bottom: $padding;
   }

@@ -7,7 +7,7 @@ export const Divider = 'DIVIDER'
 /**
  * Menu component
  */
-export function Menu ({items, children, visible, onClick}) {
+export function Menu ({items, children, visible, onClick, transformX, transformY}) {
   var hasIcon = false
   for (let i = 0; i < items.length; i++) {
     var item = items[i]
@@ -25,6 +25,11 @@ export function Menu ({items, children, visible, onClick}) {
           if (!visible) { return <span /> }
           return (
             <ul className='Menu-list' style={{
+              top: transformY === 'top' ? 0 : null,
+              bottom: transformY === 'bottom' ? 0 : null,
+              left: transformX === 'left' ? 0 : null,
+              right: transformX === 'right' ? 0 : null,
+              transformOrigin: `${transformX} ${transformY}`,
               transform: `scale(${style.val})`
             }}>
               {items.map((item, index) => {
