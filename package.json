@@ -54,7 +54,6 @@
     "mocha": "^2.5.3",
     "node-sass": "^3.6.0",
     "react": "^15.2.0",
-    "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.5.2",
     "saucelabs": "^1.2.0",
