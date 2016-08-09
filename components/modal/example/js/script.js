@@ -12,11 +12,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      visible: false,
-      origin: {
-        x: 0,
-        y: 0
-      }
+      visible: false
     }
     this.toggleModal = this.toggleModal.bind(this)
     this.onClick = this.onClick.bind(this)
@@ -26,14 +22,9 @@ class App extends React.Component {
     this.setState({visible})
   }
 
-  onClick (event) {
-    var {target} = event
-    var rect = target.getBoundingClientRect()
-    var x = rect.left + (rect.width / 2)
-    var y = rect.top + (rect.height / 2)
+  onClick () {
     this.setState({
-      visible: !this.state.visible,
-      origin: {x, y}
+      visible: !this.state.visible
     })
   }
 
@@ -63,7 +54,6 @@ class App extends React.Component {
           </button>
         </div>
         <Modal
-          origin={this.state.origin}
           header={header}
           body={body}
           footer={footer}

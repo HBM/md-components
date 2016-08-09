@@ -5,7 +5,7 @@ import {Motion, spring} from 'react-motion'
 /**
  * Modal component
  */
-var Modal = ({origin, header, body, footer, visible, toggle}) => (
+var Modal = ({header, body, footer, visible, toggle}) => (
   <Motion defaultStyle={{opacity: 0, scale: 0}} style={{
     opacity: visible ? spring(1) : 0,
     scale: visible ? spring(1) : 0
@@ -46,7 +46,6 @@ var Modal = ({origin, header, body, footer, visible, toggle}) => (
 )
 
 Modal.propTypes = {
-  origin: React.PropTypes.object,
   header: React.PropTypes.element,
   body: React.PropTypes.element,
   footer: React.PropTypes.element,
