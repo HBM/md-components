@@ -23,6 +23,7 @@ export default class App extends React.Component {
       {text: 'Button', link: '/button'},
       {text: 'Card', link: '/card'},
       {text: 'Checkbox', link: '/checkbox'},
+      {text: 'Chip', link: '/chip'},
       {text: 'Icon', link: '/icon'},
       {text: 'Menu', link: '/menu'},
       {text: 'Modal', link: '/modal'},
