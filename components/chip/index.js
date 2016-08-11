@@ -10,8 +10,17 @@ const keyArrowRight = 39
 // input fields which handles all logic
 export default class Chip extends React.Component {
 
+  static propTypes = {
+    onChange: React.PropTypes.func
+  }
+
+  static defaultProps = {
+    onChange: () => {}
+  }
+
   state = {
     value: '',
+    // chips is an array ob objects with keys text, ...
     chips: []
   }
 
@@ -22,17 +31,30 @@ export default class Chip extends React.Component {
         chips: [...this.state.chips, {
           text: this.state.value
         }]
+      }, () => {
+        this.callOnChange()
       })
     }
   }
 
+  callOnChange = () => {
+    this.props.onChange(this.state.chips.map(c => c.text))
+  }
+
   // KeyPress event is invoked only for character (printable) keys.
-  // That's why we need KeyDown event for backspace.
+  // That's why we need KeyDown event for backspace and arrow keys.
   onKeyDown = (event) => {
-    if (event.which === keyBackspace) {
-      if (this.state.value === '' && this.state.chips.length > 0) {
-        this[`element#${this.state.chips.length - 1}`].focus()
-      }
+    // toggle through chips when input field is empty and when we have some chips to toggle through
+    if (this.state.value !== '' || !this.state.chips.length) {
+      return
+    }
+    // go left
+    if (event.which === keyBackspace || event.which === keyArrowLeft) {
+      return this[`element#${this.state.chips.length - 1}`].focus()
+    }
+    // go right
+    if (event.which === keyArrowRight) {
+      return this[`element#${0}`].focus()
     }
   }
 
@@ -57,6 +79,7 @@ export default class Chip extends React.Component {
         // focus chip to the right
         this[`element#${index}`].focus()
       }
+      this.callOnChange()
     })
   }
 
@@ -76,9 +99,19 @@ export default class Chip extends React.Component {
     }
   }
 
+  onWrapperClick = (event) => {
+    // do not handle click events on children, e.g. chips
+    if (event.target === event.currentTarget) {
+      this.input.focus()
+    }
+  }
+
   render () {
     return (
-      <div>
+      <div
+        className='Chip-wrapper'
+        onClick={this.onWrapperClick}
+      >
         {this.state.chips.map((chip, i) =>
           <Element
             key={i}
@@ -91,12 +124,15 @@ export default class Chip extends React.Component {
           />
         )}
         <input
+          className='Chip-input'
           type='text'
           onKeyPress={this.onKeyPress}
           onKeyDown={this.onKeyDown}
           value={this.state.value}
           onChange={this.onChange}
           ref={c => { this.input = c }}
+          onFocus={this.props.onFocus}
+          onBlur={this.props.onBlur}
         />
       </div>
     )

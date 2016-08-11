@@ -22,3 +22,11 @@
 section {
   margin-bottom: 50px;
 }
+
+.Chip-example1 {
+  border-bottom: 2px solid #ddd;
+}
+
+.Chip-example1.is-focused {
+  border-color: #1b325f;
+}

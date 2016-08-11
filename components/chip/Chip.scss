@@ -1,4 +1,14 @@
 
+.Chip-wrapper {
+  cursor: text;
+}
+
+.Chip-input {
+  outline: none;
+  background: none;
+  border: none;
+}
+
 .Chip {
   display: inline-flex;
   align-items: center;
@@ -7,10 +17,19 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 16px;
   height: 32px;
+  margin-right: 5px;
+  // this might affect parent component but is required for multi row chips
+  margin-bottom: 5px;
 }
 
 .Chip:focus {
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+.Chip:focus .Chip-delete {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .Chip-delete {
