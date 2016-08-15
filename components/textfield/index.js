@@ -66,7 +66,7 @@ Textfield.propTypes = {
   name: React.PropTypes.string,
   onChange: React.PropTypes.func,
   readOnly: React.PropTypes.bool,
-  type: React.PropTypes.oneOf(['text', 'password']),
+  type: React.PropTypes.oneOf(['text', 'password', 'email', 'search', 'tel', 'url']),
   value: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number
