@@ -4,6 +4,7 @@ import classnames from 'classnames'
 
 const Textfield = ({
   autoFocus,
+  defaultValue,
   disabled,
   error,
   icon,
@@ -35,6 +36,7 @@ const Textfield = ({
             onChange={onChange}
             readOnly={readOnly}
             type={type}
+            defaultValue={defaultValue}
             value={value}
           />
           <span
@@ -68,6 +70,10 @@ Textfield.propTypes = {
   readOnly: React.PropTypes.bool,
   type: React.PropTypes.oneOf(['text', 'password']),
   value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
+  defaultValue: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number
   ])
