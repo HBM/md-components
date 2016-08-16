@@ -11,21 +11,9 @@ export default class TextfieldRoute extends React.Component {
     error: ''
   }
 
-  onChangeColor = (event) => {
+  onChange = (event) => {
     this.setState({
-      color: event.target.value
-    })
-  }
-
-  onChangeCountry = (event) => {
-    this.setState({
-      country: event.target.value
-    })
-  }
-
-  onChangeError = (event) => {
-    this.setState({
-      error: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -37,12 +25,16 @@ export default class TextfieldRoute extends React.Component {
           <input type='text' />
         </section>
         <section>
+          <h2>Textfield with default value</h2>
+          <Textfield label='default' defaultValue='awesome' />
+        </section>
+        <section>
           <h2>Textfield</h2>
-          <Textfield label='Color' value={this.state.color} onChange={this.onChangeColor} />
+          <Textfield label='Color' name='color' value={this.state.color} onChange={this.onChange} />
         </section>
         <section>
           <h2>Textfield with label</h2>
-          <Textfield label='Country' value={this.state.country} onChange={this.onChangeCountry} />
+          <Textfield label='Country' name='country' value={this.state.country} onChange={this.onChange} />
         </section>
         <section>
           <h2>Read only textfield</h2>
@@ -52,8 +44,9 @@ export default class TextfieldRoute extends React.Component {
           <h2>Textfield with error message</h2>
           <Textfield
             label='Error message'
+            name='error'
             value={this.state.error}
-            onChange={this.onChangeError}
+            onChange={this.onChange}
             error='Username or password incorrect.'
           />
         </section>
