@@ -15,11 +15,6 @@ describe('Textfield', () => {
     expect(wrapper.find('input').node.value).toEqual('my custom value')
   })
 
-  it('should have a default label with value `Label`', () => {
-    const wrapper = mount(<Textfield />)
-    expect(wrapper.find('label').text()).toEqual('Label')
-  })
-
   it('should be able to set a custom label', () => {
     const wrapper = mount(<Textfield label='my custom label' />)
     expect(wrapper.find('label').text()).toEqual('my custom label')
