@@ -31,12 +31,12 @@ const Textfield = ({
               'Textfield-input--error': error,
               'is-not-empty': !empty
             })}
+            defaultValue={defaultValue}
             disabled={disabled}
             name={name}
             onChange={onChange}
             readOnly={readOnly}
             type={type}
-            defaultValue={defaultValue}
             value={value}
           />
           <span
@@ -82,12 +82,8 @@ Textfield.propTypes = {
 Textfield.defaultProps = {
   autoFocus: false,
   disabled: false,
-  error: '',
-  label: 'Label',
-  name: '',
   readOnly: false,
   type: 'text',
-  value: ''
 }
 
 export default Textfield
