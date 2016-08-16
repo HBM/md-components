@@ -17,7 +17,7 @@ const Button = ({disabled, children, onClick, raised, type}) => (
 
 Button.propTypes = {
   disabled: React.PropTypes.bool,
-  onClick: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func,
   raised: React.PropTypes.bool,
   type: React.PropTypes.oneOf(['submit', 'reset', 'button'])
 }
