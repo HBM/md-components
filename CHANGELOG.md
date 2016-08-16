@@ -3,20 +3,20 @@
 
 ## v2.0.0 / 2016-08-16
 
-- button: remove `isRequired` from `onClick` method since submit buttons do not need one
-- button: rewrite tests using enzyme
-- card: rewrite tests using enzyme
-- checkbox: rewrite tests using enzyme
-- chip: add new component
-- header: show shadow only on scroll
-- menu: add `transformX` and `transformY` props to configure transform origin
-- menu: make `DIVIDER` not all uppercase, i.e. `Divider`
-- modal: remove origin prop
-- progress: rewrite tests using enzyme
-- sparkline: add first simple test
-- textfield: add `defaultValue` and fix default props
-- textfield: add `email`, `search`, `tel` and `url` to allowed types
-- upload: rewrite tests using enzyme
+- button: remove `isRequired` from `onClick` method since submit buttons do not need one [31207e9](https://github.com/HBM/react-components/commit/31207e999f472e5e60eecd2505981500c3efbf4a)
+- button: rewrite tests using enzyme [cd19fe8](https://github.com/HBM/react-components/commit/cd19fe80cf3c1d09d3df947f8f47d0be5990f19a)
+- card: rewrite tests using enzyme (fix #9)
+- checkbox: rewrite tests using enzyme [ac81430](https://github.com/HBM/react-components/commit/ac81430276b45b05883ef5571b596dca1bf1d71c)
+- chip: add new component [9d6027c](https://github.com/HBM/react-components/commit/9d6027cd44bfc5fad8eaa98d45f4fb258964b805)
+- header: show shadow only on scroll (fix #7)
+- menu: add `transformX` and `transformY` props to configure transform origin [0346e97](https://github.com/HBM/react-components/commit/0346e97b2a3b8d6b9dc32c7d2517c438ef423d24)
+- menu: make `DIVIDER` not all uppercase, i.e. `Divider` (fix #8)
+- modal: remove origin prop (fix #1)
+- progress: rewrite tests using enzyme [d66532a](https://github.com/HBM/react-components/commit/d66532a62be75654075610dd189c48d0f7cfafb5)
+- sparkline: add first simple test [7d00010](https://github.com/HBM/react-components/commit/7d000103f49ddd3be4fe5f99fcbacbf38254b3f9)
+- textfield: add `defaultValue` and fix default props [c78d44e](https://github.com/HBM/react-components/commit/c78d44e66982905f1b90a87b3b8b1865d95f3f84)
+- textfield: add `email`, `search`, `tel` and `url` to allowed types [7cd565f](https://github.com/HBM/react-components/commit/7cd565fc2da4203bfca557ba4d37a5f9822d45d4)
+- upload: rewrite tests using enzyme [4ced558](https://github.com/HBM/react-components/commit/4ced5585d48f25098e656c7e61fa0955afc6c5ae)
 
 ## v1.1.0 / 2016-07-12
 
