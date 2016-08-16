@@ -59,6 +59,14 @@ Interested in more of our technical decisions? See [Design Decisions](decisions/
 - use [Sass](http://sass-lang.com/)
 - follow [SUIT CSS](https://suitcss.github.io/) guidelines
 
+### New release
+
+[np - A better npm publish](https://github.com/sindresorhus/np)
+
+```
+$ np
+```
+
 ## License
 
 MIT
