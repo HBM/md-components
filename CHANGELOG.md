@@ -1,6 +1,23 @@
 
 # CHANGELOG
 
+## v2.0.0 / 2016-08-16
+
+- button: remove `isRequired` from `onClick` method since submit buttons do not need one
+- button: rewrite tests using enzyme
+- card: rewrite tests using enzyme
+- checkbox: rewrite tests using enzyme
+- chip: add new component
+- header: show shadow only on scroll
+- menu: add `transformX` and `transformY` props to configure transform origin
+- menu: make `DIVIDER` not all uppercase, i.e. `Divider`
+- modal: remove origin prop
+- progress: rewrite tests using enzyme
+- sparkline: add first simple test
+- textfield: add `defaultValue` and fix default props
+- textfield: add `email`, `search`, `tel` and `url` to allowed types
+- upload: rewrite tests using enzyme
+
 ## v1.1.0 / 2016-07-12
 
 - remove several warnings "Unknown prop xmlns on tag". As the `xmlns` attribute is not a required tag for SVG elements which are inside HTML documents we can safely remove the attribute. Removing the attribute also removes the warning.

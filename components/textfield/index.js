@@ -83,7 +83,7 @@ Textfield.defaultProps = {
   autoFocus: false,
   disabled: false,
   readOnly: false,
-  type: 'text',
+  type: 'text'
 }
 
 export default Textfield
