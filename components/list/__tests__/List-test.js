@@ -44,6 +44,11 @@ describe('List', () => {
       expect(wrapper.find('.List-row-avatar img').prop('src')).toEqual('http://foo.com/image.jpg')
     })
 
+    it('should render "avatar" with element', () => {
+      const wrapper = shallow(<Row primary='ABC' avatar={<div x='foo' />} />)
+      expect(wrapper.find('.List-row-avatar > div').prop('x')).toEqual('foo')
+    })
+
     it('should render "icon" left', () => {
       const dummy = <div x='foo' />
       const wrapper = shallow(
