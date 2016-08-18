@@ -1,0 +1,88 @@
+/**
+ * https://material.google.com/components/lists.html#lists-specs
+ */
+
+@import "../../css/mixins";
+
+.List {
+  padding: 8px 16px;
+  list-style: none;
+  background-color: white;
+  /** This article suggest to increase padding for table and above 
+   * https://material.google.com/layout/metrics-keylines.html#metrics-keylines-keylines-spacing
+   */
+  @include medium {
+    padding: 8px 24px;
+  } 
+}
+
+
+.List-row-text-primary {
+  font-size: 16px;
+  margin: 0 0;
+  margin-bottom: 6px;
+  font-weight: normal;
+  padding: 0 0;
+}
+
+.List-row-text-secondary, .List-row-text-subheader {
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: normal;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+.List-row-text-secondary {
+  color: #808080;
+}
+
+.List-row--twoline {
+  height: 72px;
+}
+
+.List-row--threeline {
+  height: 88px;
+}
+
+.List-row {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.List-row-icon-left, .List-row-icon-right, .List-row-avatar {
+  width: 56px;
+}
+
+/* Three line rows have top aligned icons */
+.List-row.List-row--threeline {
+  align-items: flex-start;
+
+  & > * {
+    margin-top: 20px;
+  }
+
+  .List-row-avatar {
+    align-items: flex-start;
+  }
+}
+
+.List-row-icon-right {
+  margin-left: auto;
+
+  & > * {
+    float: right;
+  }
+}
+
+.List-row-avatar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  > * {
+    border-radius: 100%;
+    width: 40px;
+ }
+}
+
