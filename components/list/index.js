@@ -30,6 +30,7 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, style
     </div>
 
   const dynamicClasses = {
+    'List-row--oneline': (!secondary && !subheader),
     'List-row--twoline': (secondary && !subheader),
     'List-row--threeline': (secondary && subheader)
   }
