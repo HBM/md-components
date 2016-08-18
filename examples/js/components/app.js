@@ -25,6 +25,7 @@ export default class App extends React.Component {
       {text: 'Checkbox', link: '/checkbox'},
       {text: 'Chip', link: '/chip'},
       {text: 'Icon', link: '/icon'},
+      {text: 'List', link: '/list'},
       {text: 'Menu', link: '/menu'},
       {text: 'Modal', link: '/modal'},
       {text: 'Progress', link: '/progress'},
