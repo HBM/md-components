@@ -3,7 +3,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { List, Row } from '../'
-import sinon from 'sinon'
 
 describe('List', () => {
   it('should work', () => {
@@ -64,11 +63,12 @@ describe('List', () => {
       expect(wrapper.find('.List-row-icon-right > div').prop('x')).toEqual('foo')
     })
 
-    it('calls onClick', () => {
-      const onClick = sinon.spy()
+    it('calls onClick', (done) => {
+      const onClick = () => {
+        done()
+      }
       const wrapper = shallow(<Row primary='ABC' onClick={onClick} />)
       wrapper.simulate('click')
-      expect(onClick.callCount).toEqual(1)
     })
   })
 })

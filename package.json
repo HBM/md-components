@@ -60,7 +60,6 @@
     "rimraf": "^2.5.4",
     "saucelabs": "^1.2.0",
     "selenium-webdriver": "^3.0.0-beta-2",
-    "sinon": "^1.17.5",
     "st": "^1.2.0",
     "standard": "^7.0.1"
   },
