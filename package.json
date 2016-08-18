@@ -29,6 +29,7 @@
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.13.2",
     "babel-eslint": "^6.0.4",
     "babel-plugin-__coverage__": "^11.0.0",
     "babel-preset-es2015": "^6.13.2",
@@ -56,8 +57,10 @@
     "react-addons-test-utils": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
+    "rimraf": "^2.5.4",
     "saucelabs": "^1.2.0",
     "selenium-webdriver": "^3.0.0-beta-2",
+    "sinon": "^1.17.5",
     "st": "^1.2.0",
     "standard": "^7.0.1"
   },
