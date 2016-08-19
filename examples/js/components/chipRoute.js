@@ -48,6 +48,20 @@ export default class ChipRoute extends React.Component {
             {this.state.values.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
         </section>
+        <section>
+          <h2>Chip with initial values</h2>
+          <div
+            className={classnames('Chip-example1', {
+              'is-focused': this.state.focused
+            })}
+          >
+            <Chip onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur} initialValues={['github', 'stackoverflow']}/>
+          </div>
+          {this.state.values.length ? <p>Values</p> : null}
+          <ul>
+            {this.state.values.map((s, i) => <li key={i}>{s}</li>)}
+          </ul>
+        </section>
       </div>
     )
   }
