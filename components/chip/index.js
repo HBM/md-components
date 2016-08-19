@@ -12,14 +12,14 @@ export default class Chip extends React.Component {
 
   static propTypes = {
     onChange: React.PropTypes.func,
-	initialValues: React.PropTypes.arrayOf(React.PropTypes.string)
+    initialValues: React.PropTypes.arrayOf(React.PropTypes.string)
   }
 
   static defaultProps = {
     onChange: () => {}
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     const chipFromString = (str) => {
       return {text: str}
