@@ -11,7 +11,7 @@ export default class IconRoute extends React.Component {
         return (
           <div key={index} style={style}>
             {React.createElement(value)}
-            <span style={{marginLeft: 10}}>{key}</span>
+            <span>{key}</span>
           </div>
         )
       }
