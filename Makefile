@@ -14,7 +14,7 @@ watch:
 		--outfile examples/js/script.min.js \
 		--debug \
 		--verbose \
-		--transform babelify \
+		--transform [ babelify --presets [ es2015 react stage-0 react-hmre ] ]\
 		--plugin browserify-hmr
 
 .PHONY: css
