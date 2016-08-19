@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Icon from '../../../components/icon'
 
@@ -8,14 +7,17 @@ export default class IconRoute extends React.Component {
     let icons = Object.keys(Icon).map((key, index) => {
       if (key !== 'Button') {
         let value = Icon[key]
+        const style = {display: 'flex', alignItems: 'center', padding: 20, flexDirection: 'column', float: 'left', width: '33%'}
         return (
-          <div key={index} style={{display: 'flex', alignItems: 'center', marginBottom: 20}}>
+          <div key={index} style={style}>
             {React.createElement(value)}
-            <span style={{marginLeft: 10}}>{key}</span>
+            <span>{key}</span>
           </div>
         )
       }
     })
+    const noop = () => {
+    }
     return (
       <div>
         <section>
@@ -24,7 +26,7 @@ export default class IconRoute extends React.Component {
         </section>
         <section>
           <h2>Icon button</h2>
-          <Icon.Button onClick={() => {}}>
+          <Icon.Button onClick={noop}>
             <Icon.Help />
           </Icon.Button>
         </section>
