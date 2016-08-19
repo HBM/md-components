@@ -5,14 +5,9 @@ import Icon from '../'
 import {shallow} from 'enzyme'
 
 describe('Icon', () => {
-  Object.keys(Icon).map(key => {
-    if (key !== 'Button') {
-      var value = Icon[key]
-      it(`should render ${key}`, () => {
-        const wrapper = shallow(React.createElement(value))
-        expect(wrapper.find('svg')).toBeTruthy()
-      })
-    }
+  it('should render Icon.AlarmOff', () => {
+    const wrapper = shallow(<Icon.AlarmOff />)
+    expect(wrapper.find('svg')).toBeTruthy()
   })
 
   it('should render icon button', () => {
