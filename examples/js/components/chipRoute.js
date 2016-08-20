@@ -9,8 +9,8 @@ export default class ChipRoute extends React.Component {
     // values is an array of strings
     values: [],
     focused: false,
-	valuesIV: [],
-	focuseIV: false
+    valuesIV: [],
+    focuseIV: false
   }
 
   onDelete = () => {
@@ -73,7 +73,7 @@ export default class ChipRoute extends React.Component {
               'is-focused': this.state.focusedIV
             })}
           >
-            <Chip onChange={this.onChangeIV} onFocus={this.onFocusIV} onBlur={this.onBlurIV} initialValues={['github', 'stackoverflow']}/>
+            <Chip onChange={this.onChangeIV} onFocus={this.onFocusIV} onBlur={this.onBlurIV} initialValues={['github', 'stackoverflow']} />
           </div>
           {this.state.valuesIV.length ? <p>Values</p> : null}
           <ul>
