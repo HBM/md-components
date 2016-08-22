@@ -11,12 +11,14 @@ const keyArrowRight = 39
 export default class Chip extends React.Component {
 
   static propTypes = {
+    delimiters: React.PropTypes.arrayOf(React.PropTypes.number),
     onChange: React.PropTypes.func,
     initialValues: React.PropTypes.arrayOf(React.PropTypes.string)
   }
 
   static defaultProps = {
-    onChange: () => {}
+    onChange: () => {},
+    delimiters: [keyEnter]
   }
 
   constructor (props) {
@@ -32,11 +34,12 @@ export default class Chip extends React.Component {
   }
 
   onKeyPress = (event) => {
-    if (event.which === keyEnter && this.state.value !== '') {
+    if ((this.props.delimiters.indexOf(event.which) > -1) && this.state.value.trim() !== '') {
+      event.preventDefault()
       this.setState({
         value: '',
         chips: [...this.state.chips, {
-          text: this.state.value
+          text: this.state.value.trim()
         }]
       }, () => {
         this.callOnChange()
