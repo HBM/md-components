@@ -105,7 +105,7 @@ export default class ChipRoute extends React.Component {
               'is-focused': this.state.focusedDelim
             })}
           >
-            <Chip onChange={this.onChangeDelim} onFocus={this.onFocusDelim} onBlur={this.onBlurDelim} initialValues={['github', 'stackoverflow']} delimiters={[' '.charCodeAt(0)]}/>
+            <Chip onChange={this.onChangeDelim} onFocus={this.onFocusDelim} onBlur={this.onBlurDelim} delimiters={[32]}/>
           </div>
           {this.state.valuesDelim.length ? <p>Values</p> : null}
           <ul>
