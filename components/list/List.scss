@@ -5,14 +5,14 @@
 @import "../../css/mixins";
 
 .List {
-  padding: 8px 16px;
+  padding: 0 16px;
   list-style: none;
   background-color: white;
   /** This article suggest to increase padding for table and above 
    * https://material.google.com/layout/metrics-keylines.html#metrics-keylines-keylines-spacing
    */
   @include medium {
-    padding: 8px 24px;
+    padding: 0 24px;
   } 
 }
 
@@ -53,6 +53,13 @@
   min-height: 48px;
   display: flex;
   align-items: center;
+  &:first-child {
+    padding-top: 8px;
+  }
+
+  &:last-child {
+    padding-bottom: 8px;
+  }
 }
 
 .List-row-icon-left, .List-row-icon-right, .List-row-avatar {
