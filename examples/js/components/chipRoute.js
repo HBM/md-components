@@ -10,7 +10,9 @@ export default class ChipRoute extends React.Component {
     values: [],
     focused: false,
     valuesIV: [],
-    focuseIV: false
+    focuseIV: false,
+    valuesDelim: [],
+    focuseDelim: false
   }
 
   onDelete = () => {
@@ -49,6 +51,22 @@ export default class ChipRoute extends React.Component {
     })
   }
 
+  onChangeDelim = (valuesDelim) => {
+    this.setState({valuesDelim})
+  }
+
+  onFocusDelim = () => {
+    this.setState({
+      focusedDelim: true
+    })
+  }
+
+  onBlurDelim = () => {
+    this.setState({
+      focusedDelim: false
+    })
+  }
+
   render () {
     return (
       <div>
@@ -78,6 +96,20 @@ export default class ChipRoute extends React.Component {
           {this.state.valuesIV.length ? <p>Values</p> : null}
           <ul>
             {this.state.valuesIV.map((s, i) => <li key={i}>{s}</li>)}
+          </ul>
+        </section>
+        <section>
+          <h2>Chip with custom delimiters (e.g. space)</h2>
+          <div
+            className={classnames('Chip-example1', {
+              'is-focused': this.state.focusedDelim
+            })}
+          >
+            <Chip onChange={this.onChangeDelim} onFocus={this.onFocusDelim} onBlur={this.onBlurDelim} initialValues={['github', 'stackoverflow']} delimiters={[' '.charCodeAt(0)]}/>
+          </div>
+          {this.state.valuesDelim.length ? <p>Values</p> : null}
+          <ul>
+            {this.state.valuesDelim.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
         </section>
       </div>
