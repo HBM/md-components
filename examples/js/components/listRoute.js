@@ -44,7 +44,7 @@ export default class ListRoute extends React.Component {
           <List>
             <Row primary='Apple' secondary='From Belgium' />
             <Row primary='Banana' secondary='From Sweden' />
-            <Row primary='Strawberry' secondary='From Germany' />
+            <Row primary='Strawberry' secondary='From Germany. This is sometimes a very lengthy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita graviter et severe voluptatem secrevit a bono. Aliter homines, aliter philosophos loqui putas oportere? Nunc haec primum fortasse audientis servire debemus' />
           </List>
         </section>
         <section>
