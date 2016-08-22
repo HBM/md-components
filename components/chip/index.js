@@ -130,6 +130,8 @@ export default class Chip extends React.Component {
             onDelete={this.onDelete}
             onArrowLeft={this.onChipArrowLeft}
             onArrowRight={this.onChipArrowRight}
+            onFocus={this.props.onFocus}
+            onBlur={this.props.onBlur}
             ref={c => { this[`element#${i}`] = c }}
           />
         )}
@@ -155,6 +157,8 @@ class Element extends React.Component {
   static propTypes = {
     text: React.PropTypes.string,
     onDelete: React.PropTypes.func,
+    onBlur: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
     icon: React.PropTypes.string
   }
 
@@ -167,7 +171,7 @@ class Element extends React.Component {
   }
 
   render () {
-    const {text, onDelete, icon, index, onArrowLeft, onArrowRight} = this.props
+    const {text, onDelete, icon, index, onArrowLeft, onArrowRight, onBlur, onFocus} = this.props
     const textStyle = {
       marginLeft: icon ? 8 : 12,
       marginRight: onDelete ? 0 : 12
@@ -181,10 +185,13 @@ class Element extends React.Component {
         &times;
       </button>
     )
+
     return (
       <div
         className='Chip'
         tabIndex='0'
+        onFocus={onFocus}
+        onBlur={onBlur}
         onKeyDown={(event) => {
           if (event.which === keyBackspace || event.which === keyDelete) {
             return onDelete(index)
