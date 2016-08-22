@@ -8,7 +8,9 @@ export default class ChipRoute extends React.Component {
   state = {
     // values is an array of strings
     values: [],
-    focused: false
+    focused: false,
+    valuesIV: [],
+    focuseIV: false
   }
 
   onDelete = () => {
@@ -31,6 +33,22 @@ export default class ChipRoute extends React.Component {
     })
   }
 
+  onChangeIV = (valuesIV) => {
+    this.setState({valuesIV})
+  }
+
+  onFocusIV = () => {
+    this.setState({
+      focusedIV: true
+    })
+  }
+
+  onBlurIV = () => {
+    this.setState({
+      focusedIV: false
+    })
+  }
+
   render () {
     return (
       <div>
@@ -46,6 +64,20 @@ export default class ChipRoute extends React.Component {
           {this.state.values.length ? <p>Values</p> : null}
           <ul>
             {this.state.values.map((s, i) => <li key={i}>{s}</li>)}
+          </ul>
+        </section>
+        <section>
+          <h2>Chip with initial values</h2>
+          <div
+            className={classnames('Chip-example1', {
+              'is-focused': this.state.focusedIV
+            })}
+          >
+            <Chip onChange={this.onChangeIV} onFocus={this.onFocusIV} onBlur={this.onBlurIV} initialValues={['github', 'stackoverflow']} />
+          </div>
+          {this.state.valuesIV.length ? <p>Values</p> : null}
+          <ul>
+            {this.state.valuesIV.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
         </section>
       </div>
