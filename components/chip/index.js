@@ -35,7 +35,9 @@ export default class Chip extends React.Component {
 
   onKeyPress = (event) => {
     if ((this.props.delimiters.indexOf(event.which) > -1) && this.state.value.trim() !== '') {
-      event.preventDefault()
+      if (event.which !== keyEnter) {
+        event.preventDefault()
+      }
       this.setState({
         value: '',
         chips: [...this.state.chips, {
