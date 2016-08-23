@@ -3,6 +3,8 @@ BIN_DIR = node_modules/.bin
 STANDARD = $(BIN_DIR)/standard
 WATCHIFY = $(BIN_DIR)/watchify
 SASS = $(BIN_DIR)/node-sass
+MOCHA = $(BIN_DIR)/_mocha
+ISTANBUL = $(BIN_DIR)/istanbul
 
 .PHONY: standard
 standard:
@@ -24,3 +26,7 @@ css:
 .PHONY: serve
 serve:
 	cd examples && python -m SimpleHTTPServer 5000
+
+.PHONY: test
+test:
+	$(STANDARD) && $(ISTANBUL) cover --report html $(MOCHA) test/.setup.js components/**/test/test.js
