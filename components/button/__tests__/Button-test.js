@@ -18,6 +18,6 @@ describe('Button', () => {
 
   it('should be disabled when told so', () => {
     const wrapper = shallow(<Button onClick={() => {}} disabled />)
-    expect(wrapper.find('button').props().disabled).toBe(true)
+    expect(wrapper.find('.Button').props().disabled).toBe(true)
   })
 })

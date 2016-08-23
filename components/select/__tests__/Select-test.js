@@ -9,7 +9,7 @@ const noop = () => {}
 describe('Select', () => {
   it('should render a simple example', () => {
     const wrapper = mount(<Select onChange={noop} />)
-    expect(wrapper.find('Select')).toBeTruthy()
+    expect(wrapper.find('.Select')).toBeTruthy()
   })
 
   it('should render some default items', () => {

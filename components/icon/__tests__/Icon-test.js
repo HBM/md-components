@@ -17,7 +17,7 @@ describe('Icon', () => {
         <Icon.Person />
       </Icon.Button>
     )
-    expect(wrapper.find('button')).toBeTruthy()
+    expect(wrapper.find('.IconButton')).toBeTruthy()
   })
 
   it('should bubble up button onclick event', (done) => {
@@ -27,6 +27,6 @@ describe('Icon', () => {
         <Icon.Person />
       </Icon.Button>
     )
-    wrapper.find('button').simulate('click')
+    wrapper.find('.IconButton').simulate('click')
   })
 })
