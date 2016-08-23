@@ -15,7 +15,7 @@ import Icon from '../icon/'
  * Navigation item
  */
 const Item = ({index, onClick, item}) => (
-  <li key={index} className='Navigation-item' onClick={onClick.bind(this, index)}>
+  <li key={index} className='Navigation-item' onClick={onClick}>
     <Link
       activeClassName='active'
       to={item.link}
@@ -29,7 +29,7 @@ const Item = ({index, onClick, item}) => (
         {item.links.map((item, index) =>
           <Item
             key={index}
-            onClick={onClick.bind(this, index)}
+            onClick={onClick}
             item={item}
           />
         )}
@@ -122,7 +122,7 @@ class Navigation extends React.Component {
             {this.props.links.map((item, index) =>
               <Item
                 key={index}
-                onClick={this.onClick.bind(this, index)}
+                onClick={() => this.onClick(index)}
                 item={item}
               />
             )}
