@@ -7,12 +7,12 @@ import {mount} from 'enzyme'
 describe('Textfield', () => {
   it('should be empty by default', () => {
     const wrapper = mount(<Textfield />)
-    expect(wrapper.find('input').node.value).toEqual('')
+    expect(wrapper.find('.Textfield-input').node.value).toEqual('')
   })
 
   it('should be able to set a custom value', () => {
     const wrapper = mount(<Textfield value='my custom value' onChange={() => {}} />)
-    expect(wrapper.find('input').node.value).toEqual('my custom value')
+    expect(wrapper.find('.Textfield-input').node.value).toEqual('my custom value')
   })
 
   it('should be able to set a custom label', () => {
@@ -22,12 +22,12 @@ describe('Textfield', () => {
 
   it('should be able to set to disabled', () => {
     const wrapper = mount(<Textfield disabled />)
-    expect(wrapper.find('input').node.disabled).toBe(true)
+    expect(wrapper.find('.Textfield-input').node.disabled).toBe(true)
   })
 
   it('should be able to set to readOnly', () => {
     const wrapper = mount(<Textfield readOnly />)
-    expect(wrapper.find('input').node.readOnly).toBe(true)
+    expect(wrapper.find('.Textfield-input').node.readOnly).toBe(true)
   })
 
   it('should callback upon typing', (done) => {
@@ -36,7 +36,7 @@ describe('Textfield', () => {
       done()
     }
     const wrapper = mount(<Textfield onChange={callback} />)
-    wrapper.find('input').simulate('change', {
+    wrapper.find('.Textfield-input').simulate('change', {
       target: {
         value: 'hello world'
       }
@@ -50,11 +50,11 @@ describe('Textfield', () => {
 
   it('should apply error styles', () => {
     const wrapper = mount(<Textfield error='username or password incorrect' />)
-    expect(wrapper.find('input').hasClass('Textfield-input--error')).toBe(true)
+    expect(wrapper.find('.Textfield-input').hasClass('Textfield-input--error')).toBe(true)
   })
 
   it('should have the right type', () => {
     const wrapper = mount(<Textfield type='password' />)
-    expect(wrapper.find('input').node.type).toBe('password')
+    expect(wrapper.find('.Textfield-input').node.type).toBe('password')
   })
 })

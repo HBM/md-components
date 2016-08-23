@@ -17,13 +17,13 @@ describe('Snackbar', () => {
 
   it('should render with text and action button', () => {
     const wrapper = mount(<Snackbar visible text='all good' action='undo' />)
-    expect(wrapper.find('input').node.value).toEqual('undo')
+    expect(wrapper.find('.Snackbar-action').node.value).toEqual('undo')
   })
 
   it('should trigger an event when clicking on action button', (done) => {
     const callback = () => done()
     const wrapper = mount(<Snackbar visible text='all good' action='undo' onAction={callback} />)
-    wrapper.find('input').simulate('click')
+    wrapper.find('.Snackbar-action').simulate('click')
   })
 
   it('should be hidden by default', () => {
