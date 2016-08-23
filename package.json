@@ -39,7 +39,6 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "browserify-hmr": "^0.3.1",
-    "browserify-istanbul": "^2.0.0",
     "coveralls": "^2.11.12",
     "envify": "^3.4.0",
     "enzyme": "^2.3.0",
