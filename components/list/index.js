@@ -42,11 +42,13 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFoc
       {icon}
     </div>
 
+  const isSelectable = onFocus || onBlur
+
   const dynamicClasses = {
     'List-row--oneline': (!secondary && !subheader),
     'List-row--twoline': (secondary && !subheader),
     'List-row--threeline': (secondary && subheader),
-    'List-row--selectable': (onFocus || onBlur)
+    'List-row--selectable': isSelectable
   }
   return (
     <li
@@ -56,7 +58,7 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFoc
       onKeyDown={onKeyDown}
       onFocus={onFocus}
       onBlur={onBlur}
-      tabIndex='0' >
+      tabIndex={isSelectable ? '0' : null} >
       {avatarElement}
       {iconLeftElement}
       <div className='List-row-text'>
