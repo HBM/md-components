@@ -23,18 +23,20 @@ const IconCheckboxOutline = () => (
   </svg>
 )
 
-const Checkbox = ({checked, disabled, label, onChange}) => (
+const Checkbox = ({checked, disabled, label, onChange, name, defaultChecked}) => (
   <label className='Checkbox' title={label}>
     <input
       checked={checked}
       className='Checkbox-input'
+      defaultChecked={defaultChecked}
       disabled={disabled}
+      name={name}
       onChange={onChange}
       type='checkbox'
     />
     <div className='Checkbox-focus' />
     <div className='Checkbox-icon'>
-      {checked
+      {checked || defaultChecked
         ? <IconCheckbox />
         : <IconCheckboxOutline />
       }
@@ -47,13 +49,13 @@ const Checkbox = ({checked, disabled, label, onChange}) => (
 
 Checkbox.propTypes = {
   checked: React.PropTypes.bool,
+  defaultChecked: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   label: React.PropTypes.string,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func
 }
 
 Checkbox.defaultProps = {
-  checked: false,
   disabled: false,
   label: 'Label'
 }
