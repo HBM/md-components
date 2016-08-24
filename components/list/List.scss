@@ -5,15 +5,10 @@
 @import "../../css/mixins";
 
 .List {
-  padding: 0 16px;
+  padding: 0 0;
+  margin: 0 0;
   list-style: none;
   background-color: white;
-  /** This article suggest to increase padding for table and above 
-   * https://material.google.com/layout/metrics-keylines.html#metrics-keylines-keylines-spacing
-   */
-  @include medium {
-    padding: 0 24px;
-  } 
 }
 
 .List-row-text {
@@ -31,6 +26,15 @@
 
 .List-row--oneline .List-row-text-primary {
   margin-bottom: 0px;
+}
+
+.List-row.List-row--selectable:focus {
+  background-color: #f1f1f1;
+  outline: none;
+}
+
+.List-row--selectable:hover {
+  background-color: #fdfdfd;
 }
 
 .List-row-text-secondary, .List-row-text-subheader {
@@ -62,6 +66,15 @@
   min-height: 48px;
   display: flex;
   align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  /** This article suggest to increase padding for table and above
+   * https://material.google.com/layout/metrics-keylines.html#metrics-keylines-keylines-spacing
+   */
+  @include medium {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   &:first-child {
     padding-top: 8px;
   }

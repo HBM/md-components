@@ -13,7 +13,20 @@ export const List = ({children, style}) => (
   </ol>
 )
 
-export const Row = ({primary, secondary, subheader, avatar, icon, onClick, style}) => {
+export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFocus, onBlur, style}) => {
+  const onKeyDown = (event) => {
+    const arrowUp = 38
+    const arrowDown = 40
+
+    if (event.which === arrowDown && event.target.nextSibling) {
+      event.preventDefault()
+      event.target.nextSibling.focus()
+    } else if (event.which === arrowUp && event.target.previousSibling) {
+      event.preventDefault()
+      event.target.previousSibling.focus()
+    }
+  }
+
   const avatarElement = avatar &&
     <div className='List-row-avatar'>
       {(typeof avatar === 'string' ? <img src={avatar} /> : avatar)}
@@ -29,13 +42,23 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, style
       {icon}
     </div>
 
+  const isSelectable = onFocus || onBlur
+
   const dynamicClasses = {
     'List-row--oneline': (!secondary && !subheader),
     'List-row--twoline': (secondary && !subheader),
-    'List-row--threeline': (secondary && subheader)
+    'List-row--threeline': (secondary && subheader),
+    'List-row--selectable': isSelectable
   }
   return (
-    <li className={classNames('List-row', dynamicClasses)} onClick={onClick} style={style}>
+    <li
+      className={classNames('List-row', dynamicClasses)}
+      onClick={onClick}
+      style={style}
+      onKeyDown={onKeyDown}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      tabIndex={isSelectable ? '0' : null} >
       {avatarElement}
       {iconLeftElement}
       <div className='List-row-text'>
