@@ -167,9 +167,9 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Selectable (onFocus or onBlur defined on Row)</h2>
           <List>
-            <Row primary='Apple' onFocus={() => {}}/>
-            <Row primary='Banana' onFocus={() => {}}/>
-            <Row primary='Strawberry' onFocus={() => {}}/>
+            <Row primary='Apple' onFocus={() => {}} />
+            <Row primary='Banana' onFocus={() => {}} />
+            <Row primary='Strawberry' onFocus={() => {}} />
           </List>
         </section>
       </div>

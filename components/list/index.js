@@ -20,11 +20,11 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFoc
 
     if (event.which === arrowDown && event.target.nextSibling) {
       event.preventDefault()
-	  event.target.nextSibling.focus()
+      event.target.nextSibling.focus()
     } else if (event.which === arrowUp && event.target.previousSibling) {
       event.preventDefault()
-	  event.target.previousSibling.focus()
-	}
+      event.target.previousSibling.focus()
+    }
   }
 
   const avatarElement = avatar &&
