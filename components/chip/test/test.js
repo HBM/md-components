@@ -16,6 +16,11 @@ describe('Chip', () => {
     assert.equal(wrapper.find('.Chip').length, 0)
   })
 
+  it('should accept autoFocus prop', () => {
+    const wrapper = mount(<Chip autoFocus />)
+    assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
+  })
+
   it('should accept initial chips as property', () => {
     const wrapper = mount(<Chip initialValues={['one', 'two']} />)
     assert.equal(wrapper.find('.Chip').length, 2)

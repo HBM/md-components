@@ -147,6 +147,7 @@ export default class Chip extends React.Component {
           ref={c => { this.input = c }}
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}
+          autoFocus={this.props.autoFocus}
         />
       </div>
     )
@@ -157,14 +158,16 @@ export default class Chip extends React.Component {
 class Element extends React.Component {
 
   static propTypes = {
-    text: React.PropTypes.string,
+    autoFocus: React.PropTypes.bool,
+    icon: React.PropTypes.string,
     onDelete: React.PropTypes.func,
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
-    icon: React.PropTypes.string
+    text: React.PropTypes.string
   }
 
   static defaultProps = {
+    autoFocus: false,
     text: 'Chip'
   }
 
