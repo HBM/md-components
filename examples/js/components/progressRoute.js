@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {Linear, Circular} from '../../../'
+import {Progress} from '../../../'
 
 export default class ProgressRoute extends React.Component {
 
@@ -27,12 +27,12 @@ export default class ProgressRoute extends React.Component {
       <div>
         <section>
           <h2>Linear progress</h2>
-          <Linear percentage={this.state.progress} />
+          <Progress.Linear percentage={this.state.progress} />
         </section>
         <section>
           <h2>Circular progress</h2>
           <div style={{width: 100, height: 100}}>
-            <Circular percentage={this.state.progress} />
+            <Progress.Circular percentage={this.state.progress} />
           </div>
         </section>
       </div>

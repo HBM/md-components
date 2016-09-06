@@ -1,7 +1,6 @@
 
 export Button from './components/button/'
 export {Card, Title, Actions, Text, Content} from './components/card/'
-export {Linear, Circular} from './components/progress/'
 export Checkbox from './components/checkbox/'
 export Chip from './components/chip/'
 export Header from './components/header/'
