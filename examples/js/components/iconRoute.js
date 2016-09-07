@@ -1,12 +1,11 @@
 import React from 'react'
-// import Icon from '../../../components/icon'
-import Icon from '../../../components/icon/test.js'
+import Icon from '../../../components/icon'
 
 export default class IconRoute extends React.Component {
 
   render () {
     let icons = Object.keys(Icon).map((key, index) => {
-      if (key !== 'Button') {
+      if (key !== 'Button' && key !== 'Logo') {
         let value = Icon[key]
         const style = {display: 'flex', alignItems: 'center', padding: 20, flexDirection: 'column', float: 'left', width: '33%'}
         return (
