@@ -16,7 +16,7 @@ const Textfield = ({
   type,
   value
 }) => {
-  const empty = value === ''
+  const empty = value === undefined || value === ''
   return (
     <label className='Textfield'>
       <div className='Textfield-icon-wrapper'>
