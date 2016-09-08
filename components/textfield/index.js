@@ -7,6 +7,7 @@ const Textfield = ({
   defaultValue,
   disabled,
   error,
+  float,
   icon,
   label,
   name,
@@ -15,7 +16,7 @@ const Textfield = ({
   type,
   value
 }) => {
-  var empty = value === ''
+  const empty = value === ''
   return (
     <label className='Textfield'>
       <div className='Textfield-icon-wrapper'>
@@ -28,8 +29,7 @@ const Textfield = ({
           <input
             autoFocus={autoFocus}
             className={classnames('Textfield-input', {
-              'Textfield-input--error': error,
-              'is-not-empty': !empty
+              'Textfield-input--error': error
             })}
             defaultValue={defaultValue}
             disabled={disabled}
@@ -41,15 +41,12 @@ const Textfield = ({
           />
           <span
             className={classnames('Textfield-label', {
-              'is-not-empty': !empty
+              'Textfield-label--floatup': (float === false || !empty)
             })}
           >
             {label}
           </span>
-          {error
-            ? <span className='Textfield-error'>{error}</span>
-            : null
-          }
+          <span className='Textfield-error'>{error}</span>
         </div>
       </div>
     </label>
@@ -63,6 +60,7 @@ Textfield.propTypes = {
     React.PropTypes.string,
     React.PropTypes.bool
   ]),
+  float: React.PropTypes.bool,
   icon: React.PropTypes.element,
   label: React.PropTypes.string,
   name: React.PropTypes.string,
@@ -82,6 +80,7 @@ Textfield.propTypes = {
 Textfield.defaultProps = {
   autoFocus: false,
   disabled: false,
+  float: true,
   readOnly: false,
   type: 'text'
 }
