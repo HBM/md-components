@@ -1,6 +1,6 @@
 {
   "name": "hbm-react-components",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "HBM React components",
   "main": "index.js",
   "scripts": {
