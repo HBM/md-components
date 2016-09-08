@@ -1,6 +1,23 @@
 
 # CHANGELOG
 
+## v3.0.0 / 2016-09-08
+
+- add new list component [cb3485f](https://github.com/HBM/react-components/commit/cb3485f621fa6e355a7635f5fdc2906cb13367bb)
+- all icons are now auto generated from original Material Design SVG icons [a7aafe0](https://github.com/HBM/react-components/commit/a7aafe0720e17493a63e99efec4c91ffaf94d031)
+- rewrite tests using mocha instead karma [bc69f47](https://github.com/HBM/react-components/commit/bc69f47da39196e76c3f77319090672083793c0a)
+- chip: remove focus outline glow [376e9ba](https://github.com/HBM/react-components/commit/376e9ba4683c6c915081de212ba67ff04ff50c2b)
+- chip: add custom delimiter [ee2be49](https://github.com/HBM/react-components/commit/ee2be4917ff06c8478206df89d82639dada1b675)
+- chip: add `onFocus` and `onBlur` properties [b5ad172](https://github.com/HBM/react-components/commit/b5ad17293b265d4b7dc5a03999fe21da4bbb7876)
+- chip: add `autoFocus` property [3a831f5](https://github.com/HBM/react-components/commit/3a831f58858ec7c9d3cbc530417c7305947b7af1)
+- chip: fix browser backspace behavior [dcf35bd](https://github.com/HBM/react-components/commit/dcf35bd84f0034a908b2b273857aa582d2cc6ee5)
+- chip: add `placeholder` property [29eba18](https://github.com/HBM/react-components/commit/29eba18a506146ec5945598131801bb4f380761b)
+- textfield: add `number` as allowed type to input field [b0e8d44](https://github.com/HBM/react-components/commit/b0e8d44b5f23efc70e478fc8ecc3b86c3b7ff409)
+- textfield: add `float` property to stop label from floating [11d369f](https://github.com/HBM/react-components/commit/11d369f414c1b251e2a6b5f8876576e20edb90c7)
+- checkbox: add `name` and `defaultChecked` properties [2578921](https://github.com/HBM/react-components/commit/2578921f5d2287bdf249ca6bc956176cdafc302a)
+- progress: add prefix `Progress` to `Linear` and `Circular` components [b15a9f7](https://github.com/HBM/react-components/commit/b15a9f7a02e16e3aa51c2ef3cac9699fbd55f957)
+- add live playground with editable code to docs
+
 ## v2.0.0 / 2016-08-16
 
 - button: remove `isRequired` from `onClick` method since submit buttons do not need one [31207e9](https://github.com/HBM/react-components/commit/31207e999f472e5e60eecd2505981500c3efbf4a)
