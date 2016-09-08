@@ -56,6 +56,7 @@ export default class TextfieldRoute extends React.Component {
           <Textfield
             label='Non floating'
             name='nonfloat'
+            float={false}
             value={this.state.nonfloat}
             onChange={this.onChange}
           />
