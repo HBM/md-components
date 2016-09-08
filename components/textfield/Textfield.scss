@@ -74,12 +74,12 @@ $error-color: rgb(244, 67, 54);
 }
 
 .Textfield-input:focus ~ .Textfield-label,
-.Textfield-label.is-not-empty {
+.Textfield-label--floatup {
   transform: translate3d(0, -$padding, 0);
   font-size: $font-small;
 }
 
-.Textfield-label.is-not-empty {
+.Textfield-label--floatup {
   color: rgba($blue-dark, 0.6);
 }
 
@@ -99,4 +99,6 @@ $error-color: rgb(244, 67, 54);
   margin-top: 6px;
   font-size: $font-small;
   color: $error-color;
+  line-height: 16px;
+  min-height: 16px;
 }
