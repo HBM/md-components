@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Icon from '../icon'
 
 const keyEnter = 13
 const keyBackspace = 8
@@ -183,7 +184,7 @@ class Element extends React.Component {
         className='Chip-delete'
         onClick={() => { onDelete(index) }}
       >
-        &times;
+        <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
       </button>
     )
 
