@@ -1,26 +1,16 @@
 
 import React from 'react'
+import ReactDOM from 'react-dom'
 import classnames from 'classnames'
+import Playground from 'component-playground'
 import {Chip} from '../../../'
 
-export default class ChipRoute extends React.Component {
+const chipComponent =
+`class App extends React.Component {
 
   state = {
-    // values is an array of strings
-    values: [],
     focused: false,
-    valuesIV: [],
-    focuseIV: false,
-    valuesDelim: [],
-    focuseDelim: false
-  }
-
-  onDelete = () => {
-    console.log('on delete')
-  }
-
-  onChange = (values) => {
-    this.setState({values})
+    value: []
   }
 
   onFocus = () => {
@@ -35,97 +25,173 @@ export default class ChipRoute extends React.Component {
     })
   }
 
-  onChangeIV = (valuesIV) => {
-    this.setState({valuesIV})
+  onChange = (value) => {
+    this.setState({value})
   }
 
-  onFocusIV = () => {
+  render () {
+    return (
+      <div>
+        <div
+          className={classnames('Chip-example1', {
+            'is-focused': this.state.focused
+          })}
+        >
+          <Chip
+            placeholder={this.state.value.length ? '': 'search ...'}
+            value={this.state.value}
+            onChange={this.onChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+          />
+        </div>
+        {this.state.value.length ? <p>Values</p> : null}
+        <ul>
+          {this.state.value.map((s, i) => <li key={i}>{s.text}</li>)}
+        </ul>
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+const chipInitialValues =
+`class App extends React.Component {
+
+  state = {
+    value: [{text: 'github'}, {text: 'stackoverflow'}],
+    focused: false
+  }
+
+  onChange = (value) => {
+    this.setState({value})
+  }
+
+  onFocus = () => {
     this.setState({
-      focusedIV: true
+      focused: true
     })
   }
 
-  onBlurIV = () => {
+  onBlur = () => {
     this.setState({
-      focusedIV: false
-    })
-  }
-
-  onChangeDelim = (valuesDelim) => {
-    this.setState({valuesDelim})
-  }
-
-  onFocusDelim = () => {
-    this.setState({
-      focusedDelim: true
-    })
-  }
-
-  onBlurDelim = () => {
-    this.setState({
-      focusedDelim: false
+      focused: false
     })
   }
 
   render () {
     return (
       <div>
+        <div
+          className={classnames('Chip-example1', {
+            'is-focused': this.state.focused
+          })}
+        >
+          <Chip
+            onChange={this.onChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            value={this.state.value}
+          />
+        </div>
+        {this.state.value.length ? <p>Values</p> : null}
+        <ul>
+          {this.state.value.map((s, i) => <li key={i}>{s.text}</li>)}
+        </ul>
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+const chipCustomDelimiters =
+`class App extends React.Component {
+
+  state = {
+    value: [],
+    focused: false
+  }
+
+  onChange = (value) => {
+    this.setState({value})
+  }
+
+  onFocus = () => {
+    this.setState({
+      focused: true
+    })
+  }
+
+  onBlur = () => {
+    this.setState({
+      focused: false
+    })
+  }
+
+  render () {
+    return (
+      <div>
+        <div
+          className={classnames('Chip-example1', {
+            'is-focused': this.state.focused
+          })}
+        >
+          <Chip
+            onChange={this.onChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            delimiters={[32]}
+            value={this.state.value}
+          />
+        </div>
+        {this.state.value.length ? <p>Values</p> : null}
+        <ul>
+          {this.state.value.map((s, i) => <li key={i}>{s.text}</li>)}
+        </ul>
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+export default class ChipRoute extends React.Component {
+
+  render () {
+    return (
+      <div>
         <section>
           <h2>Chip</h2>
-          <div
-            className={classnames('Chip-example1', {
-              'is-focused': this.state.focused
-            })}
-          >
-            <Chip onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur} />
-          </div>
-          {this.state.values.length ? <p>Values</p> : null}
-          <ul>
-            {this.state.values.map((s, i) => <li key={i}>{s}</li>)}
-          </ul>
+          <Playground
+            docClass={Chip}
+            codeText={chipComponent}
+            noRender={false}
+            scope={{React, ReactDOM, Chip, classnames}}
+          />
         </section>
         <section>
           <h2>Chip with initial values</h2>
-          <div
-            className={classnames('Chip-example1', {
-              'is-focused': this.state.focusedIV
-            })}
-          >
-            <Chip onChange={this.onChangeIV} onFocus={this.onFocusIV} onBlur={this.onBlurIV} initialValues={['github', 'stackoverflow']} />
-          </div>
-          {this.state.valuesIV.length ? <p>Values</p> : null}
-          <ul>
-            {this.state.valuesIV.map((s, i) => <li key={i}>{s}</li>)}
-          </ul>
+          <Playground
+            codeText={chipInitialValues}
+            noRender={false}
+            scope={{React, ReactDOM, Chip, classnames}}
+          />
         </section>
         <section>
           <h2>Chip with custom delimiters (e.g. space)</h2>
-          <div
-            className={classnames('Chip-example1', {
-              'is-focused': this.state.focusedDelim
-            })}
-          >
-            <Chip onChange={this.onChangeDelim} onFocus={this.onFocusDelim} onBlur={this.onBlurDelim} delimiters={[32]} />
-          </div>
-          {this.state.valuesDelim.length ? <p>Values</p> : null}
-          <ul>
-            {this.state.valuesDelim.map((s, i) => <li key={i}>{s}</li>)}
-          </ul>
+          <Playground
+            codeText={chipCustomDelimiters}
+            noRender={false}
+            scope={{React, ReactDOM, Chip, classnames}}
+          />
         </section>
       </div>
     )
   }
 
 }
-// <section>
-//   <h2>Chip with delete</h2>
-//   <Chip onDelete={this.onDelete} />
-// </section>
-// <section>
-//   <h2>Chip with icon</h2>
-//   <Chip icon='A' />
-// </section>
-// <section>
-//   <h2>Chip with delete and icon</h2>
-//   <Chip icon='A' onDelete={this.onDelete} />
-// </section>
