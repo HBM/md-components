@@ -31,3 +31,34 @@ section {
 .Chip-example1.is-focused {
   border-color: #1b325f;
 }
+
+// fix codemirror styles for demo pages
+.CodeMirror {
+  height: auto;
+}
+
+// demo pages
+.playgroundCode {
+  margin-bottom: 10px;
+}
+
+.playground>div>ul {
+  list-style: none;
+  padding: 0;
+}
+
+.playground>div>ul>li {
+  margin-bottom: 15px;
+}
+
+.playground>div>ul>li>b:first-child {
+  font-weight: normal;
+  font-family: source-code-pro, Menlo, Consolas, Monaco, monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  padding: 0.3rem 0.5rem;
+}
+
+.playground>div>ul>li>i {
+  font-style: normal;
+}

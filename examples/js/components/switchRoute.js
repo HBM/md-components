@@ -1,17 +1,24 @@
 
 import React from 'react'
+import ReactDOM from 'react-dom'
+import Playground from 'component-playground'
 import {Switch} from '../../../'
 
-export default class SwitchRoute extends React.Component {
+const defaultCheckbox =
+`<label>
+  <input type='checkbox' />
+  Checkbox
+</label>`
+
+const switchComponent =
+`class App extends React.Component {
 
   state = {
-    first: false,
-    second: true,
-    third: false
+    switch: false
   }
 
   onChange = (event) => {
-    let {name, checked} = event.target
+    const {name, checked} = event.target
     this.setState({
       [name]: checked
     })
@@ -19,25 +26,72 @@ export default class SwitchRoute extends React.Component {
 
   render () {
     return (
+      <Switch
+        name='switch'
+        checked={this.state.switch}
+        onChange={this.onChange}
+      />
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+const switchOn =
+`<Switch
+  name='switch'
+  checked
+  onChange={(event) => console.log(event)}
+/>`
+
+const switchDisabled =
+`<Switch
+  disabled
+  name='switch'
+  checked
+  onChange={(event) => console.log(event)}
+/>`
+
+export default class SwitchRoute extends React.Component {
+
+  state = {
+    second: true,
+    third: false
+  }
+
+  render () {
+    return (
       <div>
         <section>
           <h2>Default checkbox</h2>
-          <label>
-            <input type='checkbox' />
-            Checkbox
-          </label>
+          <Playground
+            codeText={defaultCheckbox}
+            scope={{React}}
+          />
         </section>
         <section>
           <h2>Switch</h2>
-          <Switch name='first' checked={this.state.first} onChange={this.onChange} />
+          <Playground
+            noRender={false}
+            docClass={Switch}
+            codeText={switchComponent}
+            scope={{React, ReactDOM, Switch}}
+          />
         </section>
         <section>
           <h2>Switch on</h2>
-          <Switch name='second' checked={this.state.second} onChange={this.onChange} />
+          <Playground
+            codeText={switchOn}
+            scope={{React, Switch}}
+          />
         </section>
         <section>
           <h2>Switch disabled</h2>
-          <Switch disabled name='third' checked={this.state.third} onChange={this.onChange} />
+          <Playground
+            codeText={switchDisabled}
+            scope={{React, Switch}}
+          />
         </section>
       </div>
     )
