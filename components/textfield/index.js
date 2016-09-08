@@ -41,7 +41,7 @@ const Textfield = ({
           />
           <span
             className={classnames('Textfield-label', {
-              'Textfield-label--floatup': (float === false || !empty)
+              'Textfield-label--floatup': (!float || !empty)
             })}
           >
             {label}
