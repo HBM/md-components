@@ -36,8 +36,7 @@ const checkboxComponent =
 
 ReactDOM.render(<App />, mountNode)`
 
-const checkboxDisabled =
-`<Checkbox checked disabled />`
+const checkboxDisabled = '<Checkbox checked disabled />'
 
 export default class CheckboxRoute extends React.Component {
 
