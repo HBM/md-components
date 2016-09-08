@@ -8,7 +8,8 @@ export default class TextfieldRoute extends React.Component {
     color: '',
     animal: 'dog',
     country: 'Germany',
-    error: ''
+    error: '',
+    nonfloat: ''
   }
 
   onChange = (event) => {
@@ -48,6 +49,16 @@ export default class TextfieldRoute extends React.Component {
             value={this.state.error}
             onChange={this.onChange}
             error='Username or password incorrect.'
+          />
+        </section>
+        <section>
+          <h2>Textfield fixed (non-floating) label</h2>
+          <Textfield
+            label='Non floating'
+            name='nonfloat'
+            float={false}
+            value={this.state.nonfloat}
+            onChange={this.onChange}
           />
         </section>
       </div>

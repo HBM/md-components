@@ -21,6 +21,22 @@ describe('Textfield', () => {
     assert.equal(wrapper.find('label').text(), 'my custom label')
   })
 
+  it('should not show label floated up when input is empty', () => {
+    const wrapper = mount(<Textfield label='foo' />)
+    assert.equal(wrapper.find('.Textfield-label--floatup').length, 0)
+  })
+
+  it('should show label floated up when input is not empty', () => {
+    const noop = () => {}
+    const wrapper = mount(<Textfield label='foo' value='bar' onChange={noop} />)
+    assert.equal(wrapper.find('.Textfield-label--floatup').length, 1)
+  })
+
+  it('should show label floated up when input is empty and float=false', () => {
+    const wrapper = mount(<Textfield label='foo' float={false} />)
+    assert.equal(wrapper.find('.Textfield-label--floatup').length, 1)
+  })
+
   it('should be able to set to disabled', () => {
     const wrapper = mount(<Textfield disabled />)
     assert(wrapper.find('.Textfield-input').node.disabled)
