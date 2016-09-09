@@ -58,7 +58,7 @@ const createIcons = (root) => {
       const pathIcon = path.join(pathCategory, icon)
       let content = fs.readFileSync(pathIcon, 'utf8')
       // remove unnecessary xmlns attribute and add spreaded props
-      content = content.replace('xmlns="http://www.w3.org/2000/svg"', '').replace(/>/, ' {...props} >')
+      content = content.replace(' xmlns="http://www.w3.org/2000/svg"', '').replace(/>/, ' {...props}>')
       // fix react fill-opacity -> fillOpacity
       content = content.replace('fill-opacity', 'fillOpacity')
       const name = iconName(icon)
