@@ -160,6 +160,66 @@ const chipCustomDelimiters =
 
 ReactDOM.render(<App />, mountNode)`
 
+const chipIcons =
+`class App extends React.Component {
+
+  state = {
+    value: [
+      {text: 'Alice'},
+      {text: 'Claire'},
+      {text: 'John'},
+      {text: 'Megan'},
+      {text: 'Steve'}
+    ],
+    focused: false
+  }
+
+  onChange = (value) => {
+    this.setState({value})
+  }
+
+  onFocus = () => {
+    this.setState({
+      focused: true
+    })
+  }
+
+  onBlur = () => {
+    this.setState({
+      focused: false
+    })
+  }
+
+  render () {
+    const value = this.state.value.map(v => (
+      v.icon = <img src={'/img/' + v.text.toLowerCase() + '.jpg'} />
+    ))
+    return (
+      <div>
+        <div
+          className={classnames('Chip-example1', {
+            'is-focused': this.state.focused
+          })}
+        >
+          <Chip
+            onChange={this.onChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            value={this.state.value}
+          />
+        </div>
+        {this.state.value.length ? <p>Values</p> : null}
+        <ul>
+          {this.state.value.map((s, i) => <li key={i}>{s.text}</li>)}
+        </ul>
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
 export default class ChipRoute extends React.Component {
 
   render () {
@@ -186,6 +246,14 @@ export default class ChipRoute extends React.Component {
           <h2>Chip with custom delimiters (e.g. space)</h2>
           <Playground
             codeText={chipCustomDelimiters}
+            noRender={false}
+            scope={{React, ReactDOM, Chip, classnames}}
+          />
+        </section>
+        <section>
+          <h2>Chip with icons</h2>
+          <Playground
+            codeText={chipIcons}
             noRender={false}
             scope={{React, ReactDOM, Chip, classnames}}
           />

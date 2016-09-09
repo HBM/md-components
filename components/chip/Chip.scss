@@ -1,6 +1,7 @@
 
 .Chip-wrapper {
   cursor: text;
+  display: flex;
 }
 
 .Chip-input {
@@ -45,13 +46,6 @@
 }
 
 .Chip-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
   width: 32px;
   height: 32px;
-  background-color: #009587;
-  border-radius: 50%;
-  font-size: 16px;
 }
