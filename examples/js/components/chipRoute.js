@@ -191,9 +191,12 @@ const chipIcons =
   }
 
   render () {
-    const value = this.state.value.map(v => (
-      v.icon = <img src={'/img/' + v.text.toLowerCase() + '.jpg'} />
-    ))
+    const value = this.state.value.map(v =>
+      v.icon = <img
+        src={'img/' + v.text.toLowerCase() + '.jpg'}
+        style={{maxWidth: '100%', borderRadius: '50%'}}
+      />
+    )
     return (
       <div>
         <div
