@@ -125,6 +125,7 @@ export default class Chip extends React.Component {
             key={i}
             index={i}
             text={chip.text}
+            icon={chip.icon}
             onDelete={this.onDelete}
             onArrowLeft={this.onChipArrowLeft}
             onArrowRight={this.onChipArrowRight}
