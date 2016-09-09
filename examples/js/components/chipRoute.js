@@ -160,7 +160,7 @@ const chipCustomDelimiters =
 
 ReactDOM.render(<App />, mountNode)`
 
-const chipIcons=
+const chipIcons =
 `class App extends React.Component {
 
   state = {
