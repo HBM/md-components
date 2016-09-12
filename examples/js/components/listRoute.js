@@ -4,56 +4,56 @@ import { List, Row, Icon } from '../../../'
 
 const longText = 'This is sometimes a very lengthy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita graviter et severe voluptatem secrevit a bono. Aliter homines, aliter philosophos loqui putas oportere? Nunc haec primum fortasse audientis servire debemus'
 
-const _singleLineItem =
+const singleLineItem =
 `<List>
   <Row primary='Apple' />
   <Row primary='Banana' />
   <Row primary='Strawberry' />
 </List>`
 
-const _singleLineItemWithIcon =
+const singleLineItemWithIcon =
 `<List>
   <Row primary='Apple' icon={<Icon.Assessment />} />
   <Row primary='Banana' icon={<Icon.Assessment />} />
   <Row primary='Strawberry' icon={<Icon.Assessment />} />
 </List>`
 
-const _singleLineItemWithAvatar =
+const singleLineItemWithAvatar =
 `<List>
   <Row primary='Apple' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
   <Row primary='Banana' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
   <Row primary='Strawberry' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
 </List>`
 
-const _singleLineItemWithAvatarAndIcon =
+const singleLineItemWithAvatarAndIcon =
 `<List>
   <Row primary='Apple' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
   <Row primary='Banana' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
   <Row primary='Strawberry' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
 </List>`
 
-const _twoLineItem =
+const twoLineItem =
 `<List>
   <Row primary='Apple' secondary='From Belgium' />
   <Row primary='Banana' secondary='From Sweden' />
   <Row primary='Strawberry' secondary={'From Germany. ' + longText} />
 </List>`
 
-const _twoLineItemWithIcon =
+const twoLineItemWithIcon =
 `<List>
   <Row primary='Apple' icon={<Icon.Assessment />} secondary='Really fresh' />
   <Row primary='Banana' icon={<Icon.Assessment />} secondary='Really fresh' />
   <Row primary='Strawberry' icon={<Icon.Assessment />} secondary='Really fresh' />
 </List>`
 
-const _twoLineItemWithAvatar =
+const twoLineItemWithAvatar =
 `<List>
   <Row primary='Apple' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
   <Row primary='Banana' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
   <Row primary='Strawberry' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
 </List>`
 
-const _twoLineItemWithAvatarAndIcon =
+const twoLineItemWithAvatarAndIcon =
 `<List>
   <Row
     primary='Apple'
@@ -72,14 +72,14 @@ const _twoLineItemWithAvatarAndIcon =
     icon={<Icon.Assessment />} />
 </List>`
 
-const _threeLineSubheaderItem =
+const threeLineSubheaderItem =
 `<List>
   <Row primary='Apple' subheader='Try new fruits' secondary='From Belgium' />
   <Row primary='Banana' subheader='Try new fruits' secondary='From Sweden' />
   <Row primary='Strawberry' subheader='Try new fruits' secondary='From Germany' />
 </List>`
 
-const _threeLineSubheaderItemWithIcon =
+const threeLineSubheaderItemWithIcon =
 `<List>
   <Row
     primary='Apple'
@@ -98,7 +98,7 @@ const _threeLineSubheaderItemWithIcon =
     secondary='Really fresh' />
 </List>`
 
-const _threeLineSubheaderItemWithAvatar =
+const threeLineSubheaderItemWithAvatar =
 `<List>
   <Row
     primary='Apple'
@@ -117,7 +117,7 @@ const _threeLineSubheaderItemWithAvatar =
     avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
 </List>`
 
-const _threeLineSubheaderItemWithAvatarAndIcon =
+const threeLineSubheaderItemWithAvatarAndIcon =
 `<List>
   <Row
     primary='Apple'
@@ -139,14 +139,14 @@ const _threeLineSubheaderItemWithAvatarAndIcon =
     icon={<Icon.Assessment />} />
 </List>`
 
-const _customStyle =
+const customStyle =
 `<List style={{backgroundColor: 'cyan'}}>
   <Row primary='Apple' />
   <Row primary='Banana' />
   <Row primary='Strawberry' />
 </List>`
 
-const _selectable_onFocusOrOnBlurDefinedOnRow =
+const selectableOnFocusOrOnBlurDefinedOnRow =
 `<List>
   <Row primary='Apple' onFocus={() => {}} />
   <Row primary='Banana' onFocus={() => {}} />
@@ -161,70 +161,70 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Single-line item</h2>
           <Playground
-            codeText={_singleLineItem}
+            codeText={singleLineItem}
             scope={{React, List, Row}}
           />
         </section>
         <section>
           <h2>Single-line item with icon</h2>
           <Playground
-            codeText={_singleLineItemWithIcon}
+            codeText={singleLineItemWithIcon}
             scope={{React, List, Row, Icon}}
           />
         </section>
         <section>
           <h2>Single-line item with avatar</h2>
           <Playground
-            codeText={_singleLineItemWithAvatar}
+            codeText={singleLineItemWithAvatar}
             scope={{React, List, Row}}
           />
         </section>
         <section>
           <h2>Single-line item with avatar and icon</h2>
           <Playground
-            codeText={_singleLineItemWithAvatarAndIcon}
+            codeText={singleLineItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon}}
           />
         </section>
         <section>
           <h2>Two-line item</h2>
           <Playground
-            codeText={_twoLineItem}
+            codeText={twoLineItem}
             scope={{React, List, Row, longText}}
           />
         </section>
         <section>
           <h2>Two-line item with icon</h2>
           <Playground
-            codeText={_twoLineItemWithIcon}
+            codeText={twoLineItemWithIcon}
             scope={{React, List, Row, Icon}}
           />
         </section>
         <section>
           <h2>Two-line item with avatar</h2>
           <Playground
-            codeText={_twoLineItemWithAvatar}
+            codeText={twoLineItemWithAvatar}
             scope={{React, List, Row}}
           />
         </section>
         <section>
           <h2>Two-line item with avatar and icon</h2>
           <Playground
-            codeText={_twoLineItemWithAvatarAndIcon}
+            codeText={twoLineItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon, longText}}
           />
         </section>
         <section>
           <h2>Three-line (subheader) item</h2>
           <Playground
-            codeText={_threeLineSubheaderItem}
+            codeText={threeLineSubheaderItem}
             scope={{React, List, Row}}
           />
         </section>
         <section>
           <h2>Three-line (subheader) item with icon</h2>
           <Playground
-            codeText={_threeLineSubheaderItemWithIcon}
+            codeText={threeLineSubheaderItemWithIcon}
             scope={{React, List, Row, Icon}}
           />
 
@@ -232,21 +232,21 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Three-line (subheader) item with avatar</h2>
           <Playground
-            codeText={_threeLineSubheaderItemWithAvatar}
+            codeText={threeLineSubheaderItemWithAvatar}
             scope={{React, List, Row}}
           />
         </section>
         <section>
           <h2>Three-line (subheader) item with avatar and icon</h2>
           <Playground
-            codeText={_threeLineSubheaderItemWithAvatarAndIcon}
+            codeText={threeLineSubheaderItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon}}
           />
         </section>
         <section>
           <h2>Custom style</h2>
           <Playground
-            codeText={_customStyle}
+            codeText={customStyle}
             scope={{React, List, Row}}
           />
 
@@ -254,7 +254,7 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Selectable (onFocus or onBlur defined on Row)</h2>
           <Playground
-            codeText={_selectable_onFocusOrOnBlurDefinedOnRow}
+            codeText={selectableOnFocusOrOnBlurDefinedOnRow}
             scope={{React, List, Row}}
           />
         </section>
