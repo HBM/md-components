@@ -15,7 +15,7 @@ node_js:
 script:
   - make test
   # build minified css and js
-  - npm run examples
+  - npm run build:examples:all
   # - npm run selenium
 
 after_success:
