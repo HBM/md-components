@@ -35,6 +35,7 @@ export default class Chip extends React.Component {
     const text = this.state.inputValue.trim()
     if ((this.props.delimiters.indexOf(event.which) > -1) && text !== '') {
       if (event.which !== keyEnter) {
+        // prevent window.history.back() for backspace (for example)
         event.preventDefault()
       }
       // empty input field
