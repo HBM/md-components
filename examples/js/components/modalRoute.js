@@ -1,15 +1,19 @@
 
 import React from 'react'
+import ReactDOM from 'react-dom'
+import Playground from 'component-playground'
 import {Modal, Button} from '../../../'
 
-export default class ModalRoute extends React.Component {
+const defaultModal =
+`<button type='button' onClick={(event) => {window.confirm('Alert')}}>
+  Alert
+</button>`
+
+const modalAlert =
+`class App extends React.Component {
 
   state = {
     visible: false
-  }
-
-  alert = () => {
-    window.confirm('Alert')
   }
 
   modal = () => {
@@ -25,13 +29,13 @@ export default class ModalRoute extends React.Component {
   }
 
   render () {
-    let header = (
+    const header = (
       <h3>Header</h3>
     )
-    let body = (
+    const body = (
       <div>Body</div>
     )
-    let footer = (
+    const footer = (
       <div>
         <Button onClick={this.toggle}>Cancel</Button>
         <Button onClick={this.toggle}>OK</Button>
@@ -40,13 +44,6 @@ export default class ModalRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default alert</h2>
-          <button type='button' onClick={this.alert}>
-            Alert
-          </button>
-        </section>
-        <section>
-          <h2>Modal</h2>
           <Button onClick={this.modal}>
             Button
           </Button>
@@ -58,6 +55,33 @@ export default class ModalRoute extends React.Component {
           visible={this.state.visible}
           toggle={this.toggle}
         />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+export default class ModalRoute extends React.Component {
+  render () {
+    return (
+      <div>
+        <section>
+          <h2>Default alert</h2>
+          <Playground
+            codeText={defaultModal}
+            scope={{React}}
+          />
+        </section>
+        <section>
+          <h2>Modal</h2>
+          <Playground
+            docClass={Modal}
+            noRender={false}
+            codeText={modalAlert}
+            scope={{React, ReactDOM, Modal, Button}}
+          />
+        </section>
       </div>
     )
   }
