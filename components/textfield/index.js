@@ -62,9 +62,9 @@ const Textfield = ({
 }
 
 Textfield.propTypes = {
+  autoCapitalize: React.PropTypes.string,
   autoComplete: React.PropTypes.string,
   autoCorrect: React.PropTypes.string,
-  autoCapitalize: React.PropTypes.string,
   autoFocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   error: React.PropTypes.oneOfType([
