@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Icon from '../icon'
 
 const keyEnter = 13
 const keyBackspace = 8
@@ -11,58 +12,53 @@ const keyArrowRight = 39
 export default class Chip extends React.Component {
 
   static propTypes = {
+    autoFocus: React.PropTypes.bool,
     delimiters: React.PropTypes.arrayOf(React.PropTypes.number),
+    onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func,
-    initialValues: React.PropTypes.arrayOf(React.PropTypes.string)
+    onFocus: React.PropTypes.func,
+    placeholder: React.PropTypes.string,
+    value: React.PropTypes.arrayOf(React.PropTypes.object)
   }
 
   static defaultProps = {
     onChange: () => {},
-    delimiters: [keyEnter]
+    delimiters: [keyEnter],
+    value: []
   }
 
-  constructor (props) {
-    super(props)
-    const chipFromString = (str) => {
-      return {text: str}
-    }
-    this.state = {
-      value: '',
-      // chips is an array ob objects with keys text, ...
-      chips: props.initialValues && props.initialValues.map(chipFromString) || []
-    }
+  state = {
+    inputValue: ''
   }
 
   onKeyPress = (event) => {
-    if ((this.props.delimiters.indexOf(event.which) > -1) && this.state.value.trim() !== '') {
+    const text = this.state.inputValue.trim()
+    if ((this.props.delimiters.indexOf(event.which) > -1) && text !== '') {
       if (event.which !== keyEnter) {
         event.preventDefault()
       }
+      // empty input field
       this.setState({
-        value: '',
-        chips: [...this.state.chips, {
-          text: this.state.value.trim()
-        }]
-      }, () => {
-        this.callOnChange()
+        inputValue: ''
       })
+      // notify parent component
+      this.props.onChange([
+        ...this.props.value,
+        {text}
+      ])
     }
-  }
-
-  callOnChange = () => {
-    this.props.onChange(this.state.chips.map(c => c.text))
   }
 
   // KeyPress event is invoked only for character (printable) keys.
   // That's why we need KeyDown event for backspace and arrow keys.
   onKeyDown = (event) => {
     // toggle through chips when input field is empty and when we have some chips to toggle through
-    if (this.state.value !== '' || !this.state.chips.length) {
+    if (this.state.inputValue !== '' || !this.props.value.length) {
       return
     }
     // go left
     if (event.which === keyBackspace || event.which === keyArrowLeft) {
-      return this[`element#${this.state.chips.length - 1}`].focus()
+      return this[`element#${this.props.value.length - 1}`].focus()
     }
     // go right
     if (event.which === keyArrowRight) {
@@ -71,28 +67,28 @@ export default class Chip extends React.Component {
   }
 
   onChange = (event) => {
-    const {value} = event.target
-    this.setState({value})
+    this.setState({inputValue: event.target.value})
   }
 
   onDelete = (index) => {
     // remove focused chip
-    this.setState({
-      chips: [...this.state.chips.slice(0, index), ...this.state.chips.slice(index + 1)]
-    }, () => {
-      // callback function is executed once setState is completed and the component is re-rendered.
-      if (this.state.chips.length === 0) {
-        // focus input field when all chips are gone
-        this.input.focus()
-      } else if (this.state.chips.length === index) {
-        // if last chip is deleted select chip to the left
-        this[`element#${index - 1}`].focus()
-      } else {
-        // focus chip to the right
-        this[`element#${index}`].focus()
-      }
-      this.callOnChange()
-    })
+    const value = [
+      ...this.props.value.slice(0, index),
+      ...this.props.value.slice(index + 1)
+    ]
+    // focus appropriate element
+    if (value.length === 0) {
+      // focus input field when all chips are gone
+      this.input.focus()
+    } else if (value.length === index) {
+      // if last chip is deleted select chip to the left
+      this[`element#${index - 1}`].focus()
+    } else {
+      // focus chip to the right
+      this[`element#${index}`].focus()
+    }
+    // notify parent component
+    this.props.onChange(value)
   }
 
   onChipArrowLeft = (index) => {
@@ -104,7 +100,7 @@ export default class Chip extends React.Component {
   }
 
   onChipArrowRight = (index) => {
-    if (index === this.state.chips.length - 1) {
+    if (index === this.props.value.length - 1) {
       this.input.focus()
     } else {
       this[`element#${index + 1}`].focus()
@@ -124,11 +120,12 @@ export default class Chip extends React.Component {
         className='Chip-wrapper'
         onClick={this.onWrapperClick}
       >
-        {this.state.chips.map((chip, i) =>
+        {this.props.value.map((chip, i) =>
           <Element
             key={i}
             index={i}
             text={chip.text}
+            icon={chip.icon}
             onDelete={this.onDelete}
             onArrowLeft={this.onChipArrowLeft}
             onArrowRight={this.onChipArrowRight}
@@ -142,12 +139,13 @@ export default class Chip extends React.Component {
           type='text'
           onKeyPress={this.onKeyPress}
           onKeyDown={this.onKeyDown}
-          value={this.state.value}
+          value={this.state.inputValue}
           onChange={this.onChange}
           ref={c => { this.input = c }}
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}
           autoFocus={this.props.autoFocus}
+          placeholder={this.props.placeholder}
         />
       </div>
     )
@@ -187,7 +185,7 @@ class Element extends React.Component {
         className='Chip-delete'
         onClick={() => { onDelete(index) }}
       >
-        &times;
+        <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
       </button>
     )
 

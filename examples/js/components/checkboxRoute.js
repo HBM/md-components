@@ -4,59 +4,51 @@ import ReactDOM from 'react-dom'
 import Playground from 'component-playground'
 import {Checkbox} from '../../../'
 
-const _classDefault =
+const defaultCheckbox =
 `<label>
   Label
-    <input type='checkbox' />
+  <input type='checkbox' />
 </label>`
 
-const _classCheckbox =
+const checkboxComponent =
 `class App extends React.Component {
+
   state = {
     checked: false
   }
 
-  onChange = (event) => {
+  onChange = () => {
     this.setState({
       checked: !this.state.checked
     })
   }
 
-  render () {
+  render() {
     return (
-      <div>
-        <Checkbox onChange={this.onChange} checked={this.state.checked} />
-      </div>
+      <Checkbox
+        onChange={this.onChange}
+        checked={this.state.checked}
+      />
     )
   }
+
 }
 
 ReactDOM.render(<App />, mountNode)`
 
-const _classDisableCheckbox =
-`class App extends React.Component {
-  state = {
-    checked: false
-  }
-
-  onChange = (event) => {
-    this.setState({
-      checked: !this.state.checked
-    })
-  }
-
-  render () {
-    return (
-      <div>
-        <Checkbox onChange={this.onChange} checked={this.state.checked} disabled />
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(<App />, mountNode)`
+const checkboxDisabled = '<Checkbox checked disabled />'
 
 export default class CheckboxRoute extends React.Component {
+
+  state = {
+    checked: false
+  }
+
+  onChange = (event) => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
 
   render () {
     return (
@@ -64,7 +56,7 @@ export default class CheckboxRoute extends React.Component {
         <section>
           <h2>Default checkbox</h2>
           <Playground
-            codeText={_classDefault}
+            codeText={defaultCheckbox}
             scope={{React}}
           />
         </section>
@@ -72,18 +64,16 @@ export default class CheckboxRoute extends React.Component {
           <h2>Checkbox</h2>
           <Playground
             docClass={Checkbox}
-            codeText={_classCheckbox}
             noRender={false}
+            codeText={checkboxComponent}
             scope={{React, ReactDOM, Checkbox}}
           />
         </section>
         <section>
           <h2>Disabled checkbox</h2>
           <Playground
-            docClass={Checkbox}
-            codeText={_classDisableCheckbox}
-            noRender={false}
-            scope={{React, ReactDOM, Checkbox}}
+            codeText={checkboxDisabled}
+            scope={{React, Checkbox}}
           />
         </section>
       </div>

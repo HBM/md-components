@@ -1,6 +1,8 @@
 
 .Chip-wrapper {
   cursor: text;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Chip-input {
@@ -28,34 +30,23 @@
   outline: none;
 }
 
-.Chip:focus .Chip-delete {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.54);
-}
-
 .Chip-delete {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.54);
-  font-size: 20px;
-  color: rgb(224, 224, 224);
+  padding: 0;
   border: 0;
-  border-radius: 50%;
   outline: none;
-  height: 20px;
-  width: 20px;
+  background: none;
   margin: 0 4px;
 }
 
+.Chip svg {
+  fill: rgba(0, 0, 0, 0.54);
+}
+
+.Chip:focus svg {
+  fill: #fff;
+}
+
 .Chip-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
   width: 32px;
   height: 32px;
-  background-color: #009587;
-  border-radius: 50%;
-  font-size: 16px;
 }

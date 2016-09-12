@@ -22,7 +22,7 @@ describe('Chip', () => {
   })
 
   it('should accept initial chips as property', () => {
-    const wrapper = mount(<Chip initialValues={['one', 'two']} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} />)
     assert.equal(wrapper.find('.Chip').length, 2)
   })
 
