@@ -181,13 +181,13 @@ class Element extends React.Component {
       marginRight: onDelete ? 0 : 12
     }
     const button = (
-      <div
+      <button
         tabIndex='-1'
         className='Chip-delete'
         onClick={() => { onDelete(index) }}
       >
         <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
-      </div>
+      </button>
     )
 
     return (
