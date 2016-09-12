@@ -1,12 +1,13 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, hashHistory} from 'react-router'
+import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import App from './components/app'
 import ButtonRoute from './components/buttonRoute'
 import CardRoute from './components/cardRoute'
 import CheckboxRoute from './components/checkboxRoute'
 import ChipRoute from './components/chipRoute'
+import HomeRoute from './components/homeRoute'
 import IconRoute from './components/iconRoute'
 import ListRoute from './components/listRoute'
 import MenuRoute from './components/menuRoute'
@@ -56,6 +57,7 @@ class Sweden extends React.Component {
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path='/' component={App}>
+      <IndexRoute component={HomeRoute} />
       <Route path='button' component={ButtonRoute} />
       <Route path='card' component={CardRoute} />
       <Route path='checkbox' component={CheckboxRoute} />
