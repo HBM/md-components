@@ -3,6 +3,9 @@ import React from 'react'
 import classnames from 'classnames'
 
 const Textfield = ({
+  autoCapitalize,
+  autoComplete,
+  autoCorrect,
   autoFocus,
   defaultValue,
   disabled,
@@ -13,6 +16,7 @@ const Textfield = ({
   name,
   onChange,
   readOnly,
+  spellCheck,
   type,
   value
 }) => {
@@ -27,6 +31,9 @@ const Textfield = ({
         }
         <div className='Textfield-wrapper'>
           <input
+            autoCapitalize={autoCapitalize}
+            autoComplete={autoComplete}
+            autoCorrect={autoCorrect}
             autoFocus={autoFocus}
             className={classnames('Textfield-input', {
               'Textfield-input--error': error
@@ -36,6 +43,7 @@ const Textfield = ({
             name={name}
             onChange={onChange}
             readOnly={readOnly}
+            spellCheck={spellCheck}
             type={type}
             value={value}
           />
@@ -54,6 +62,9 @@ const Textfield = ({
 }
 
 Textfield.propTypes = {
+  autoCapitalize: React.PropTypes.string,
+  autoComplete: React.PropTypes.string,
+  autoCorrect: React.PropTypes.string,
   autoFocus: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
   error: React.PropTypes.oneOfType([
@@ -66,6 +77,7 @@ Textfield.propTypes = {
   name: React.PropTypes.string,
   onChange: React.PropTypes.func,
   readOnly: React.PropTypes.bool,
+  spellCheck: React.PropTypes.string,
   type: React.PropTypes.oneOf(['text', 'password', 'email', 'search', 'tel', 'url', 'number']),
   value: React.PropTypes.oneOfType([
     React.PropTypes.string,
