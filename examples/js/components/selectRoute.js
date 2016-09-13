@@ -95,23 +95,6 @@ ReactDOM.render(<App />, mountNode)`
 
 export default class SelectRoute extends React.Component {
 
-  state = {
-    selected: -1,
-    selectedWithScrolling: -1
-  }
-
-  onChange = (index) => {
-    this.setState({
-      selected: index
-    })
-  }
-
-  onChangeWithScrolling = (index) => {
-    this.setState({
-      selectedWithScrolling: index
-    })
-  }
-
   render () {
     return (
       <div>
