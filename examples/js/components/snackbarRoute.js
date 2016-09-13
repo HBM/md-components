@@ -37,16 +37,6 @@ ReactDOM.render(<App />, mountNode)`
 
 export default class SnackbarRoute extends React.Component {
 
-  state = {
-    visible: false
-  }
-
-  toggle = () => {
-    this.setState({
-      visible: !this.state.visible
-    })
-  }
-
   render () {
     return (
       <div>
