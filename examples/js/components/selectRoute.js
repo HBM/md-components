@@ -11,7 +11,7 @@ const defaultSelect =
   <option>three</option>
 </select>`
 
-const _select =
+const selectComponent =
 `class App extends React.Component {
   state = {
     selected: -1,
@@ -65,7 +65,7 @@ const selectWithScrolling =
 
 ReactDOM.render(<App />, mountNode)`
 
-const selectWithLabel =
+const selectWithLabelComponent =
 `class App extends React.Component {
   state = {
     selected: -1,
@@ -127,7 +127,7 @@ export default class SelectRoute extends React.Component {
           <Playground
             docClass={Select}
             noRender={false}
-            codeText={_select}
+            codeText={selectComponent}
             scope={{React, ReactDOM, Select}}
           />
         </section>
@@ -145,7 +145,7 @@ export default class SelectRoute extends React.Component {
           <Playground
             docClass={Select}
             noRender={false}
-            codeText={selectWithLabel}
+            codeText={selectWithLabelComponent}
             scope={{React, ReactDOM, Select}}
           />
         </section>
