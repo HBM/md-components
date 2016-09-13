@@ -6,21 +6,24 @@ const defaultSliderComponent =
 `<input
   type='range'
   min='0'
-  max='100' />`
+  max='100'
+/>`
 
 const defaultSliderWithStepsComponent =
 `<input
   type='range'
   min='0'
   max='100'
-  step='10' />`
+  step='10'
+/>`
 
 const sliderComponent =
 '<Slider />'
 
 const sliderWithStepsComponent =
 `<Slider
-  step={10} />`
+  step={10}
+/>`
 
 export default class SliderRoute extends React.Component {
 
