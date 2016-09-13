@@ -164,7 +164,6 @@ export default class TextfieldRoute extends React.Component {
         <section>
           <h2>Textfield</h2>
           <Playground
-            docClass={Textfield}
             noRender={false}
             codeText={textfieldComponent}
             scope={{React, ReactDOM, Textfield}}
@@ -173,7 +172,6 @@ export default class TextfieldRoute extends React.Component {
         <section>
           <h2>Textfield with label</h2>
           <Playground
-            docClass={Textfield}
             noRender={false}
             codeText={textfieldWithLabelComponent}
             scope={{React, ReactDOM, Textfield}}
@@ -182,7 +180,6 @@ export default class TextfieldRoute extends React.Component {
         <section>
           <h2>Read only textfield</h2>
           <Playground
-            docClass={Textfield}
             noRender={false}
             codeText={textfieldReadOnlyComponent}
             scope={{React, ReactDOM, Textfield}}
@@ -191,7 +188,6 @@ export default class TextfieldRoute extends React.Component {
         <section>
           <h2>Textfield with error message</h2>
           <Playground
-            docClass={Textfield}
             noRender={false}
             codeText={textfieldWithErrorMessageComponent}
             scope={{React, ReactDOM, Textfield}}
@@ -200,7 +196,6 @@ export default class TextfieldRoute extends React.Component {
         <section>
           <h2>Textfield fixed (non-floating) label</h2>
           <Playground
-            docClass={Textfield}
             noRender={false}
             codeText={textfieldNonfloatingLabelComponent}
             scope={{React, ReactDOM, Textfield}}
