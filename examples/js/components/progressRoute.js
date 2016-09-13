@@ -77,7 +77,6 @@ export default class ProgressRoute extends React.Component {
         <section>
           <h2>Circular progress</h2>
           <Playground
-            docClass={Progress.Circular}
             noRender={false}
             codeText={circularProgress}
             scope={{React, ReactDOM, Progress}}

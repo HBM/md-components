@@ -52,7 +52,6 @@ export default class CardRoute extends React.Component {
         <section>
           <h2>Card without title</h2>
           <Playground
-            docClass={Card}
             codeText={cardWithoutTitle}
             scope={{React, Button, Card, Title, Text, Actions}}
           />

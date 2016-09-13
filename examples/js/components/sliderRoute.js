@@ -55,7 +55,6 @@ export default class SliderRoute extends React.Component {
         <section>
           <h2>Slider with steps</h2>
           <Playground
-            docClass={Slider}
             codeText={sliderWithStepsComponent}
             scope={{React, Slider}}
           />
