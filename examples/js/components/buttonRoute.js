@@ -9,17 +9,17 @@ const defaultButton =
 </button>`
 
 const buttonComponent =
-`<Button onClick={(event) => {console.log(event)}}>
+`<Button onClick={e => console.log(e)}>
   Button
 </Button>`
 
 const buttonDisabled =
-`<Button onClick={() => {}} disabled>
+`<Button onClick={e => console.log(e)} disabled>
   Disabled
 </Button>`
 
 const buttonRaised =
-`<Button onClick={(event) => {console.log(event)} raised>
+`<Button onClick={e => console.log(e)} raised>
   Raised
 </Button>`
 
