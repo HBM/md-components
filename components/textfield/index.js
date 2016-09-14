@@ -15,12 +15,15 @@ const Textfield = ({
   label,
   name,
   onChange,
+  placeholder,
   readOnly,
   spellCheck,
   type,
   value
 }) => {
-  const empty = value === undefined || value === ''
+  const isValueEmpty = value === undefined || value === ''
+  const isDefaultValueEmpty = defaultValue === undefined || defaultValue === ''
+  const empty = isValueEmpty && isDefaultValueEmpty
   return (
     <label className='Textfield'>
       <div className='Textfield-icon-wrapper'>
@@ -42,6 +45,7 @@ const Textfield = ({
             disabled={disabled}
             name={name}
             onChange={onChange}
+            placeholder={placeholder}
             readOnly={readOnly}
             spellCheck={spellCheck}
             type={type}
