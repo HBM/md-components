@@ -130,6 +130,12 @@ export default class SelectRoute extends React.Component {
             scope={{React, ReactDOM, Select}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/menus.html'>
+            https://material.google.com/components/menus.html
+          </a>
+        </section>
       </div>
     )
   }

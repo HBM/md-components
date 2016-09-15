@@ -165,6 +165,12 @@ export default class TooltipRoute extends React.Component {
             scope={{React, ReactDOM, Tooltip, Icon, Button}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/tooltips.html'>
+            https://material.google.com/components/tooltips.html
+          </a>
+        </section>
       </div>
     )
   }

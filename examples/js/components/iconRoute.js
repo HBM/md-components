@@ -22,6 +22,12 @@ export default class IconRoute extends React.Component {
           <h2>Icons</h2>
           {icons}
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://design.google.com/icons/'>
+            https://design.google.com/icons/
+          </a>
+        </section>
       </div>
     )
   }

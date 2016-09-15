@@ -235,6 +235,12 @@ export default class MenuRoute extends React.Component {
             scope={{React, ReactDOM, Menu, Icon, Divider}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/menus.html'>
+            https://material.google.com/components/menus.html
+          </a>
+        </section>
       </div>
     )
   }
