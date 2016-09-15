@@ -201,6 +201,12 @@ export default class TextfieldRoute extends React.Component {
             scope={{React, ReactDOM, Textfield}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/text-fields.html'>
+            https://material.google.com/components/text-fields.html
+          </a>
+        </section>
       </div>
     )
   }

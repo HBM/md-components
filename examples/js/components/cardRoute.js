@@ -56,6 +56,12 @@ export default class CardRoute extends React.Component {
             scope={{React, Button, Card, Title, Text, Actions}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/cards.html'>
+            https://material.google.com/components/cards.html
+          </a>
+        </section>
       </div>
     )
   }
