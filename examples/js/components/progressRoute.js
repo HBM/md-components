@@ -82,6 +82,12 @@ export default class ProgressRoute extends React.Component {
             scope={{React, ReactDOM, Progress}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/progress-activity.html'>
+            https://material.google.com/components/progress-activity.html
+          </a>
+        </section>
       </div>
     )
   }

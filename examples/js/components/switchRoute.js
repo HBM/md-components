@@ -93,6 +93,12 @@ export default class SwitchRoute extends React.Component {
             scope={{React, Switch}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/selection-controls.html#selection-controls-switch'>
+            https://material.google.com/components/selection-controls.html#selection-controls-switch
+          </a>
+        </section>
       </div>
     )
   }

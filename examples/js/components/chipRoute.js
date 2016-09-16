@@ -261,6 +261,12 @@ export default class ChipRoute extends React.Component {
             scope={{React, ReactDOM, Chip, classnames}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/chips.html'>
+            https://material.google.com/components/chips.html
+          </a>
+        </section>
       </div>
     )
   }

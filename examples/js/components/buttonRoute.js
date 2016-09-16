@@ -60,6 +60,12 @@ export default class ButtonRoute extends React.Component {
             scope={{React, Button}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/buttons.html'>
+            https://material.google.com/components/buttons.html
+          </a>
+        </section>
       </div>
     )
   }

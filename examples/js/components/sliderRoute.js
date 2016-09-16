@@ -59,6 +59,12 @@ export default class SliderRoute extends React.Component {
             scope={{React, Slider}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/sliders.html'>
+            https://material.google.com/components/sliders.html
+          </a>
+        </section>
       </div>
     )
   }

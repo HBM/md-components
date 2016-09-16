@@ -49,6 +49,12 @@ export default class SnackbarRoute extends React.Component {
             scope={{React, ReactDOM, Snackbar, Button}}
           />
         </section>
+        <section>
+          <h2>Specification</h2>
+          <a href='https://material.google.com/components/snackbars-toasts.html'>
+            https://material.google.com/components/snackbars-toasts.html
+          </a>
+        </section>
       </div>
     )
   }
