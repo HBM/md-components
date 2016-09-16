@@ -172,6 +172,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={singleLineItem}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
@@ -179,6 +180,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={singleLineItemWithIcon}
             scope={{React, List, Row, Icon}}
+            collapsableCode
           />
         </section>
         <section>
@@ -186,6 +188,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={singleLineItemWithAvatar}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
@@ -193,6 +196,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={singleLineItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon}}
+            collapsableCode
           />
         </section>
         <section>
@@ -200,6 +204,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={twoLineItem}
             scope={{React, List, Row, longText}}
+            collapsableCode
           />
         </section>
         <section>
@@ -207,6 +212,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={twoLineItemWithIcon}
             scope={{React, List, Row, Icon}}
+            collapsableCode
           />
         </section>
         <section>
@@ -214,6 +220,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={twoLineItemWithAvatar}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
@@ -221,6 +228,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={twoLineItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon, longText}}
+            collapsableCode
           />
         </section>
         <section>
@@ -228,6 +236,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={threeLineSubheaderItem}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
@@ -235,6 +244,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={threeLineSubheaderItemWithIcon}
             scope={{React, List, Row, Icon}}
+            collapsableCode
           />
 
         </section>
@@ -243,6 +253,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={threeLineSubheaderItemWithAvatar}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
@@ -250,6 +261,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={threeLineSubheaderItemWithAvatarAndIcon}
             scope={{React, List, Row, Icon}}
+            collapsableCode
           />
         </section>
         <section>
@@ -257,6 +269,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={customStyle}
             scope={{React, List, Row}}
+            collapsableCode
           />
 
         </section>
@@ -265,6 +278,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={selectableOnFocusOrOnBlurDefinedOnRow}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
