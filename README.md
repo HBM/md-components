@@ -55,6 +55,12 @@ Interested in more of our technical decisions? See [Design Decisions](decisions/
 
 ## Development
 
+```
+make watch &
+make css & 
+make serve &
+```
+
 - [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
 - use [Sass](http://sass-lang.com/)
 - follow [SUIT CSS](https://suitcss.github.io/) guidelines
