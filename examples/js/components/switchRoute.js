@@ -68,7 +68,7 @@ export default class SwitchRoute extends React.Component {
           <Playground
             codeText={defaultCheckbox}
             scope={{React}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -78,7 +78,7 @@ export default class SwitchRoute extends React.Component {
             codeText={switchComponent}
             scope={{React, ReactDOM, Switch}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -86,7 +86,7 @@ export default class SwitchRoute extends React.Component {
           <Playground
             codeText={switchOn}
             scope={{React, Switch}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -94,7 +94,7 @@ export default class SwitchRoute extends React.Component {
           <Playground
             codeText={switchDisabled}
             scope={{React, Switch}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

@@ -72,7 +72,7 @@ export default class ProgressRoute extends React.Component {
             codeText={linearProgress}
             scope={{React, ReactDOM, Progress}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -81,7 +81,7 @@ export default class ProgressRoute extends React.Component {
             codeText={circularProgress}
             scope={{React, ReactDOM, Progress}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

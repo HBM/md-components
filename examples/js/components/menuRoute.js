@@ -209,7 +209,7 @@ export default class MenuRoute extends React.Component {
             codeText={menuTopRight}
             scope={{React, ReactDOM, Menu, Icon, Divider}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -218,7 +218,7 @@ export default class MenuRoute extends React.Component {
             codeText={menuTopLeft}
             scope={{React, ReactDOM, Menu, Icon, Divider}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -227,7 +227,7 @@ export default class MenuRoute extends React.Component {
             codeText={menuBottomRight}
             scope={{React, ReactDOM, Menu, Icon, Divider}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -236,7 +236,7 @@ export default class MenuRoute extends React.Component {
             codeText={menuBottomLeft}
             scope={{React, ReactDOM, Menu, Icon, Divider}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

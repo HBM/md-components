@@ -71,7 +71,7 @@ export default class ModalRoute extends React.Component {
           <Playground
             codeText={defaultModal}
             scope={{React}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -81,7 +81,7 @@ export default class ModalRoute extends React.Component {
             codeText={modalAlert}
             scope={{React, ReactDOM, Modal, Button}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

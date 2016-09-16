@@ -103,7 +103,7 @@ export default class SelectRoute extends React.Component {
           <Playground
             codeText={defaultSelect}
             scope={{React}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -113,7 +113,7 @@ export default class SelectRoute extends React.Component {
             codeText={selectComponent}
             scope={{React, ReactDOM, Select}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -122,7 +122,7 @@ export default class SelectRoute extends React.Component {
             codeText={selectWithScrolling}
             scope={{React, ReactDOM, Select}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -131,7 +131,7 @@ export default class SelectRoute extends React.Component {
             codeText={selectWithLabelComponent}
             scope={{React, ReactDOM, Select}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

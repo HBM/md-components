@@ -235,7 +235,7 @@ export default class ChipRoute extends React.Component {
             codeText={chipComponent}
             scope={{React, ReactDOM, Chip, classnames}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -244,7 +244,7 @@ export default class ChipRoute extends React.Component {
             codeText={chipInitialValues}
             scope={{React, ReactDOM, Chip, classnames}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -253,7 +253,7 @@ export default class ChipRoute extends React.Component {
             codeText={chipCustomDelimiters}
             scope={{React, ReactDOM, Chip, classnames}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -262,7 +262,7 @@ export default class ChipRoute extends React.Component {
             codeText={chipIcons}
             scope={{React, ReactDOM, Chip, classnames}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

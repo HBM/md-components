@@ -53,7 +53,7 @@ export default class SparklineRoute extends React.Component {
           codeText={sparklineComponent}
           scope={{React, ReactDOM, Sparkline}}
           noRender={false}
-          collapsableCode={true}
+          collapsableCode
         />
       </section>
     )

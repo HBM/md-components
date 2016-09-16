@@ -151,7 +151,7 @@ export default class TextfieldRoute extends React.Component {
           <Playground
             codeText={inputComponent}
             scope={{React}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -160,7 +160,7 @@ export default class TextfieldRoute extends React.Component {
             docClass={Textfield}
             codeText={textfieldWithDefaultValueComponent}
             scope={{React, Textfield}}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -169,7 +169,7 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -178,7 +178,7 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldWithLabelComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -187,7 +187,7 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldReadOnlyComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -196,7 +196,7 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldWithErrorMessageComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
@@ -205,7 +205,7 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldNonfloatingLabelComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>

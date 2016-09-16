@@ -47,7 +47,7 @@ export default class SnackbarRoute extends React.Component {
             codeText={snackbarComponent}
             scope={{React, ReactDOM, Snackbar, Button}}
             noRender={false}
-            collapsableCode={true}
+            collapsableCode
           />
         </section>
         <section>
