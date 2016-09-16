@@ -58,15 +58,17 @@ export default class CheckboxRoute extends React.Component {
           <Playground
             codeText={defaultCheckbox}
             scope={{React}}
+            collapsableCode={true}
           />
         </section>
         <section>
           <h2>Checkbox</h2>
           <Playground
             docClass={Checkbox}
-            noRender={false}
             codeText={checkboxComponent}
             scope={{React, ReactDOM, Checkbox}}
+            noRender={false}
+            collapsableCode={true}
           />
         </section>
         <section>
@@ -74,6 +76,7 @@ export default class CheckboxRoute extends React.Component {
           <Playground
             codeText={checkboxDisabled}
             scope={{React, Checkbox}}
+            collapsableCode={true}
           />
         </section>
         <section>

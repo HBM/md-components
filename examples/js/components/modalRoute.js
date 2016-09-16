@@ -71,15 +71,17 @@ export default class ModalRoute extends React.Component {
           <Playground
             codeText={defaultModal}
             scope={{React}}
+            collapsableCode={true}
           />
         </section>
         <section>
           <h2>Modal</h2>
           <Playground
             docClass={Modal}
-            noRender={false}
             codeText={modalAlert}
             scope={{React, ReactDOM, Modal, Button}}
+            noRender={false}
+            collapsableCode={true}
           />
         </section>
         <section>
