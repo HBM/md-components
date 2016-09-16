@@ -8,6 +8,23 @@ const keyDelete = 46
 const keyArrowLeft = 37
 const keyArrowRight = 39
 
+const focusLeftOrRight = (event, leftKeys, rightKeys) => {
+  // go left
+  if (leftKeys.indexOf(event.which) > -1) {
+    if (event.target.previousSibling) {
+      return event.target.previousSibling.focus()
+    }
+    return event.target.parentNode.lastChild.focus()
+  }
+  // go right
+  if (rightKeys.indexOf(event.which) > -1) {
+    if (event.target.nextSibling) {
+      return event.target.nextSibling.focus()
+    }
+    return event.target.parentNode.firstChild.focus()
+  }
+}
+
 // input fields which handles all logic
 export default class Chip extends React.Component {
 
@@ -57,21 +74,14 @@ export default class Chip extends React.Component {
     if (this.state.inputValue !== '' || !this.props.value.length) {
       return
     }
-    // go left
-    if (event.which === keyBackspace || event.which === keyArrowLeft) {
-      return this[`element#${this.props.value.length - 1}`].focus()
-    }
-    // go right
-    if (event.which === keyArrowRight) {
-      return this[`element#${0}`].focus()
-    }
+    return focusLeftOrRight(event, [keyBackspace, keyArrowLeft], [keyArrowRight])
   }
 
   onChange = (event) => {
     this.setState({inputValue: event.target.value})
   }
 
-  onDelete = (index) => {
+  onDelete = (target, index) => {
     // remove focused chip
     const value = [
       ...this.props.value.slice(0, index),
@@ -83,29 +93,13 @@ export default class Chip extends React.Component {
       this.input.focus()
     } else if (value.length === index) {
       // if last chip is deleted select chip to the left
-      this[`element#${index - 1}`].focus()
-    } else {
+      target.previousSibling.focus()
+    } else if (target.nextSibling) {
       // focus chip to the right
-      this[`element#${index}`].focus()
+      target.nextSibling.focus()
     }
     // notify parent component
     this.props.onChange(value)
-  }
-
-  onChipArrowLeft = (index) => {
-    if (index === 0) {
-      this.input.focus()
-    } else {
-      this[`element#${index - 1}`].focus()
-    }
-  }
-
-  onChipArrowRight = (index) => {
-    if (index === this.props.value.length - 1) {
-      this.input.focus()
-    } else {
-      this[`element#${index + 1}`].focus()
-    }
   }
 
   onWrapperClick = (event) => {
@@ -128,11 +122,8 @@ export default class Chip extends React.Component {
             text={chip.text}
             icon={chip.icon}
             onDelete={this.onDelete}
-            onArrowLeft={this.onChipArrowLeft}
-            onArrowRight={this.onChipArrowRight}
             onFocus={this.props.onFocus}
             onBlur={this.props.onBlur}
-            ref={c => { this[`element#${i}`] = c }}
           />
         )}
         <input
@@ -154,69 +145,52 @@ export default class Chip extends React.Component {
 
 }
 
-class Element extends React.Component {
-
-  static propTypes = {
-    autoFocus: React.PropTypes.bool,
-    icon: React.PropTypes.string,
-    onDelete: React.PropTypes.func,
-    onBlur: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
-    text: React.PropTypes.string
+const Element = ({
+    autoFocus,
+    icon,
+    index,
+    onBlur,
+    onDelete,
+    onFocus,
+    text
+  }) => {
+  const textStyle = {
+    marginLeft: icon ? 8 : 12,
+    marginRight: onDelete ? 0 : 12
   }
-
-  static defaultProps = {
-    autoFocus: false,
-    text: 'Chip'
-  }
-
-  focus = () => {
-    this.chipRef.focus()
-  }
-
-  render () {
-    const {text, onDelete, icon, index, onArrowLeft, onArrowRight, onBlur, onFocus} = this.props
-    const textStyle = {
-      marginLeft: icon ? 8 : 12,
-      marginRight: onDelete ? 0 : 12
+  const button = (
+    <button
+      tabIndex='-1'
+      className='Chip-delete'
+      onClick={(event) => {
+        // the event target is the path (child of svg (child of button (child of .Chip)))
+        onDelete(event.target.parentElement.parentElement.parentElement, index)
+      }}
+    >
+      <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
+    </button>
+  )
+  const onKeyDown = (event) => {
+    if (event.which === keyBackspace || event.which === keyDelete) {
+      event.preventDefault()
+      return onDelete(event.target, index)
     }
-    const button = (
-      <button
-        tabIndex='-1'
-        className='Chip-delete'
-        onClick={() => { onDelete(index) }}
-      >
-        <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
-      </button>
-    )
-
-    return (
-      <div
-        className='Chip'
-        tabIndex='0'
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onKeyDown={(event) => {
-          if (event.which === keyBackspace || event.which === keyDelete) {
-            event.preventDefault()
-            return onDelete(index)
-          }
-          if (event.which === keyArrowLeft) {
-            return onArrowLeft(index)
-          }
-          if (event.which === keyArrowRight) {
-            return onArrowRight(index)
-          }
-        }}
-        ref={c => { this.chipRef = c }}
-      >
-        {icon ? <div className='Chip-icon'>{icon}</div> : null}
-        <span style={textStyle}>
-          {text}
-        </span>
-        {onDelete ? button : null}
-      </div>
-    )
+    return focusLeftOrRight(event, [keyArrowLeft], [keyArrowRight])
   }
 
+  return (
+    <div
+      className='Chip'
+      tabIndex='0'
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onKeyDown={onKeyDown}
+    >
+      {icon ? <div className='Chip-icon'>{icon}</div> : null}
+      <span style={textStyle}>
+        {text}
+      </span>
+      {onDelete ? button : null}
+    </div>
+  )
 }
