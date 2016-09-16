@@ -153,6 +153,15 @@ const selectableOnFocusOrOnBlurDefinedOnRow =
   <Row primary='Strawberry' onFocus={() => {}} />
 </List>`
 
+const linkList =
+`// Links in preview are not working yet.
+// The active class is automatically added when using react-router.
+<List>
+  <Row primary='Modal' linkTo='/modal' className='active'/>
+  <Row primary='List' linkTo='/list' />
+  <Row primary='Tooltip' linkTo='/tooltip' />
+</List>`
+
 export default class ListRoute extends React.Component {
 
   render () {
@@ -255,6 +264,13 @@ export default class ListRoute extends React.Component {
           <h2>Selectable (onFocus or onBlur defined on Row)</h2>
           <Playground
             codeText={selectableOnFocusOrOnBlurDefinedOnRow}
+            scope={{React, List, Row}}
+          />
+        </section>
+        <section>
+          <h2>Link list (linkTo defined)</h2>
+          <Playground
+            codeText={linkList}
             scope={{React, List, Row}}
           />
         </section>
