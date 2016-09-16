@@ -20,6 +20,26 @@ describe('List', () => {
     assert.equal(wrapper.find('.List-row').length, 2)
   })
 
+  it('should render as <ol> <li> when no link is present', () => {
+    const wrapper = mount(
+      <List>
+        <Row primary='A' />
+        <Row primary='B' />
+      </List>)
+    assert.equal(wrapper.find('ol').length, 1)
+    assert.equal(wrapper.find('li.List-row').length, 2)
+  })
+
+  it('should render as <div> <a> when rows have linkTo prop', () => {
+    const wrapper = mount(
+      <List>
+        <Row primary='A' linkTo='foo' />
+        <Row primary='B' linkTo='bar' />
+      </List>)
+    assert.equal(wrapper.find('div.List').length, 1)
+    assert.equal(wrapper.find('a.List-row.List-row--islink').length, 2)
+  })
+
   describe('Row', () => {
     it('should render "primary"', () => {
       const wrapper = shallow(<Row primary='ABC' />)
