@@ -6,3 +6,8 @@ styles.min.css
 npm-debug.log
 *.swp
 coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
