@@ -40,7 +40,6 @@ export default class Chip extends React.Component {
   }
 
   static defaultProps = {
-    onChange: () => {},
     deletable: true,
     delimiters: [keyEnter],
     value: []
@@ -106,7 +105,7 @@ export default class Chip extends React.Component {
 
   onWrapperClick = (event) => {
     // do not handle click events on children, e.g. chips
-    if (event.target === event.currentTarget) {
+    if (event.target === event.currentTarget && this.input) {
       this.input.focus()
     }
   }
@@ -123,12 +122,12 @@ export default class Chip extends React.Component {
             index={i}
             text={chip.text}
             icon={chip.icon}
-            onDelete={this.props.deletable && this.onDelete}
+            onDelete={this.props.onChange && this.props.deletable && this.onDelete}
             onFocus={this.props.onFocus}
             onBlur={this.props.onBlur}
           />
         )}
-        <input
+        {this.props.onChange && <input
           className='Chip-input'
           type='text'
           onKeyPress={this.onKeyPress}
@@ -140,7 +139,7 @@ export default class Chip extends React.Component {
           onBlur={this.props.onBlur}
           autoFocus={this.props.autoFocus}
           placeholder={this.props.placeholder}
-        />
+        />}
       </div>
     )
   }
@@ -165,8 +164,7 @@ const Element = ({
       tabIndex='-1'
       className='Chip-delete'
       onClick={(event) => {
-        // the event target is the path (child of svg (child of button (child of .Chip)))
-        onDelete(event.target.parentElement.parentElement.parentElement, index)
+        onDelete(event.currentTarget.parentElement, index)
       }}
     >
       <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
