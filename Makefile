@@ -21,6 +21,7 @@ watch:
 
 .PHONY: css
 css:
+	$(SASS) examples/css/styles.scss examples/css/styles.min.css
 	$(SASS) --watch examples/css/styles.scss examples/css/styles.min.css
 
 .PHONY: serve
