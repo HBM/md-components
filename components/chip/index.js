@@ -30,6 +30,7 @@ export default class Chip extends React.Component {
 
   static propTypes = {
     autoFocus: React.PropTypes.bool,
+    deletable: React.PropTypes.bool,
     delimiters: React.PropTypes.arrayOf(React.PropTypes.number),
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func,
@@ -40,6 +41,7 @@ export default class Chip extends React.Component {
 
   static defaultProps = {
     onChange: () => {},
+    deletable: true,
     delimiters: [keyEnter],
     value: []
   }
@@ -121,7 +123,7 @@ export default class Chip extends React.Component {
             index={i}
             text={chip.text}
             icon={chip.icon}
-            onDelete={this.onDelete}
+            onDelete={this.props.deletable && this.onDelete}
             onFocus={this.props.onFocus}
             onBlur={this.props.onBlur}
           />
@@ -171,7 +173,7 @@ const Element = ({
     </button>
   )
   const onKeyDown = (event) => {
-    if (event.which === keyBackspace || event.which === keyDelete) {
+    if (onDelete && (event.which === keyBackspace || event.which === keyDelete)) {
       event.preventDefault()
       return onDelete(event.target, index)
     }

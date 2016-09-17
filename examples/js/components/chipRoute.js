@@ -57,6 +57,15 @@ const chipComponent =
 
 ReactDOM.render(<App />, mountNode)`
 
+const chipNonDeletable =
+`const chip = (
+  <Chip
+    value={[{text: 'foobar'}, {text: 'the other bar'}]}
+    deletable={false}
+  />
+)
+ReactDOM.render(chip, mountNode)`
+
 const chipInitialValues =
 `class App extends React.Component {
 
@@ -259,6 +268,14 @@ export default class ChipRoute extends React.Component {
             codeText={chipIcons}
             noRender={false}
             scope={{React, ReactDOM, Chip, classnames}}
+          />
+        </section>
+        <section>
+          <h2>Chip deletable=false</h2>
+          <Playground
+            codeText={chipNonDeletable}
+            noRender={false}
+            scope={{React, ReactDOM, Chip}}
           />
         </section>
         <section>

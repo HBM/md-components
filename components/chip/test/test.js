@@ -21,6 +21,17 @@ describe('Chip', () => {
     assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
   })
 
+  it('should not show delete buttons when deletable=false', () => {
+    const wrapper = mount(<Chip value={[{text: 'foo'}]} deletable={false} />)
+    assert.equal(wrapper.find('.Chip').length, 1)
+    assert.equal(wrapper.find('button').length, 0)
+  })
+
+  it('should accept autoFocus prop', () => {
+    const wrapper = mount(<Chip autoFocus />)
+    assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
+  })
+
   it('should accept initial chips as property', () => {
     const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} />)
     assert.equal(wrapper.find('.Chip').length, 2)
