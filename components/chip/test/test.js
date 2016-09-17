@@ -5,10 +5,17 @@ import React from 'react'
 import {mount} from 'enzyme'
 import Chip from '../'
 
+const noop = () => {}
+
 describe('Chip', () => {
   it('should render an input field', () => {
-    const wrapper = mount(<Chip />)
+    const wrapper = mount(<Chip onChange={noop} />)
     assert.equal(wrapper.find('.Chip-input').length, 1)
+  })
+
+  it('should render no input field when onChange is not defined', () => {
+    const wrapper = mount(<Chip />)
+    assert.equal(wrapper.find('.Chip-input').length, 0)
   })
 
   it('should be empty by default', () => {
@@ -17,18 +24,18 @@ describe('Chip', () => {
   })
 
   it('should accept autoFocus prop', () => {
-    const wrapper = mount(<Chip autoFocus />)
+    const wrapper = mount(<Chip autoFocus onChange={noop} />)
     assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
   })
 
   it('should not show delete buttons when deletable=false', () => {
-    const wrapper = mount(<Chip value={[{text: 'foo'}]} deletable={false} />)
+    const wrapper = mount(<Chip value={[{text: 'foo'}]} onChange={noop} deletable={false} />)
     assert.equal(wrapper.find('.Chip').length, 1)
     assert.equal(wrapper.find('button').length, 0)
   })
 
   it('should accept autoFocus prop', () => {
-    const wrapper = mount(<Chip autoFocus />)
+    const wrapper = mount(<Chip autoFocus onChange={noop} />)
     assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
   })
 
@@ -78,7 +85,7 @@ describe('Chip', () => {
   })
 
   it('should focus the last chip when left arrow is pressed inside input the field', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('input').simulate('keydown', {
       which: 37
     })
@@ -86,7 +93,7 @@ describe('Chip', () => {
   })
 
   it('should focus the last chip when backspace is pressed inside input the field', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('input').simulate('keydown', {
       which: 8
     })
@@ -94,7 +101,7 @@ describe('Chip', () => {
   })
 
   it('should focus the first chip when right arrow is pressed inside input the field', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('input').simulate('keydown', {
       which: 39
     })
@@ -102,7 +109,7 @@ describe('Chip', () => {
   })
 
   it('should cycle left when chip is selected and left arrow is clicked', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} onChange={noop} />)
     wrapper.find('.Chip-wrapper').childAt(1).simulate('keydown', {
       which: 37
     })
@@ -110,7 +117,7 @@ describe('Chip', () => {
   })
 
   it('should focus the input field when first chip is selected and left arrow is clicked', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('.Chip').simulate('keydown', {
       which: 37
     })
@@ -118,7 +125,7 @@ describe('Chip', () => {
   })
 
   it('should cycle right when chip is selected and right arrow is clicked', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} onChange={noop} />)
     wrapper.find('.Chip-wrapper').childAt(0).simulate('keydown', {
       which: 39
     })
@@ -126,7 +133,7 @@ describe('Chip', () => {
   })
 
   it('should focus the input field when last chip is selected and right arrow is clicked', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('.Chip').simulate('keydown', {
       which: 39
     })
@@ -134,13 +141,13 @@ describe('Chip', () => {
   })
 
   it('should focus the input field on click on wrapper', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('.Chip-wrapper').simulate('click')
     assert.equal(wrapper.find('.Chip-input').node, document.activeElement)
   })
 
   it('should not focus the input field on click on chip', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('.Chip').simulate('click')
     assert.notEqual(wrapper.find('.Chip-input').node, document.activeElement)
   })
@@ -177,13 +184,13 @@ describe('Chip', () => {
   })
 
   it('should focus the input field when last chip is removed', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}]} onChange={noop} />)
     wrapper.find('.Chip-delete').simulate('click')
     assert.equal(wrapper.find('.Chip-input').node, document.activeElement)
   })
 
   it('should focus chip to the left when last chip is removed', () => {
-    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} />)
+    const wrapper = mount(<Chip value={[{text: 'one'}, {text: 'two'}]} onChange={noop} />)
     wrapper.find('.Chip-wrapper').childAt(1).simulate('keydown', {
       which: 8
     })
