@@ -1,7 +1,6 @@
 
 import React from 'react'
 import classNames from 'classnames'
-import {Motion, spring} from 'react-motion'
 
 /**
  * Modal component
