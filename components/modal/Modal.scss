@@ -7,6 +7,10 @@ $border-color: #e5e5e5;
 
 
 
+.Modal-overlay.Modal-overlay--visible, .Modal.Modal--visible {
+  opacity: 1;
+  pointer-events: initial;
+}
 
 /**
  * Styles
@@ -23,9 +27,14 @@ $border-color: #e5e5e5;
   align-items: center;
   overflow: hidden;
   z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .Modal {
+  pointer-events: none;
+  opacity: 0;
   position: relative;
   margin: 0 10px;
   width: 100vw;
@@ -35,6 +44,7 @@ $border-color: #e5e5e5;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   border: 1px solid $border-color;
   border-radius: 2px;
+  transition: opacity 0.3s ease;
 
   @include medium {
     margin: 0;
