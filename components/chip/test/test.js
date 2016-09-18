@@ -34,6 +34,12 @@ describe('Chip', () => {
     assert.equal(wrapper.find('button').length, 0)
   })
 
+  it('should not show delete buttons when onChange is not defined', () => {
+    const wrapper = mount(<Chip value={[{text: 'foo'}]} />)
+    assert.equal(wrapper.find('.Chip').length, 1)
+    assert.equal(wrapper.find('button').length, 0)
+  })
+
   it('should accept autoFocus prop', () => {
     const wrapper = mount(<Chip autoFocus onChange={noop} />)
     assert.equal(wrapper.find('.Chip-input').prop('autoFocus'), true)
