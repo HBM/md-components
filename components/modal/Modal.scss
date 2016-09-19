@@ -7,7 +7,7 @@ $border-color: #e5e5e5;
 
 
 
-.Modal-overlay.Modal-overlay--visible, .Modal.Modal--visible {
+.Modal-overlay.is-visible, .Modal.is-visible {
   opacity: 1;
   pointer-events: initial;
 }

@@ -7,12 +7,12 @@ import classNames from 'classnames'
  */
 var Modal = ({header, body, footer, visible, toggle}) => (
   <div
-    className={classNames('Modal-overlay', {'Modal-overlay--visible': visible})}
+    className={classNames('Modal-overlay', {'is-visible': visible})}
     onClick={() => toggle(false)}
     onTouchEnd={() => toggle(false)}
   >
     <div
-      className={classNames('Modal', {'Modal--visible': visible})}
+      className={classNames('Modal', {'is-visible': visible})}
       onClick={(e) => e.stopPropagation()}
       onTouchEnd={(e) => e.stopPropagation()}
     >
