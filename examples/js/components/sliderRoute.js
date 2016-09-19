@@ -62,7 +62,7 @@ export default class SliderRoute extends React.Component {
             scope={{React}}
             collapsableCode
           />
-        </section>        
+        </section>
         <section>
           <h2>Specification</h2>
           <a href='https://material.google.com/components/sliders.html'>
