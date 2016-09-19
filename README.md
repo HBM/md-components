@@ -19,14 +19,14 @@ $ npm install --save md-components
 `/js/index.js`
 
 ```js
-import React from 'react';
-import {Button} from 'md-components';
+import React from 'react'
+import {Button} from 'md-components'
 
 
 class App extends React.Component {
 
   onClick = () => {
-    console.log('clicked');
+    console.log('clicked')
   }
 
   render() {
@@ -36,7 +36,7 @@ class App extends React.Component {
           Hello
         </Button>
       </div>
-    );
+    )
   }
 
 }
