@@ -13,7 +13,8 @@ describe('Modal', () => {
 
   it('should be hidden by default', () => {
     const wrapper = mount(<Modal />)
-    assert.equal(wrapper.find('.Modal').length, 0)
+    assert.equal(wrapper.find('.Modal').length, 1)
+    assert.equal(wrapper.find('.Modal--visible').length, 0)
   })
 
   it('should callback when clicking on dark background', (done) => {

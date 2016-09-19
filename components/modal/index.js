@@ -1,48 +1,34 @@
 
 import React from 'react'
-import {Motion, spring} from 'react-motion'
+import classNames from 'classnames'
 
 /**
  * Modal component
  */
 var Modal = ({header, body, footer, visible, toggle}) => (
-  <Motion defaultStyle={{opacity: 0, scale: 0}} style={{
-    opacity: visible ? spring(1) : 0,
-    scale: visible ? spring(1) : 0
-  }}>
-    {style =>
-      visible &&
-        <div
-          className='Modal-overlay'
-          onClick={() => toggle(false)}
-          onTouchEnd={() => toggle(false)}
-          style={{
-            opacity: style.opacity
-          }}
-        >
-          <div
-            className='Modal'
-            onClick={(e) => e.stopPropagation()}
-            onTouchEnd={(e) => e.stopPropagation()}
-            style={{
-              transform: `scale(${style.scale})`
-            }}
-          >
-            <div className='Modal-content'>
-              <div className='Modal-header'>
-                {header}
-              </div>
-              <div className='Modal-body'>
-                {body}
-              </div>
-            </div>
-            <div className='Modal-footer'>
-              {footer}
-            </div>
-          </div>
+  <div
+    className={classNames('Modal-overlay', {'is-visible': visible})}
+    onClick={() => toggle(false)}
+    onTouchEnd={() => toggle(false)}
+  >
+    <div
+      className={classNames('Modal', {'is-visible': visible})}
+      onClick={(e) => e.stopPropagation()}
+      onTouchEnd={(e) => e.stopPropagation()}
+    >
+      <div className='Modal-content'>
+        <div className='Modal-header'>
+          {header}
         </div>
-    }
-  </Motion>
+        <div className='Modal-body'>
+          {body}
+        </div>
+      </div>
+      <div className='Modal-footer'>
+        {footer}
+      </div>
+    </div>
+  </div>
 )
 
 Modal.propTypes = {
