@@ -25,7 +25,7 @@ const Textfield = ({
   const isDefaultValueEmpty = defaultValue === undefined || defaultValue === ''
   const empty = isValueEmpty && isDefaultValueEmpty
   return (
-    <label className='Textfield'>
+    <label className={classnames('Textfield', {'Textfield--nolabel': !label})} >
       <div className='Textfield-icon-wrapper'>
         {
           icon

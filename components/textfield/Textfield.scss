@@ -11,8 +11,14 @@ $error-color: rgb(244, 67, 54);
 
 .Textfield {
   display: block;
-  padding-top: 16px;
-  padding-bottom: 8px;
+}
+
+.Textfield--nolabel .Textfield-label {
+  display: none;
+}
+
+.Textfield--nolabel .Textfield-input {
+  margin-top: 14px;
 }
 
 .Textfield-icon-wrapper {
@@ -30,6 +36,8 @@ $error-color: rgb(244, 67, 54);
   height: 48px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-right: 16px;
 }
 
 .Textfield-label {
