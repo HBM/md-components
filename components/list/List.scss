@@ -5,7 +5,7 @@
 @import "../../css/mixins";
 
 .List {
-  padding: 0 0;
+  padding: 8px 0;
   margin: 0 0;
   list-style: none;
   background-color: white;
@@ -28,13 +28,19 @@
   margin-bottom: 0px;
 }
 
-.List-row.List-row--selectable:focus {
+.List-row--islink:focus, .List-row--selectable:hover, .List-row--islink:hover {
   background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
   outline: none;
 }
 
-.List-row--selectable:hover {
-  background-color: #fdfdfd;
+.List-row--islink, .List-row--selectable {
+  cursor: pointer;
+}
+
+.List-row:not(.List-row--islink):focus, .List-row--islink.active {
+  background-color: #adadad5e;
+  outline: none;
 }
 
 .List-row-text-secondary, .List-row-text-subheader {
@@ -63,6 +69,7 @@
 }
 
 .List-row {
+  transition: background-color 0.3s ease;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -75,13 +82,9 @@
     padding-left: 24px;
     padding-right: 24px;
   }
-  &:first-child {
-    padding-top: 8px;
-  }
-
-  &:last-child {
-    padding-bottom: 8px;
-  }
+  text-decoration: none;
+  width: 100%;
+  color: inherit;
 }
 
 .List-row-icon-left, .List-row-icon-right, .List-row-avatar {
@@ -94,7 +97,7 @@
   align-items: flex-start;
 
   & > * {
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   .List-row-avatar {

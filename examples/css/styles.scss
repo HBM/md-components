@@ -119,6 +119,11 @@ main h2 {
   padding: 10px;
 }
 
+// extra padding makes list examples look weired
+.ListExamples .playgroundPreview {
+  padding: 0;
+}
+
 .playgroundError {
   padding: 10px;
   font-size: 12px;
