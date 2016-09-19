@@ -60,7 +60,7 @@ const textfieldWithLabelComponent =
 
 ReactDOM.render(<App />, mountNode)`
 
-const textfieldWithLabelAndIconComponent =
+const textfieldWithPlaceholderAndIconComponent =
 `class App extends React.Component {
 
   state = {
@@ -79,6 +79,33 @@ const textfieldWithLabelAndIconComponent =
       <div>
         <Textfield name='phone' placeholder='Phone' value={this.state.phone} onChange={this.onChange} icon={<Icon.Phone />} />
         <Textfield name='email' placeholder='Email' value={this.state.email} onChange={this.onChange} icon={<Icon.Email />} />
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+const textfieldWithPlaceholderAndLabelAndIconComponent =
+`class App extends React.Component {
+
+  state = {
+    phone: '',
+    email: ''
+  }
+
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <Textfield name='phone' placeholder='067 321' value={this.state.phone} onChange={this.onChange} icon={<Icon.Phone />} label='Phone' />
+        <Textfield name='email' placeholder='foo@bar.com' value={this.state.email} onChange={this.onChange} icon={<Icon.Email />} label='Email' />
       </div>
     )
   }
@@ -174,6 +201,15 @@ export default class TextfieldRoute extends React.Component {
     return (
       <div>
         <section>
+          <h2>Textfield with label</h2>
+          <Playground
+            codeText={textfieldWithLabelComponent}
+            scope={{React, ReactDOM, Textfield}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
           <h2>Textfield with default value</h2>
           <Playground
             docClass={Textfield}
@@ -192,18 +228,18 @@ export default class TextfieldRoute extends React.Component {
           />
         </section>
         <section>
-          <h2>Textfield with label</h2>
+          <h2>Textfield with placeholder and icon</h2>
           <Playground
-            codeText={textfieldWithLabelComponent}
-            scope={{React, ReactDOM, Textfield}}
+            codeText={textfieldWithPlaceholderAndIconComponent}
+            scope={{React, ReactDOM, Textfield, Icon}}
             noRender={false}
             collapsableCode
           />
         </section>
         <section>
-          <h2>Textfield with label and icon</h2>
+          <h2>Textfield with label and placeholder and icon</h2>
           <Playground
-            codeText={textfieldWithLabelAndIconComponent}
+            codeText={textfieldWithPlaceholderAndLabelAndIconComponent}
             scope={{React, ReactDOM, Textfield, Icon}}
             noRender={false}
             collapsableCode
