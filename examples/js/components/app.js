@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Header title='HBM/react-components' subtitle={this.state.subtitle} />
+        <Header title='HBM/md-components' subtitle={this.state.subtitle} />
         <Navigation links={links} onChange={this.onChange} />
         <main>
           {this.props.children}
