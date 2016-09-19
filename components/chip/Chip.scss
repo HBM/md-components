@@ -22,9 +22,10 @@
   margin-right: 5px;
   // this might affect parent component but is required for multi row chips
   margin-bottom: 5px;
+  cursor: default;
 }
 
-.Chip:focus {
+.Chip:focus, .Chip:hover {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.54);
   outline: none;
@@ -39,10 +40,10 @@
 }
 
 .Chip svg {
-  fill: rgba(0, 0, 0, 0.54);
+  fill: rgba(0, 0, 0, 0.26);
 }
 
-.Chip:focus svg {
+.Chip:focus svg, .Chip:hover svg {
   fill: #fff;
 }
 
