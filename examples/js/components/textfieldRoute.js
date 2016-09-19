@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Playground from 'component-playground'
-import {Textfield} from '../../../'
+import {Textfield, Icon} from '../../../'
 
 const inputComponent =
 `<input
@@ -53,6 +53,33 @@ const textfieldWithLabelComponent =
   render() {
     return (
       <Textfield label='Country' name='country' value={this.state.country} onChange={this.onChange} />
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
+const textfieldWithLabelAndIconComponent =
+`class App extends React.Component {
+
+  state = {
+    phone: '',
+    email: ''
+  }
+
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <Textfield name='phone' placeholder='Phone' value={this.state.phone} onChange={this.onChange} icon={<Icon.Phone />} />
+        <Textfield name='email' placeholder='Email' value={this.state.email} onChange={this.onChange} icon={<Icon.Email />} />
+      </div>
     )
   }
 
@@ -169,6 +196,15 @@ export default class TextfieldRoute extends React.Component {
           <Playground
             codeText={textfieldWithLabelComponent}
             scope={{React, ReactDOM, Textfield}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Textfield with label and icon</h2>
+          <Playground
+            codeText={textfieldWithLabelAndIconComponent}
+            scope={{React, ReactDOM, Textfield, Icon}}
             noRender={false}
             collapsableCode
           />
