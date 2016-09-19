@@ -10,7 +10,11 @@ We have multiple reasons building our own components instead of using an already
 
 1. We care about long term support
 
-	HBM was founded 60 years and we plan to exist for at least another 60 years. Our high end devices have lifetimes greater than 10 years and we have to ensure we are always able to update them. The web frontend is getting more and more important these days and so we have to achieve the same high quality we have for our embedded code. We are using our react components on a daily basis in our products and ship them to our customers. Fixing bugs will always have highest priority which means you'll always get support. Two engineers are working full time on our frontends and on our react components.
+	[HBM](https://www.hbm.com) was founded 60 years ago and we plan to exist for at least another 60 years. Our high end test and measurement devices have lifetimes greater than 10 years and we have to ensure we are always able to update them. The web frontend is getting more and more important these days. We have to achieve the same high quality we have for our embedded code. We are using our react components on a daily basis in our products and ship them to our customers. Fixing bugs will always have highest priority which means you'll always get support. Three engineers are working full time on our frontends and on our react components.
+
+  - [Fa-So](https://github.com/Fa-So)
+  - [lipp](https://github.com/lipp)
+  - [zemirco](https://github.com/zemirco)
 
 2. We care about code quality
 
@@ -18,4 +22,6 @@ We have multiple reasons building our own components instead of using an already
 
 3. We care about the Google Material Design Styleguide
 
-	The [menu](https://material.google.com/components/menus.html) component (or select / dropdown) is probably the hardest to implement. If you take a look at the videos you'll see that the list always appears on top of the selected element. The list is automatically scrolled to the right position and the selected item never repeats itself. Check out our implementation. You'll love it.
+	The menu component (or select / dropdown) ([spec](https://material.google.com/components/menus.html), [demo](https://hbm.github.io/md-components/#/select)) is probably one of the hardest to implement. If you take a look at the videos you'll see that the list always appears on top of the selected element. The list is automatically scrolled to the right position and the selected item never repeats itself. Check out our implementation. You'll love it.
+
+	Also compare the chips component ([spec](https://material.google.com/components/chips.html), [demo](https://hbm.github.io/md-components/#/chip)) ot other implementations.
