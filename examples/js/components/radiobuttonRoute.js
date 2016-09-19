@@ -34,17 +34,12 @@ const radiobuttonComponent =
 
   render () {
     return (
-      <div>
-        <section>
-          <h2>Radiobutton</h2>
           <Radiobutton
             name='country'
             selectedValue={this.state.selectedValue}
             items={['Germany', 'Spain', 'Sweden']}
             onChange={this.onChange}
           />
-        </section>
-      </div>
     )
   }
 }
@@ -67,20 +62,20 @@ export default class RadiobuttonRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default radiobutton</h2>
-          <Playground
-            codeText={defaultRadiobutton}
-            scope={{React}}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Radiobutton</h2>
           <Playground
             docClass={Radiobutton}
             codeText={radiobuttonComponent}
             scope={{React, ReactDOM, Radiobutton}}
             noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default radiobutton</h2>
+          <Playground
+            codeText={defaultRadiobutton}
+            scope={{React}}
             collapsableCode
           />
         </section>

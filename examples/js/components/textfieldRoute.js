@@ -147,14 +147,6 @@ export default class TextfieldRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default textfield</h2>
-          <Playground
-            codeText={inputComponent}
-            scope={{React}}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Textfield with default value</h2>
           <Playground
             docClass={Textfield}
@@ -205,6 +197,14 @@ export default class TextfieldRoute extends React.Component {
             codeText={textfieldNonfloatingLabelComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default textfield</h2>
+          <Playground
+            codeText={inputComponent}
+            scope={{React}}
             collapsableCode
           />
         </section>

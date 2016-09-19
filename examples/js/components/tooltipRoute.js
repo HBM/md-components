@@ -134,14 +134,6 @@ export default class TooltipRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default title / tooltip</h2>
-          <Playground
-            codeText={tooltipDefault}
-            scope={{React}}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Tooltip</h2>
           <Playground
             docClass={Tooltip}
@@ -166,6 +158,14 @@ export default class TooltipRoute extends React.Component {
             codeText={tooltipButton}
             scope={{React, ReactDOM, Tooltip, Icon, Button}}
             noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default title / tooltip</h2>
+          <Playground
+            codeText={tooltipDefault}
+            scope={{React}}
             collapsableCode
           />
         </section>

@@ -29,14 +29,6 @@ export default class ButtonRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default button</h2>
-          <Playground
-            codeText={defaultButton}
-            scope={{React, Button}}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Button Component</h2>
           <Playground
             docClass={Button}
@@ -60,6 +52,14 @@ export default class ButtonRoute extends React.Component {
           <h2>Raised Button</h2>
           <Playground
             codeText={buttonRaised}
+            scope={{React, Button}}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default button</h2>
+          <Playground
+            codeText={defaultButton}
             scope={{React, Button}}
             collapsableCode
           />
