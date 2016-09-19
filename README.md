@@ -45,7 +45,7 @@ class App extends React.Component {
 `/css/index.scss`
 
 ```scss
-@import "../node_modules/md-components/css/hbm";
+@import "../node_modules/md-components/css/base";
 @import "../node_modules/md-components/button/Button";
 ```
 
