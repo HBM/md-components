@@ -95,9 +95,6 @@ export default class Chip extends React.Component {
     } else if (value.length === index) {
       // if last chip is deleted select chip to the left
       target.previousSibling.focus()
-    } else if (target.nextSibling) {
-      // focus chip to the right
-      target.nextSibling.focus()
     }
     // notify parent component
     this.props.onChange(value)
