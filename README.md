@@ -1,17 +1,17 @@
 
-# hbm-react-components
+# md-components
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Build Status](https://travis-ci.org/HBM/react-components.svg?branch=master)](https://travis-ci.org/HBM/react-components)
-[![npm](https://img.shields.io/npm/v/hbm-react-components.svg)](https://www.npmjs.com/package/hbm-react-components)
-[![Coverage Status](https://coveralls.io/repos/github/HBM/react-components/badge.svg)](https://coveralls.io/github/HBM/react-components)
+[![Build Status](https://travis-ci.org/HBM/md-components.svg?branch=master)](https://travis-ci.org/HBM/md-components)
+[![npm](https://img.shields.io/npm/v/md-components.svg)](https://www.npmjs.com/package/md-components)
+[![Coverage Status](https://coveralls.io/repos/github/HBM/md-components/badge.svg)](https://coveralls.io/github/HBM/md-components)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/zemirco.svg)](https://saucelabs.com/u/zemirco)
 
 ## Installation
 
 ```bash
-$ npm install --save hbm-react-components
+$ npm install --save md-components
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ $ npm install --save hbm-react-components
 
 ```js
 import React from 'react';
-import {Button} from 'react-components';
+import {Button} from 'md-components';
 
 
 class App extends React.Component {
@@ -45,8 +45,8 @@ class App extends React.Component {
 `/css/index.scss`
 
 ```scss
-@import "../node_modules/react-components/css/hbm";
-@import "../node_modules/react-components/button/Button";
+@import "../node_modules/md-components/css/hbm";
+@import "../node_modules/md-components/button/Button";
 ```
 
 ## Design Decisions
@@ -57,7 +57,7 @@ Interested in more of our technical decisions? See [Design Decisions](decisions/
 
 ```
 make watch &
-make css & 
+make css &
 make serve &
 ```
 
