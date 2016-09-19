@@ -37,13 +37,14 @@ $error-color: rgb(244, 67, 54);
   display: block;
   font-size: $font-big;
   color: rgba($blue-dark, 0.6);
-  transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 24px, 0);
   transform-origin: left top;
   transition: $transition-function $transition-duration;
   pointer-events: none;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
 
 .Textfield-input {
@@ -56,7 +57,11 @@ $error-color: rgb(244, 67, 54);
   border: none;
   border-bottom: 1px solid $black-012;
   transition: $transition-duration;
-  padding-bottom: $padding;
+  padding: 0;
+  height: 20px;
+  box-sizing: content-box;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .Textfield-input:focus {
@@ -75,7 +80,7 @@ $error-color: rgb(244, 67, 54);
 
 .Textfield-input:focus ~ .Textfield-label,
 .Textfield-label--floatup {
-  transform: translate3d(0, -$padding, 0);
+  transform: translate3d(0, 0, 0);
   font-size: $font-small;
 }
 
@@ -99,6 +104,5 @@ $error-color: rgb(244, 67, 54);
   margin-top: 6px;
   font-size: $font-small;
   color: $error-color;
-  line-height: 16px;
   min-height: 16px;
 }
