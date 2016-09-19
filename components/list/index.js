@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import { Link } from 'react-router'
 
 /**
  * List components
@@ -7,13 +8,40 @@ import classNames from 'classnames'
  *  - borders (spec not clear about borders)
  *  - condensed
  */
-export const List = ({children, style}) => (
-  <ol className='List' style={style}>
-    {children}
-  </ol>
-)
+export const List = ({children, style}) => {
+  let hasLinks
+  React.Children.forEach(children, child => {
+    if (!hasLinks) {
+      hasLinks = child.props.linkTo !== undefined
+    }
+  })
+  if (hasLinks) {
+    return (
+      <div className='List' style={style}>
+        {children}
+      </div>
+    )
+  }
+  return (
+    <ol className='List' style={style}>
+      {children}
+    </ol>
+  )
+}
 
-export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFocus, onBlur, style}) => {
+export const Row = ({
+  avatar,
+  className,
+  icon,
+  linkTo,
+  onBlur,
+  onClick,
+  onFocus,
+  primary,
+  secondary,
+  style,
+  subheader
+  }) => {
   const onKeyDown = (event) => {
     const arrowUp = 38
     const arrowDown = 40
@@ -28,45 +56,51 @@ export const Row = ({primary, secondary, subheader, avatar, icon, onClick, onFoc
   }
 
   const avatarElement = avatar &&
-    <div className='List-row-avatar'>
+    <div className='List-row-avatar' key='avatar'>
       {(typeof avatar === 'string' ? <img src={avatar} /> : avatar)}
     </div>
 
   const iconLeftElement = !avatar && icon &&
-    <div className='List-row-icon-left'>
+    <div className='List-row-icon-left' key='icon-left'>
       {icon}
     </div>
 
   const iconRightElement = avatar && icon &&
-    <div className='List-row-icon-right'>
+    <div className='List-row-icon-right' key='icon-right'>
       {icon}
     </div>
 
   const isSelectable = onFocus || onBlur
 
   const dynamicClasses = {
+    'List-row--islink': linkTo !== undefined,
     'List-row--oneline': (!secondary && !subheader),
     'List-row--twoline': (secondary && !subheader),
     'List-row--threeline': (secondary && subheader),
     'List-row--selectable': isSelectable
   }
-  return (
-    <li
-      className={classNames('List-row', dynamicClasses)}
-      onClick={onClick}
-      style={style}
-      onKeyDown={onKeyDown}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      tabIndex={isSelectable ? '0' : null} >
-      {avatarElement}
-      {iconLeftElement}
-      <div className='List-row-text'>
-        <h3 className='List-row-text-primary'>{primary}</h3>
-        {subheader && <h4 className='List-row-text-subheader'>{subheader}</h4>}
-        {secondary && <span className='List-row-text-secondary'>{secondary}</span>}
-      </div>
-      {iconRightElement}
-    </li>
+
+  const textElement = (
+    <div className='List-row-text' key='text'>
+      <h3 className='List-row-text-primary'>{primary}</h3>
+      {subheader && <h4 className='List-row-text-subheader'>{subheader}</h4>}
+      {secondary && <span className='List-row-text-secondary'>{secondary}</span>}
+    </div>
   )
+
+  const rowContent = [avatarElement, iconLeftElement, textElement, iconRightElement]
+  const rowProps = {
+    className: classNames(className ? className + ' List-row' : 'List-row', dynamicClasses),
+    onClick,
+    style,
+    onKeyDown,
+    onFocus,
+    onBlur,
+    tabIndex: isSelectable ? '0' : null
+  }
+  if (linkTo) {
+    return <Link to={linkTo} activeClassName='active' {...rowProps}>{rowContent}</Link>
+  } else {
+    return <li {...rowProps}>{rowContent}</li>
+  }
 }
