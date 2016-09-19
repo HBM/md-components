@@ -278,8 +278,9 @@ export default class ChipRoute extends React.Component {
           <h2>Chip deletable=false</h2>
           <Playground
             codeText={chipNonDeletable}
-            noRender={false}
             scope={{React, ReactDOM, Chip}}
+            noRender={false}
+            collapsableCode
           />
         </section>
         <section>

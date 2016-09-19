@@ -52,13 +52,11 @@ const selectWithScrolling =
 
   render () {
     return (
-      <div>
       <Select
         onChange={this.onChange}
         items={['Blue', 'Red', 'Green', 'Yellow', 'Orange', 'Black', 'White']}
         selectedIndex={this.state.selected}
       />
-      </div>
     )
   }
 }
@@ -79,14 +77,12 @@ const selectWithLabelComponent =
 
   render () {
     return (
-      <div>
       <Select
         label='Some label'
         onChange={this.onChange}
         items={['Blue', 'Red', 'Green']}
         selectedIndex={this.state.selected}
       />
-      </div>
     )
   }
 }
@@ -98,14 +94,6 @@ export default class SelectRoute extends React.Component {
   render () {
     return (
       <div>
-        <section>
-          <h2>Default select</h2>
-          <Playground
-            codeText={defaultSelect}
-            scope={{React}}
-            collapsableCode
-          />
-        </section>
         <section>
           <h2>Select</h2>
           <Playground
@@ -131,6 +119,14 @@ export default class SelectRoute extends React.Component {
             codeText={selectWithLabelComponent}
             scope={{React, ReactDOM, Select}}
             noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default select</h2>
+          <Playground
+            codeText={defaultSelect}
+            scope={{React}}
             collapsableCode
           />
         </section>
