@@ -232,7 +232,7 @@ const chipIcons =
 
 ReactDOM.render(<App />, mountNode)`
 
-const chipInsideForm=
+const chipInsideForm =
 `class App extends React.Component {
 
   state = {
