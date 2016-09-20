@@ -19,7 +19,7 @@ script:
   # - npm run selenium
 
 after_success:
-#   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - ./scripts/sauce.sh
 
 before_install:
