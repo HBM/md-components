@@ -8,7 +8,13 @@
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/zemirco.svg)](https://saucelabs.com/u/zemirco)
 
+## Demo
+
+Demos with __editable__ code examples are available on the [gh-pages](https://hbm.github.io/md-components).
+
 ## Installation
+
+NodeJS > 6 is required for building the examples and running the tests.
 
 ```bash
 $ npm install --save md-components
