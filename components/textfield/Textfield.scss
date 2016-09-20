@@ -38,6 +38,11 @@ $error-color: rgb(244, 67, 54);
   align-items: center;
   justify-content: center;
   margin-right: 16px;
+  margin-top: 22px;
+}
+
+.Textfield--nolabel .Textfield-icon {
+  margin-top: 0px;
 }
 
 .Textfield-label {
@@ -75,6 +80,10 @@ $error-color: rgb(244, 67, 54);
 .Textfield-input:focus {
   border-bottom-color: $blue-dark;
   box-shadow: 0 1px 0 0 $blue-dark;
+}
+
+.Textfield:not(.Textfield--nolabel) .Textfield-input:not(:focus)::-webkit-input-placeholder {
+  color: transparent;
 }
 
 .Textfield-input--error {
