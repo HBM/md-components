@@ -30,4 +30,4 @@ serve:
 
 .PHONY: test
 test:
-	$(STANDARD) && $(ISTANBUL) cover --report html $(MOCHA) test/.setup.js components/**/test/test.js
+	$(STANDARD) && $(ISTANBUL) cover $(MOCHA) test/.setup.js components/**/test/test.js
