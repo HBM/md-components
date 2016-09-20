@@ -232,6 +232,60 @@ const chipIcons =
 
 ReactDOM.render(<App />, mountNode)`
 
+const chipInsideForm =
+`class App extends React.Component {
+
+  state = {
+    focused: false,
+    value: []
+  }
+
+  onFocus = () => {
+    this.setState({
+      focused: true
+    })
+  }
+
+  onBlur = () => {
+    this.setState({
+      focused: false
+    })
+  }
+
+  onChange = (value) => {
+    this.setState({value})
+  }
+
+  render () {
+    return (
+      <div>
+        <div
+          className={classnames('Chip-example1', {
+            'is-focused': this.state.focused
+          })}
+        >
+          <form onSubmit={(e) => console.log('on submit', e)}>
+            <Chip
+              placeholder={this.state.value.length ? '': 'search ...'}
+              value={this.state.value}
+              onChange={this.onChange}
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
+            />
+          </form>
+        </div>
+        {this.state.value.length ? <p>Values</p> : null}
+        <ul>
+          {this.state.value.map((s, i) => <li key={i}>{s.text}</li>)}
+        </ul>
+      </div>
+    )
+  }
+
+}
+
+ReactDOM.render(<App />, mountNode)`
+
 export default class ChipRoute extends React.Component {
 
   render () {
@@ -279,6 +333,15 @@ export default class ChipRoute extends React.Component {
           <Playground
             codeText={chipNonDeletable}
             scope={{React, ReactDOM, Chip}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Chip inside form</h2>
+          <Playground
+            codeText={chipInsideForm}
+            scope={{React, ReactDOM, Chip, classnames}}
             noRender={false}
             collapsableCode
           />
