@@ -158,6 +158,7 @@ const Element = ({
   }
   const button = (
     <button
+      type='button'
       tabIndex='-1'
       className='Chip-delete'
       onClick={(event) => {
