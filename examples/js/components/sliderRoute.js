@@ -37,8 +37,8 @@ const sliderComponent =
   render () {
     return (
         <div>
-          <h4>onChange: {this.state.value}</h4>
-          <h4>onMouseUp: {this.state.settledValue}</h4>
+          <h4>onChange: {Math.round(this.state.value)}</h4>
+          <h4>onMouseUp: {Math.round(this.state.settledValue)}</h4>
           <Slider onChange={this.onChange} onMouseUp={this.onMouseUp} />
         </div>
     )
