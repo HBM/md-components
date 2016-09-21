@@ -20,7 +20,7 @@ script:
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - ./scripts/sauce.sh
+  - ./bin/sauce.sh
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_b3ecc378ff3b_key -iv $encrypted_b3ecc378ff3b_iv -in scripts/travis.enc -out scripts/travis -d
+  - openssl aes-256-cbc -K $encrypted_b3ecc378ff3b_key -iv $encrypted_b3ecc378ff3b_iv -in bin/travis.enc -out bin/travis -d
