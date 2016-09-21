@@ -4,11 +4,6 @@ import {Icon} from '../../../'
 
 export default class HomeRoute extends React.Component {
 
-  showNav = (e) => {
-    e.preventDefault()
-    document.querySelector('.Navigation-hamburger button').click()
-  }
-
   render () {
     return (
       <div className='Home'>
