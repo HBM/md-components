@@ -35,17 +35,21 @@ const menuTopRight =
       {content: 'long string without linebreak'}
     ]
     return (
-      <Menu
-        transformX='right'
-        transformY='top'
-        onClick={this.onClick}
-        items={items}
-        visible={this.state.visible}
-      >
-        <Icon.Button onClick={this.onClick}>
-          <Icon.MoreVert />
-        </Icon.Button>
-      </Menu>
+      <div>
+        <div style={{float: 'right'}}>
+          <Menu
+            transformX='right'
+            transformY='top'
+            onClick={this.onClick}
+            items={items}
+            visible={this.state.visible}
+          >
+            <Icon.Button onClick={this.onClick}>
+              <Icon.MoreVert />
+            </Icon.Button>
+          </Menu>
+        </div>
+      </div>
     )
   }
 
@@ -131,17 +135,21 @@ const menuBottomRight =
       {content: 'long string without linebreak'}
     ]
     return (
-      <Menu
-        transformX='right'
-        transformY='bottom'
-        onClick={this.onClick}
-        items={items}
-        visible={this.state.visible}
-      >
-        <Icon.Button onClick={this.onClick}>
-          <Icon.MoreVert />
-        </Icon.Button>
-      </Menu>
+      <div>
+        <div style={{float: 'right'}}>
+          <Menu
+            transformX='right'
+            transformY='bottom'
+            onClick={this.onClick}
+            items={items}
+            visible={this.state.visible}
+          >
+            <Icon.Button onClick={this.onClick}>
+              <Icon.MoreVert />
+            </Icon.Button>
+          </Menu>
+        </div>
+      </div>
     )
   }
 
@@ -203,6 +211,24 @@ export default class MenuRoute extends React.Component {
     return (
       <div>
         <section>
+          <h2>Menu - top, left</h2>
+          <Playground
+            codeText={menuTopLeft}
+            scope={{React, ReactDOM, Menu, Icon, Divider}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Menu - bottom, left</h2>
+          <Playground
+            codeText={menuBottomLeft}
+            scope={{React, ReactDOM, Menu, Icon, Divider}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
           <h2>Menu - top, right</h2>
           <Playground
             docClass={Menu}
@@ -213,27 +239,9 @@ export default class MenuRoute extends React.Component {
           />
         </section>
         <section>
-          <h2>Menu - top, left</h2>
-          <Playground
-            codeText={menuTopLeft}
-            scope={{React, ReactDOM, Menu, Icon, Divider}}
-            noRender={false}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Menu - bottom, right</h2>
           <Playground
             codeText={menuBottomRight}
-            scope={{React, ReactDOM, Menu, Icon, Divider}}
-            noRender={false}
-            collapsableCode
-          />
-        </section>
-        <section>
-          <h2>Menu - bottom, left</h2>
-          <Playground
-            codeText={menuBottomLeft}
             scope={{React, ReactDOM, Menu, Icon, Divider}}
             noRender={false}
             collapsableCode
