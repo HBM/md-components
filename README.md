@@ -6,10 +6,6 @@
 [![npm](https://img.shields.io/npm/v/md-components.svg)](https://www.npmjs.com/package/md-components)
 [![Coverage Status](https://coveralls.io/repos/github/HBM/md-components/badge.svg)](https://coveralls.io/github/HBM/md-components)
 
-## Demo
-
-Demos with __editable__ code examples are available on the [gh-pages](https://hbm.github.io/md-components).
-
 ## Installation
 
 NodeJS > 6 is required for building the examples and running the tests.
@@ -53,16 +49,12 @@ class App extends React.Component {
 @import "../node_modules/md-components/button/Button";
 ```
 
-## Design Decisions
-
-Interested in more of our technical decisions? See [Design Decisions](decisions/README.md).
-
 ## Development
 
 ```
-make watch &
-make css &
-make serve &
+$ make watch
+& make css
+& make serve
 ```
 
 - [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
