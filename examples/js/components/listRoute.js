@@ -206,6 +206,7 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Single-line item</h2>
           <Playground
+            docClass={Row}
             codeText={singleLineItem}
             scope={{React, List, Row}}
             collapsableCode
