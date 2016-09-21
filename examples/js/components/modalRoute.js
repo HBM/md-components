@@ -44,8 +44,8 @@ const modalAlert =
     return (
       <div>
         <section>
-          <Button onClick={this.modal}>
-            Button
+          <Button onClick={this.modal} raised>
+            Show Modal
           </Button>
         </section>
         <Modal
@@ -67,20 +67,20 @@ export default class ModalRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Default alert</h2>
-          <Playground
-            codeText={defaultModal}
-            scope={{React}}
-            collapsableCode
-          />
-        </section>
-        <section>
           <h2>Modal</h2>
           <Playground
             docClass={Modal}
             codeText={modalAlert}
             scope={{React, ReactDOM, Modal, Button}}
             noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
+          <h2>Default alert</h2>
+          <Playground
+            codeText={defaultModal}
+            scope={{React}}
             collapsableCode
           />
         </section>
