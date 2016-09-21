@@ -7,7 +7,9 @@ import React from 'react'
 export default class Slider extends React.Component {
 
   static propTypes = {
-    step: React.PropTypes.number
+    step: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    onMouseUp: React.PropTypes.func
   }
 
   static defaultProps = {
@@ -23,10 +25,13 @@ export default class Slider extends React.Component {
   }
 
   onChange = (event) => {
-    var value = parseInt(event.target.value, 10)
+    const value = parseFloat(event.target.value, 10)
     this.setState({
       value: value
     })
+    if (this.props.onChange) {
+      this.props.onChange(value)
+    }
   }
 
   // get initial width of dom element
@@ -39,7 +44,6 @@ export default class Slider extends React.Component {
   }
 
   onMouseUp = (event) => {
-    event.preventDefault()
     this.setState({
       mouseDown: false
     })
@@ -47,6 +51,9 @@ export default class Slider extends React.Component {
     document.removeEventListener('touchmove', this.onMouseMove)
     document.removeEventListener('mouseup', this.onMouseUp)
     document.removeEventListener('touchend', this.onMouseUp)
+    if (this.props.onMouseUp) {
+      this.props.onMouseUp(this.state.value)
+    }
   }
 
   onMouseDown = (event) => {
@@ -72,7 +79,6 @@ export default class Slider extends React.Component {
   }
 
   onMouseMove = (event) => {
-    event.preventDefault()
     if (this.state.mouseDown) {
       var {slider} = this.refs
       var pageX = event.pageX || event.touches[0].pageX
@@ -87,6 +93,9 @@ export default class Slider extends React.Component {
       this.setState({
         value: value
       })
+      if (this.props.onChange) {
+        this.props.onChange(value)
+      }
     }
   }
 

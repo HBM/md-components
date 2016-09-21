@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Playground from 'component-playground'
 import {Slider} from '../../../'
 
@@ -18,7 +19,33 @@ const defaultSliderWithStepsComponent =
 />`
 
 const sliderComponent =
-'<Slider />'
+`class App extends React.Component {
+
+  state = {
+    value: 0,
+    settledValue: 0
+  }
+
+  onChange = (value) => {
+    this.setState({value})
+  }
+
+  onMouseUp = (settledValue) => {
+    this.setState({settledValue})
+  }
+
+  render () {
+    return (
+        <div>
+          <h4>onChange: {this.state.value}</h4>
+          <h4>onMouseUp: {this.state.settledValue}</h4>
+          <Slider onChange={this.onChange} onMouseUp={this.onMouseUp} />
+        </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, mountNode)`
 
 const sliderWithStepsComponent =
 `<Slider
@@ -35,7 +62,8 @@ export default class SliderRoute extends React.Component {
           <Playground
             docClass={Slider}
             codeText={sliderComponent}
-            scope={{React, Slider}}
+            scope={{React, ReactDOM, Slider}}
+            noRender={false}
             collapsableCode
           />
         </section>
@@ -43,7 +71,8 @@ export default class SliderRoute extends React.Component {
           <h2>Slider with steps</h2>
           <Playground
             codeText={sliderWithStepsComponent}
-            scope={{React, Slider}}
+            noRender={false}
+            scope={{React, ReactDOM, Slider}}
             collapsableCode
           />
         </section>
