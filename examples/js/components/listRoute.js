@@ -286,6 +286,7 @@ export default class ListRoute extends React.Component {
           <Playground
             codeText={linkList}
             scope={{React, List, Row}}
+            collapsableCode
           />
         </section>
         <section>
