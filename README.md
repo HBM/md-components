@@ -53,10 +53,6 @@ class App extends React.Component {
 @import "../node_modules/md-components/button/Button";
 ```
 
-## Design Decisions
-
-Interested in more of our technical decisions? See [Design Decisions](decisions/README.md).
-
 ## Development
 
 ```
