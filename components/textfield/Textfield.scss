@@ -82,10 +82,16 @@ $error-color: rgb(244, 67, 54);
   box-shadow: 0 1px 0 0 $blue-dark;
 }
 
-.Textfield:not(.Textfield--nolabel) .Textfield-input:not(:focus) {
-  &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
-    color: transparent;
-  }
+.Textfield:not(.Textfield--nolabel) .Textfield-input:not(:focus)::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.Textfield:not(.Textfield--nolabel) .Textfield-input:not(:focus)::-moz-placeholder {
+  color: transparent;
+}
+
+.Textfield:not(.Textfield--nolabel) .Textfield-input:not(:focus):-ms-input-placeholder {
+  color: transparent;
 }
 
 .Textfield-input--error {
