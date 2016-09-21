@@ -1,11 +1,12 @@
 
 import React from 'react'
+import {withRouter} from 'react-router'
 import {
   Header,
   Navigation
 } from '../../../'
 
-export default class App extends React.Component {
+class App extends React.Component {
 
   state = {
     subtitle: 'Home'
@@ -44,7 +45,7 @@ export default class App extends React.Component {
       <div>
         <Header title='HBM/md-components' subtitle={this.state.subtitle} />
         <Navigation links={links} onChange={this.onChange} />
-        <main>
+        <main className={this.props.location.pathname.substr(1) || 'home'} >
           {this.props.children}
         </main>
       </div>
@@ -52,3 +53,5 @@ export default class App extends React.Component {
   }
 
 }
+
+export default withRouter(App)

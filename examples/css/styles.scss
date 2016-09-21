@@ -134,3 +134,82 @@ main h2 {
   color: white;
   background: #F2777A;
 }
+
+#react main.home {
+  margin-top: -20px;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ececec;
+}
+
+.Home .Hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 100px;
+  @include medium {
+    padding-top: 20%;
+  }
+  padding-bottom: 45px;
+}
+
+.Home .Hero-logo { 
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+
+  h1 {
+    margin: 0 0;
+  }
+
+  span {
+    padding: 20px 15px;
+    font-size: 30px;
+  }
+  margin-bottom: 12px;
+
+  @include medium {
+    span {
+      padding: 30px 20px;
+      font-size: 35px;
+    }
+    margin-bottom: 20px;
+  }
+  
+  span {
+    display: inline-block;
+  }
+
+  span:last-child {
+    background-color: #1b325f;
+    color: white;
+  }
+
+  span:first-child {
+    background-color: white;
+    font-weight: normal;
+    color: #1b325f;
+  }
+}
+
+.Hero-tagline, .Hero-links {
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 40px;
+  @include medium {
+    margin-top: 60px;
+    font-size: 20px;
+  }
+}
+
+.Hero-sponsor {
+  font-weight: normal;
+  margin: 0 0;
+  display: flex;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    margin-top: -2px;
+  }
+}
+
