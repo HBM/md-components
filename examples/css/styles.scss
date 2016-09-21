@@ -103,7 +103,6 @@ main h2 {
 
 .playgroundToggleCodeLink, .playgroundToggleCodeLink::before {
   cursor: pointer;
-  font-family: monospace;
   position: relative;
   right: 0;
   display: inline-block;
@@ -154,7 +153,7 @@ main h2 {
   padding-bottom: 45px;
 }
 
-.Home .Hero-logo { 
+.Home .Hero-logo {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 
   h1 {
@@ -174,7 +173,7 @@ main h2 {
     }
     margin-bottom: 20px;
   }
-  
+
   span {
     display: inline-block;
   }
