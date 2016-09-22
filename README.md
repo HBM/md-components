@@ -53,8 +53,8 @@ class App extends React.Component {
 
 ```
 $ make watch
-& make css
-& make serve
+$ make css
+$ make serve
 ```
 
 - [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
