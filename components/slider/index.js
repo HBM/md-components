@@ -4,42 +4,97 @@ import React from 'react'
 /**
  * Slider
  */
+
+const clip = (v, min, max) => {
+  if (v < min) {
+    return min
+  }
+  if (v > max) {
+    return max
+  }
+  return v
+}
+
 export default class Slider extends React.Component {
 
   static propTypes = {
-    step: React.PropTypes.number
+    value: React.PropTypes.number,
+    min: React.PropTypes.number.isRequired,
+    max: React.PropTypes.number.isRequired,
+    step: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    onMove: React.PropTypes.func
   }
 
-  static defaultProps = {
-    step: 1
+  defaultProps = {
+    value: 0
   }
 
-  state = {
-    mouseDown: false,
-    isAnimating: false,
-    value: 50,
-    // ratio between actual dom element width and range value (0 -> 100)
-    ratio: 1
+  getSteppedValue = (value) => {
+    if (this.props.step) {
+      const steps = (value - this.state.prevValue) / this.props.step
+      if (Math.round(steps)) {
+        return this.state.prevValue + Math.round(steps) * this.props.step
+      }
+    } else {
+      return value
+    }
+  }
+
+  updateMoveValue = (value) => {
+    const newValue = this.getSteppedValue(value)
+    if (newValue !== undefined && newValue !== this.state.prevValue) {
+      this.setState({value: newValue, prevValue: newValue})
+      if (this.props.onMove) {
+        this.props.onMove(newValue)
+      }
+    }
+  }
+
+  setValue = function (value) {
+    this.setState({value, prevValue: value})
+    if (this.props.onChange) {
+      this.props.onChange(value)
+    }
+    if (this.props.onMove) {
+      this.props.onMove(value)
+    }
   }
 
   onChange = (event) => {
-    var value = parseInt(event.target.value, 10)
-    this.setState({
-      value: value
-    })
+    const value = parseFloat(event.target.value, 10)
+    this.setValue(clip(value, this.props.min, this.props.max))
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      mouseDown: false,
+      isAnimating: false,
+      value: props.value || 0,
+      prevValue: props.value || 0,
+      step: 1,
+      // ratio between actual dom element width and range value (min -> max)
+      ratio: 1
+    }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.value !== undefined) {
+      this.setState({value: nextProps.value, prevValue: nextProps.value})
+    }
   }
 
   // get initial width of dom element
   componentDidMount () {
-    var {slider} = this.refs
-    var width = slider.getBoundingClientRect().width - 16
+    const {slider} = this.refs
+    const width = slider.getBoundingClientRect().width - 16
     this.setState({
-      ratio: width / 100
+      ratio: width / (this.props.max - this.props.min)
     })
   }
 
   onMouseUp = (event) => {
-    event.preventDefault()
     this.setState({
       mouseDown: false
     })
@@ -47,22 +102,21 @@ export default class Slider extends React.Component {
     document.removeEventListener('touchmove', this.onMouseMove)
     document.removeEventListener('mouseup', this.onMouseUp)
     document.removeEventListener('touchend', this.onMouseUp)
+    if (this.props.onChange) {
+      this.props.onChange(this.state.value)
+    }
+  }
+
+  getValueFromSlider = (event) => {
+    const {slider} = this.refs
+    const pageX = event.pageX || event.touches[0].pageX
+    const x = pageX - 8 - slider.getBoundingClientRect().left
+    return clip(x / this.state.ratio + this.props.min, this.props.min, this.props.max)
   }
 
   onMouseDown = (event) => {
     event.preventDefault()
-    var {slider} = this.refs
-    var pageX = event.pageX || event.touches[0].pageX
-    var x = pageX - 8 - slider.getBoundingClientRect().left
-    var value = x / this.state.ratio
-    if (value > 100) {
-      value = 100
-    }
-    if (value < 0) {
-      value = 0
-    }
     this.setState({
-      value: value,
       mouseDown: true
     })
     document.addEventListener('mousemove', this.onMouseMove)
@@ -72,37 +126,33 @@ export default class Slider extends React.Component {
   }
 
   onMouseMove = (event) => {
-    event.preventDefault()
     if (this.state.mouseDown) {
-      var {slider} = this.refs
-      var pageX = event.pageX || event.touches[0].pageX
-      var x = pageX - 8 - slider.getBoundingClientRect().left
-      var value = x / this.state.ratio
-      if (value > 100) {
-        value = 100
-      }
-      if (value < 0) {
-        value = 0
-      }
-      this.setState({
-        value: value
-      })
+      const value = this.getValueFromSlider(event)
+      this.updateMoveValue(value)
+    }
+  }
+
+  onClick = (event) => {
+    const value = this.getValueFromSlider(event)
+    const steppedValue = this.getSteppedValue(value)
+    if (steppedValue !== undefined) {
+      this.setValue(steppedValue)
     }
   }
 
   render () {
-    var position = (this.state.value * this.state.ratio)
+    const position = (this.state.value - this.props.min) * this.state.ratio
 
     return (
       <label className='Slider'>
         <input
           className='Slider-input'
-          max='100'
-          min='0'
+          max={this.props.max}
+          min={this.props.min}
           onChange={this.onChange}
-          step={this.props.step}
           type='range'
           value={this.state.value}
+          step={this.props.step}
         />
         <div
           className='Slider-track'
@@ -110,12 +160,13 @@ export default class Slider extends React.Component {
           onTouchStart={this.onMouseDown}
           onMouseMove={this.onMouseMove}
           onTouchMove={this.onMouseMove}
+          onClick={this.onClick}
           ref='slider'>
           <div className='Slider-track-off'>
             <div className='Slider-track-on' style={{width: `${position}px`}} />
           </div>
           <div
-            className={`Slider-thumb${this.state.value === 0 ? ' is-zero' : ''}`}
+            className={`Slider-thumb${this.state.value === this.props.min ? ' is-zero' : ''}`}
             style={{left: `${position}px`}}
           />
         </div>

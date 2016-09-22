@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Playground from 'component-playground'
 import {Slider} from '../../../'
 
@@ -18,12 +19,45 @@ const defaultSliderWithStepsComponent =
 />`
 
 const sliderComponent =
-'<Slider />'
+`const min = -20
+const max = 110
+const step = 10
 
-const sliderWithStepsComponent =
-`<Slider
-  step={10}
-/>`
+class App extends React.Component {
+
+  state = {
+  }
+
+  onMove = (value) => {
+    this.setState({value})
+  }
+
+  onChange = (settledValue) => {
+    this.setState({settledValue})
+  }
+
+  render () {
+    return (
+        <div>
+          <Slider 
+            onChange={this.onChange}
+            onMove={this.onMove}
+            value={this.state.value}
+            step={step}
+            min={min}
+            max={max}
+            />
+          <h4>onMove: {this.state.value === undefined ? '-' : this.state.value}</h4>
+          <h4>onChange: {this.state.settledValue === undefined ? '-' : this.state.settledValue}</h4>
+          <h4>min: {min}</h4>
+          <h4>max: {max}</h4>
+          <h4>step: {step}</h4>
+        </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, mountNode)`
 
 export default class SliderRoute extends React.Component {
 
@@ -35,15 +69,8 @@ export default class SliderRoute extends React.Component {
           <Playground
             docClass={Slider}
             codeText={sliderComponent}
-            scope={{React, Slider}}
-            collapsableCode
-          />
-        </section>
-        <section>
-          <h2>Slider with steps</h2>
-          <Playground
-            codeText={sliderWithStepsComponent}
-            scope={{React, Slider}}
+            scope={{React, ReactDOM, Slider}}
+            noRender={false}
             collapsableCode
           />
         </section>
