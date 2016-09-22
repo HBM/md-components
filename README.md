@@ -8,7 +8,7 @@
 
 ## Installation
 
-NodeJS > 6 is required for building the examples and running the tests.
+NodeJS >= 6 is required for automatically installing all peer dependecies.
 
 ```bash
 $ npm install --save md-components
