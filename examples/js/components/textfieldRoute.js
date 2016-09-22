@@ -29,7 +29,7 @@ const textfieldComponent =
 
   render() {
     return (
-      <Textfield label='Color' name='color' value={this.state.color} onChange={this.onChange} />
+      <Textfield label='Color' name='color' placeholder='Blue' value={this.state.color} onChange={this.onChange} />
     )
   }
 
@@ -141,7 +141,7 @@ const textfieldWithErrorMessageComponent =
 `class App extends React.Component {
 
   state = {
-    error: ''
+    name: 'peter'
   }
 
   onChange = (event) => {
@@ -153,11 +153,11 @@ const textfieldWithErrorMessageComponent =
   render() {
     return (
       <Textfield
-        label='Error message'
-        name='error'
-        value={this.state.error}
+        label='Name'
+        name='name'
+        value={this.state.name}
         onChange={this.onChange}
-        error='Username or password incorrect.'
+        error={!this.state.name.match(/^[A-Z]/) && 'The name must start with capital letter.'}
       />
     )
   }
@@ -201,8 +201,9 @@ export default class TextfieldRoute extends React.Component {
     return (
       <div>
         <section>
-          <h2>Textfield with label</h2>
+          <h2>Textfield</h2>
           <Playground
+            docClass={Textfield}
             codeText={textfieldWithLabelComponent}
             scope={{React, ReactDOM, Textfield}}
             noRender={false}
@@ -210,16 +211,7 @@ export default class TextfieldRoute extends React.Component {
           />
         </section>
         <section>
-          <h2>Textfield with default value</h2>
-          <Playground
-            docClass={Textfield}
-            codeText={textfieldWithDefaultValueComponent}
-            scope={{React, Textfield}}
-            collapsableCode
-          />
-        </section>
-        <section>
-          <h2>Textfield</h2>
+          <h2>Textfield with label and placeholder</h2>
           <Playground
             codeText={textfieldComponent}
             scope={{React, ReactDOM, Textfield}}
@@ -246,6 +238,15 @@ export default class TextfieldRoute extends React.Component {
           />
         </section>
         <section>
+          <h2>Textfield with error message</h2>
+          <Playground
+            codeText={textfieldWithErrorMessageComponent}
+            scope={{React, ReactDOM, Textfield}}
+            noRender={false}
+            collapsableCode
+          />
+        </section>
+        <section>
           <h2>Read only textfield</h2>
           <Playground
             codeText={textfieldReadOnlyComponent}
@@ -255,11 +256,10 @@ export default class TextfieldRoute extends React.Component {
           />
         </section>
         <section>
-          <h2>Textfield with error message</h2>
+          <h2>Textfield with default value</h2>
           <Playground
-            codeText={textfieldWithErrorMessageComponent}
-            scope={{React, ReactDOM, Textfield}}
-            noRender={false}
+            codeText={textfieldWithDefaultValueComponent}
+            scope={{React, Textfield}}
             collapsableCode
           />
         </section>
