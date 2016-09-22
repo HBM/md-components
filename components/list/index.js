@@ -104,3 +104,32 @@ export const Row = ({
     return <li {...rowProps}>{rowContent}</li>
   }
 }
+
+Row.propTypes = {
+  avatar: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.string
+  ]),
+  className: React.PropTypes.string,
+  icon: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.string
+  ]),
+  linkTo: React.PropTypes.string,
+  onBlur: React.PropTypes.func,
+  onClick: React.PropTypes.func,
+  onFocus: React.PropTypes.func,
+  primary: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.string
+  ]).isRequired,
+  secondary: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.string
+  ]),
+  style: React.PropTypes.object,
+  subheader: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.string
+  ])
+}

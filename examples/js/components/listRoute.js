@@ -14,22 +14,24 @@ const singleLineItem =
 const singleLineItemWithIcon =
 `<List>
   <Row primary='Apple' icon={<Icon.Assessment />} />
-  <Row primary='Banana' icon={<Icon.Assessment />} />
-  <Row primary='Strawberry' icon={<Icon.Assessment />} />
+  <Row primary='Banana' icon={<Icon.FilterList />} />
+  <Row primary='Strawberry' icon={<Icon.Search />} />
 </List>`
 
 const singleLineItemWithAvatar =
 `<List>
-  <Row primary='Apple' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
-  <Row primary='Banana' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
-  <Row primary='Strawberry' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
+  <Row primary='Alice' avatar='img/alice.jpg' />
+  <Row primary='John' avatar='img/john.jpg' />
+  <Row primary='Steve' avatar='img/steve.jpg' />
+  <Row primary='Claire' avatar='img/claire.jpg' />
 </List>`
 
 const singleLineItemWithAvatarAndIcon =
 `<List>
-  <Row primary='Apple' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
-  <Row primary='Banana' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
-  <Row primary='Strawberry' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' icon={<Icon.Assessment />} />
+  <Row primary='Alice' avatar='img/alice.jpg' icon={<Icon.Star />} />
+  <Row primary='John' avatar='img/john.jpg' icon={<Icon.Star fill='orange' />} />
+  <Row primary='Steve' avatar='img/steve.jpg' icon={<Icon.Star />} />
+  <Row primary='Claire' avatar='img/claire.jpg' icon={<Icon.Star />} />
 </List>`
 
 const twoLineItem =
@@ -42,34 +44,46 @@ const twoLineItem =
 const twoLineItemWithIcon =
 `<List>
   <Row primary='Apple' icon={<Icon.Assessment />} secondary='Really fresh' />
-  <Row primary='Banana' icon={<Icon.Assessment />} secondary='Really fresh' />
-  <Row primary='Strawberry' icon={<Icon.Assessment />} secondary='Really fresh' />
+  <Row primary='Banana' icon={<Icon.FilterList />} secondary='Really fresh' />
+  <Row primary='Strawberry' icon={<Icon.Search />} secondary='Really fresh' />
 </List>`
 
 const twoLineItemWithAvatar =
 `<List>
-  <Row primary='Apple' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
-  <Row primary='Banana' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
-  <Row primary='Strawberry' secondary='Really fresh' avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
+  <Row
+    primary='Alice'
+    secondary='This is Alice.'
+    avatar='img/alice.jpg'
+    />
+  <Row
+    primary='John'
+    secondary='This is John.'
+    avatar='img/john.jpg'
+    />
+  <Row
+    primary='Steve'
+    secondary={'This is Steve.'}
+    avatar='img/steve.jpg'
+    />
 </List>`
 
 const twoLineItemWithAvatarAndIcon =
 `<List>
   <Row
-    primary='Apple'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
+    primary='Alice'
+    secondary='This is Alice.'
+    avatar='img/alice.jpg'
     icon={<Icon.Assessment />} />
   <Row
-    primary='Banana'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
-    icon={<Icon.Assessment />} />
+    primary='John'
+    secondary='This is John.'
+    avatar='img/john.jpg'
+    icon={<Icon.FilterList />} />
   <Row
-    primary='Strawberry'
-    secondary={'Really fresh ' + longText}
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
-    icon={<Icon.Assessment />} />
+    primary='Steve'
+    secondary={'This is Steve. ' + longText}
+    avatar='img/steve.jpg'
+    icon={<Icon.Search />} />
 </List>`
 
 const threeLineSubheaderItem =
@@ -89,54 +103,76 @@ const threeLineSubheaderItemWithIcon =
   <Row
     primary='Banana'
     subheader='Try new fruits'
-    icon={<Icon.Assessment />}
+    icon={<Icon.FilterList />}
     secondary='Really fresh' />
   <Row
     primary='Strawberry'
     subheader='Try new fruits'
-    icon={<Icon.Assessment />}
+    icon={<Icon.Search />}
     secondary='Really fresh' />
 </List>`
 
 const threeLineSubheaderItemWithAvatar =
 `<List>
   <Row
-    primary='Apple'
-    subheader='Try new fruits'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
+    primary='Alice'
+    subheader='Friend'
+    secondary='This is Alice'
+    avatar='img/alice.jpg' />
   <Row
-    primary='Banana'
-    subheader='Try new fruits'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
+    primary='Claire'
+    subheader='Friend'
+    secondary='This is Clair'
+    avatar='img/claire.jpg' />
   <Row
-    primary='Strawberry'
-    subheader='Try new fruits'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460' />
+    primary='John'
+    subheader='Work'
+    secondary='This is John'
+    avatar='img/john.jpg' />
+  <Row
+    primary='Steve'
+    subheader='Friend'
+    secondary='This is Steve'
+    avatar='img/steve.jpg' />
+  <Row
+    primary='Megan'
+    subheader='Work'
+    secondary='This is Megan'
+    avatar='img/megan.jpg' />
 </List>`
 
 const threeLineSubheaderItemWithAvatarAndIcon =
 `<List>
   <Row
-    primary='Apple'
-    subheader='Try new fruits'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
-    icon={<Icon.Assessment />} />
+    primary='Alice'
+    subheader='Friend'
+    secondary='This is Alice'
+    icon={<Icon.Assessment />}
+    avatar='img/alice.jpg' />
   <Row
-    primary='Banana'
-    subheader='Try new fruits'
-    secondary='Really fresh'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
-    icon={<Icon.Assessment />} />
+    primary='Claire'
+    subheader='Friend'
+    secondary='This is Clair'
+    icon={<Icon.Assessment />}
+    avatar='img/claire.jpg' />
   <Row
-    primary='Strawberry'
-    secondary='Really fresh'
-    subheader='Try new fruits'
-    avatar='https://avatars3.githubusercontent.com/u/445883?v=3&s=460'
-    icon={<Icon.Assessment />} />
+    primary='John'
+    subheader='Work'
+    secondary='This is John'
+    icon={<Icon.Assessment />}
+    avatar='img/john.jpg' />
+  <Row
+    primary='Steve'
+    subheader='Friend'
+    secondary='This is Steve'
+    icon={<Icon.Assessment />}
+    avatar='img/steve.jpg' />
+  <Row
+    primary='Megan'
+    subheader='Work'
+    secondary='This is Megan'
+    icon={<Icon.Assessment />}
+    avatar='img/megan.jpg' />
 </List>`
 
 const customStyle =
@@ -170,6 +206,7 @@ export default class ListRoute extends React.Component {
         <section>
           <h2>Single-line item</h2>
           <Playground
+            docClass={Row}
             codeText={singleLineItem}
             scope={{React, List, Row}}
             collapsableCode
