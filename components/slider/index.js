@@ -63,7 +63,7 @@ export default class Slider extends React.Component {
 
   onChange = (event) => {
     const value = parseFloat(event.target.value, 10)
-    this.setValue(value)
+    this.setValue(clip(value, this.props.min, this.props.max))
   }
 
   constructor (props) {
