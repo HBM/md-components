@@ -30,26 +30,28 @@ export default class Slider extends React.Component {
     value: 0
   }
 
-  update = (value, func) => {
-    let newValue
+  getSteppedValue = (value) => {
     if (this.props.step) {
       const steps = (value - this.state.prevValue) / this.props.step
       if (Math.round(steps)) {
-        newValue = this.state.prevValue + Math.round(steps) * this.props.step
+        return this.state.prevValue + Math.round(steps) * this.props.step
       }
     } else {
-      newValue = value
+      return value
     }
+  }
+
+  updateMoveValue = (value) => {
+    const newValue = this.getSteppedValue(value)
     if (newValue !== undefined && newValue !== this.state.prevValue) {
       this.setState({value: newValue, prevValue: newValue})
-      if (func) {
-        func(newValue)
+      if (this.props.onMove) {
+        this.props.onMove(newValue)
       }
     }
   }
 
-  onChange = (event) => {
-    const value = parseFloat(event.target.value, 10)
+  setValue = function (value) {
     this.setState({value, prevValue: value})
     if (this.props.onChange) {
       this.props.onChange(value)
@@ -57,6 +59,11 @@ export default class Slider extends React.Component {
     if (this.props.onMove) {
       this.props.onMove(value)
     }
+  }
+
+  onChange = (event) => {
+    const value = parseFloat(event.target.value, 10)
+    this.setValue(value)
   }
 
   constructor (props) {
@@ -67,7 +74,7 @@ export default class Slider extends React.Component {
       value: props.value || 0,
       prevValue: props.value || 0,
       step: 1,
-      // ratio between actual dom element width and range value (0 -> 100)
+      // ratio between actual dom element width and range value (min -> max)
       ratio: 1
     }
   }
@@ -121,7 +128,15 @@ export default class Slider extends React.Component {
   onMouseMove = (event) => {
     if (this.state.mouseDown) {
       const value = this.getValueFromSlider(event)
-      this.update(value, this.props.onMove)
+      this.updateMoveValue(value)
+    }
+  }
+
+  onClick = (event) => {
+    const value = this.getValueFromSlider(event)
+    const steppedValue = this.getSteppedValue(value)
+    if (steppedValue !== undefined) {
+      this.setValue(steppedValue)
     }
   }
 
@@ -145,6 +160,7 @@ export default class Slider extends React.Component {
           onTouchStart={this.onMouseDown}
           onMouseMove={this.onMouseMove}
           onTouchMove={this.onMouseMove}
+          onClick={this.onClick}
           ref='slider'>
           <div className='Slider-track-off'>
             <div className='Slider-track-on' style={{width: `${position}px`}} />
