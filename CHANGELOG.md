@@ -1,6 +1,19 @@
 
 # CHANGELOG
 
+## v4.0.0 / 2016-09-22
+
+- rename `hbm-react-components` to `md-components`
+- chip: fix remove icon style in Firefox and mobile [5d37167](https://github.com/HBM/md-components/commit/5d37167d96bca326214c5785f10dd356cd202940)
+- chip: fix styles according to spec [f60a414](https://github.com/HBM/md-components/commit/f60a414061b55a8f524d1b2543b3e036c5a71d38)
+- chip: add `deletable` property [d7416d9](https://github.com/HBM/md-components/commit/d7416d9d5c56ba2436690b8db64709fb0cfded02)
+- chip: fix `onSubmit` behaviour in forms [717d72c](https://github.com/HBM/md-components/commit/717d72c84c16a3c8d3e44e2a2c4281b9535d44c0)
+- add `npm run ...` scripts to make development on Windows easier [3261612](https://github.com/HBM/md-components/commit/326161202775740f9dde19293461aff103176ac0)
+- textfield: add `autoCapitalize`, `autoComplete`, `autoCorrect` and `spellCheck` properties [263f6b2](https://github.com/HBM/md-components/commit/263f6b2d92980f29a23be8b7925b8752a8cd515b)
+- textfield: add `placeholder` property [d7c0c06](https://github.com/HBM/md-components/commit/d7c0c068cfe39e32a96681f23a371673d440aec6)
+- textfield: add `icon` property [2273c8d](https://github.com/HBM/md-components/commit/2273c8df50619de571a0b0e2f623c9bf000cdc8f)
+- modal: replace `react-motion` with plain CSS [9ede6af](https://github.com/HBM/md-components/commit/9ede6af9aa5331b68471ad93dfd3858f0626f001)
+
 ## v3.0.0 / 2016-09-08
 
 - add new list component [cb3485f](https://github.com/HBM/react-components/commit/cb3485f621fa6e355a7635f5fdc2906cb13367bb)
