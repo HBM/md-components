@@ -68,7 +68,3 @@ $ make watch
 ```
 $ np
 ```
-
-## License
-
-MIT
