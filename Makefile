@@ -6,6 +6,7 @@ SASS = $(BIN_DIR)/node-sass
 MOCHA = $(BIN_DIR)/_mocha
 ISTANBUL = $(BIN_DIR)/istanbul
 STYLELINT = $(BIN_DIR)/stylelint
+ROLLUP = $(BIN_DIR)/rollup
 
 .PHONY: stylelint
 stylelint:
@@ -36,3 +37,7 @@ serve:
 .PHONY: test
 test: standard stylelint
 	$(ISTANBUL) cover $(MOCHA) test/.setup.js components/**/test/test.js
+
+.PHONY: rollup
+rollup:
+	$(ROLLUP) --config
