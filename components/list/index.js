@@ -82,8 +82,8 @@ export const Row = ({
 
   const textElement = (
     <div className='List-row-text' key='text'>
-      <h3 className='List-row-text-primary'>{primary}</h3>
-      {subheader && <h4 className='List-row-text-subheader'>{subheader}</h4>}
+      <div className='List-row-text-primary'>{primary}</div>
+      {subheader && <div className='List-row-text-subheader'>{subheader}</div>}
       {secondary && <span className='List-row-text-secondary'>{secondary}</span>}
     </div>
   )
