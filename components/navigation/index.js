@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import {Link, withRouter} from 'react-router'
+import {Link} from 'react-router'
 import classnames from 'classnames'
 import Icon from '../icon/'
 
@@ -101,8 +101,7 @@ export class Navigation extends React.Component {
   componentDidMount () {
     let activeRouteIndex = 0
     this.props.links.forEach((link, index) => {
-      // check for this props router as it is undefined in tests
-      if (this.props.router && this.props.router.isActive(link.link)) {
+      if (this.props.location.pathname === link.link) {
         activeRouteIndex = index
       }
     })
@@ -149,4 +148,4 @@ export class Navigation extends React.Component {
 
 }
 
-export default withRouter(Navigation)
+export default Navigation
