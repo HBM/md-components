@@ -1,6 +1,18 @@
 
 # CHANGELOG
 
+## v5.0.0 / 2016-10-11
+
+- new component [Textarea](https://hbm.github.io/md-components/#/textarea) [c9d6c32](https://github.com/HBM/md-components/commit/c9d6c32331678f5ecb89549aab84592ddecb570e)
+- use latest `react-router` v4 [71de4f0](https://github.com/HBM/md-components/commit/71de4f05619fedb75157bfbf0cff72f84ba16082)
+- slider: add click handler to bar [cb71634](https://github.com/HBM/md-components/commit/cb71634e9b7c8c566233753b0b1a7b567da63252)
+- textfield: improve styles to follow specification [8f4944e](https://github.com/HBM/md-components/commit/8f4944efce9a410d478c06477ff40cafd2aabf75)
+- chip: vertically align input with chips [9af7c4b](https://github.com/HBM/md-components/commit/9af7c4bcee4ab36a70d5f15ede7f733de5a67969)
+- navigation: fix overlay touch event propagation to underlying elements [adb0443](https://github.com/HBM/md-components/commit/adb0443191ba3d5b51f464e15263f5ef2887adcf)
+- list: remove `h` tags to remove implicit semantic [cb625a8](https://github.com/HBM/md-components/commit/cb625a837511e6789dce430e7900b7e058c457a0)
+- radiobutton: fix focus handling [56debb0](https://github.com/HBM/md-components/commit/56debb0858ff3a829e69551d7010ec7a58372c9f)
+- checkbox: fix focus handling [c8b107b](https://github.com/HBM/md-components/commit/c8b107b1472368d253fe33eda86f39d24043c064)
+
 ## v4.0.0 / 2016-09-22
 
 - rename `hbm-react-components` to `md-components`
