@@ -1,6 +1,6 @@
 {
   "name": "md-components",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Material Design React components",
   "main": "index.js",
   "scripts": {
