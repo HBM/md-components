@@ -1,4 +1,6 @@
 
+`make rollup` does not work currently. See issue at [react](https://github.com/facebook/react/issues/8318).
+
 # md-components
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
