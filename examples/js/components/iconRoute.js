@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../../../components/icon'
+import * as Icon from '../../../components/icon'
 
 export default class IconRoute extends React.Component {
 

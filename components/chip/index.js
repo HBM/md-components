@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Icon from '../icon'
+import {Cancel} from '../icon'
 
 const keyEnter = 13
 const keyBackspace = 8
@@ -165,7 +165,7 @@ const Element = ({
         onDelete(event.currentTarget.parentElement, index)
       }}
     >
-      <Icon.Cancel style={{width: 22, height: 22, display: 'block'}} />
+      <Cancel style={{width: 22, height: 22, display: 'block'}} />
     </button>
   )
   const onKeyDown = (event) => {
