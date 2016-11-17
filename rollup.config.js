@@ -2,7 +2,7 @@
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
-import uglify from 'rollup-plugin-uglify'
+// import uglify from 'rollup-plugin-uglify'
 import replace from 'rollup-plugin-replace'
 
 export default {
@@ -14,7 +14,7 @@ export default {
     }),
     babel({
       exclude: 'node_modules/**',
-      presets: ["es2015-rollup", "stage-0", "react"]
+      presets: ['es2015-rollup', 'stage-0', 'react']
     }),
     nodeResolve({
       jsnext: true
