@@ -1,5 +1,36 @@
 
-# CHANGELOG
+# Change Log
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [6.0.0] - 2016-12-06
+
+### Added
+
+- shell: new component to get started quickly (wrapper for router, header and navigation)
+- navigation: add sub menu (one level deep)
+- header: add color property for custom background
+- bottom navigation: new component
+- stepper: new component
+- scss: add global color variables for consistent styling
+- table: new component
+- select: add `disabled` property
+
+### Changed
+
+- tabs: use `react-broadcast` to listen for page change events
+- button: use accent color
+- switch: use accent color
+- textfield: pass all incoming props down to `input` element for improved customization
+- tooltip: move trigger events into component to make API simpler
+
+### Fixed
+
+- navigation: use momentum scrolling for ios
+- navigation: use empty array as default value for `links` property
+- sparkline: make them sharp on hdpi devices
+- docs: add navigation and header component
 
 ## v5.0.0 / 2016-10-11
 
