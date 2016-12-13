@@ -9,8 +9,6 @@
 
 ## Installation
 
-NodeJS >= 6 is required for automatically installing all peer dependencies.
-
 ```bash
 $ npm install --save md-components
 ```
