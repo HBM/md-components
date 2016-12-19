@@ -29,7 +29,7 @@ rm -rf out/* || exit 0
 
 git rebase master
 # npm run build:examples:all
-cd examples && npm build
+cd examples && npm run build && cd ..
 cp -r examples/build/* out/
 
 cd out
