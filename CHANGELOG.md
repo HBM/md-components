@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.0.0] - 2016-12-19
+
+From version 7.0.0 on `md-components` is published as ES5 to npm. No need on your side to transpile our sources.
+
+### Added
+
+- navigation: enable nesting of multiple levels
+- textarea: add `onInput` event to make it work with [inferno](https://github.com/trueadm/inferno)
+
+### Changed
+
+- tooltip: remove `react-motion` and simply use CSS
+- textfield: fix error margin which was too big
+
+### Removed
+
+- sparkline: since it is not a Material Design component we've moved it to [yad3w](https://github.com/HBM/yad3w)
+
 ## [6.0.0] - 2016-12-06
 
 ### Added
