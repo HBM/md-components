@@ -125,7 +125,8 @@ The following tasks are available:
 - [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
 - use [Sass](http://sass-lang.com/)
 - follow [SUIT CSS](https://suitcss.github.io/) guidelines
-- [Webpack](https://webpack.github.io/), module bundler. 
+- [Webpack](https://webpack.github.io/), module bundler.
+
 ### New release
 
 [np - A better npm publish](https://github.com/sindresorhus/np)
