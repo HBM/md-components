@@ -7,6 +7,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/HBM/md-components/badge.svg)](https://coveralls.io/github/HBM/md-components)
 [![Code Climate](https://codeclimate.com/github/HBM/md-components/badges/gpa.svg)](https://codeclimate.com/github/HBM/md-components)
 
+![](https://github.com/HBM/md-components/blob/master/examples/public/img/screencast.gif)
+
 ## Installation
 
 ```bash
