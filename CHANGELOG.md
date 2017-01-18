@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.1.0] - 2017-01-18
+
+### Changed
+
+- textfield: default background color is now `transparent`
+- autoprefixer is now enabled which should fix some flexbox issues
+
+### Fixed
+
+- include SASS files in release to allow user using mixins and color variables
+- chip: stop creating cancel button when not needed
+- simplify checking keyboard codes by using [keycode](https://github.com/timoxley/keycode)
+- table: remove warnings from tests
+- add code coverage when running tests on windows
+- switch from Make to npm scripts
+- button: improve adding custom className property
+- list: improve adding custom className property
+- header: remove extra div element
+- textfield: add htmlFor property
+
 ## [7.0.0] - 2016-12-19
 
 From version 7.0.0 on `md-components` is published as ES5 to npm. No need on your side to transpile our sources.
