@@ -66,6 +66,10 @@ export default class Chip extends React.Component {
     if (this.state.inputValue !== '' || !this.props.value.length) {
       return
     }
+    if (event.which === keycode('backspace')) {
+      // prevent window.history.back() for backspace (for example)
+      event.preventDefault()
+    }
     return focusLeftOrRight(event, [keycode('backspace'), keycode('left')], [keycode('right')])
   }
 
