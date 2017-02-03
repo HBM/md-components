@@ -1,4 +1,4 @@
-/* global describe, it */
+/* global describe, it, Event */
 
 import assert from 'assert'
 import React from 'react'
@@ -200,5 +200,124 @@ describe('Table', () => {
     wrapper.find('.Select-body').simulate('click')
     // click on list item to trigger change event
     wrapper.find('.Select-listItemLink').at(1).simulate('click')
+  })
+
+  it('should show an edit icon when set to editable', () => {
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell editable>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    assert(wrapper.find('.Table-edit-icon'))
+  })
+
+  it('should show an overlay when editable cell is clicked', () => {
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell editable>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
+    assert(wrapper.find('.Table-edit'))
+  })
+
+  it('should return the new value when enter is pressed', (done) => {
+    const onSubmit = (value) => {
+      assert.equal(value, 'beep bopp')
+      done()
+    }
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell editable onSubmit={onSubmit}>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
+    // enter some new text
+    wrapper.find('.Textfield-input').simulate('change', {
+      target: {
+        value: 'beep bopp'
+      }
+    })
+    // simulate submit
+    wrapper.find('.Table-edit-container').simulate('submit')
+  })
+
+  it('should cancel when escape is pressed', () => {
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell editable>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
+    // enter some new text
+    wrapper.find('.Textfield-input').simulate('change', {
+      target: {
+        value: 'beep bopp'
+      }
+    })
+    // simulate esc key
+    wrapper.find('.Textfield-input').simulate('keyup', {
+      which: 27
+    })
+    // make sure old value is still present
+    assert.equal(wrapper.find('.Table-body-row-cell-edit-wrapper').text(), 'hello world')
+    // make sure overlay isn't visible anymore
+    assert.equal(wrapper.find('.Table-edit').length, 0)
+  })
+
+  it('should cancel when mouse click happened outside of edit dialog', () => {
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell editable>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
+    // enter some new text
+    wrapper.find('.Textfield-input').simulate('change', {
+      target: {
+        value: 'beep bopp'
+      }
+    })
+    // simulate click outside of component
+    document.dispatchEvent(new Event('click'))
+    // make sure old value is still present
+    assert.equal(wrapper.find('.Table-body-row-cell-edit-wrapper').text(), 'hello world')
+    // make sure overlay isn't visible anymore
+    assert.equal(wrapper.find('.Table-edit').length, 0)
   })
 })
