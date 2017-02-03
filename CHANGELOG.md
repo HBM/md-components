@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.2.0] - 2017-02-03
+
+### Added
+
+- table: body cell can now contain editable content, i.e. a textfield
+
+### Changed
+
+- button: remove outer margin since margin belongs to parent component
+- normalize.css: upgrade from 3.0.2 to 5.0.0
+
+### Fixed
+
+- header: remove extra margin left
+
 ## [7.1.0] - 2017-01-18
 
 ### Changed
