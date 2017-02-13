@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [7.3.0] - 2017-02-13
+
+### Added
+
+- table: add support for select
+- card: pass down `className` prop
+
 ## [7.2.1] - 2017-02-03
 
 ### Fixed
