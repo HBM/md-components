@@ -21,7 +21,7 @@ $ npm install --save md-components
 
 ```js
 import React from 'react'
-import ReactDOM from 'react'
+import ReactDOM from 'react-dom'
 import {Shell} from 'md-components'
 
 class App extends React.Component {
@@ -36,7 +36,7 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('react'))
+ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
 `/css/index.scss`
