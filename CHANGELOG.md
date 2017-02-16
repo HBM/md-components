@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [8.0.0] - 2017-02-16
+
+### Changed
+
+- select component has a new syntax
+
+Old
+
+```js
+<Select
+  onChange={this.onChange}
+  items={['Blue', 'Red', 'Green']}
+  selectedIndex={1}
+/>
+```
+
+New
+
+```js
+<Select
+  onChange={this.onChange}
+  options={[
+    {value: 'blue', label: 'Blue'},
+    {value: 'red', label: 'Red'},
+    {value: 'green', label: 'Green'}
+  ]}
+  value='red'
+/>
+```
+
 ## [7.3.0] - 2017-02-13
 
 ### Added
