@@ -9,25 +9,14 @@ import keycode from 'keycode'
 // internal helper component
 class EditDialog extends React.Component {
 
-  state = {
-    value: this.props.value
-  }
-
-  onChange = (event) => {
-    const {value} = event.target
-    this.setState({value})
-  }
-
   onSubmit = (event) => {
     event.preventDefault()
-    event.stopPropagation()
-    this.props.onSubmit(this.state.value)
+    this.props.onClose()
   }
 
   onKeyUp = (event) => {
-    // hide box on escape key
     if (event.which === keycode('escape')) {
-      this.props.onCancel()
+      this.props.onClose()
     }
   }
 
@@ -36,16 +25,18 @@ class EditDialog extends React.Component {
     const element = this.c
     // https://github.com/tj/react-click-outside/blob/master/index.js#L25
     if (!element.contains(event.target)) {
-      this.props.onCancel()
+      this.props.onClose()
     }
   }
 
   componentDidMount = () => {
     document.addEventListener('click', this.onClick)
+    document.addEventListener('keyup', this.onKeyUp)
   }
 
   componentWillUnmount = () => {
     document.removeEventListener('click', this.onClick)
+    document.removeEventListener('keyup', this.onKeyUp)
   }
 
   render () {
@@ -53,9 +44,8 @@ class EditDialog extends React.Component {
       <div className='Table-edit' ref={c => { this.c = c }}>
         <form onSubmit={this.onSubmit} className='Table-edit-container'>
           <Textfield
-            onChange={this.onChange}
-            value={this.state.value}
-            onKeyUp={this.onKeyUp}
+            onChange={this.props.onChange}
+            value={this.props.value}
           />
         </form>
       </div>
@@ -139,17 +129,12 @@ export class TableBodyCell extends React.Component {
     })
   }
 
-  onSubmit = (value) => {
-    this.hide()
-    this.props.onSubmit(value)
-  }
-
   render () {
-    const {children, className, editable, ...rest} = this.props
+    const {children, className, editable, onChange, ...rest} = this.props
     return (
       <td className={classnames('Table-body-row-cell', className)} {...rest}>
         {this.state.isEditing
-          ? <EditDialog onSubmit={this.onSubmit} onCancel={this.hide} value={children} />
+          ? <EditDialog onChange={onChange} onClose={this.hide} value={children} />
           : null
         }
         { editable
