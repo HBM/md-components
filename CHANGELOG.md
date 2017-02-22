@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [9.0.0] - 2017-02-22
+
+### Changed
+
+- table component `editable` changed callback
+
+Old
+
+```js
+<TableBodyCell editable onSubmit={this.onSubmit}>
+  {this.state.content}
+</TableBodyCell>
+```
+
+New
+
+```js
+<TableBodyCell editable onChange={this.onChange}>
+  {this.state.content}
+</TableBodyCell>
+```
+
+### Fixed
+
+- table editable: make <kbd>ESC</kbd> work even when textfield is not focused
+
 ## [8.0.0] - 2017-02-16
 
 ### Changed
