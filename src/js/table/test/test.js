@@ -228,7 +228,7 @@ describe('Table', () => {
       <table>
         <tbody>
           <tr>
-            <TableBodyCell editable onChange={() => {}}>
+            <TableBodyCell textfield={<input type='text' />}>
               hello world
             </TableBodyCell>
           </tr>
@@ -249,7 +249,7 @@ describe('Table', () => {
       <table>
         <tbody>
           <tr>
-            <TableBodyCell editable onChange={onChange}>
+            <TableBodyCell textfield={<input className='Textfield-input' type='text' onChange={onChange} />}>
               hello world
             </TableBodyCell>
           </tr>
@@ -271,7 +271,7 @@ describe('Table', () => {
       <table>
         <tbody>
           <tr>
-            <TableBodyCell editable onChange={() => {}}>
+            <TableBodyCell textfield={<input />}>
               hello world
             </TableBodyCell>
           </tr>
@@ -293,7 +293,7 @@ describe('Table', () => {
       <table>
         <tbody>
           <tr>
-            <TableBodyCell editable>
+            <TableBodyCell textfield={<input />}>
               hello world
             </TableBodyCell>
           </tr>
@@ -304,6 +304,26 @@ describe('Table', () => {
     wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
     // simulate click outside of component
     document.dispatchEvent(new Event('click'))
+    // make sure overlay isn't visible anymore
+    assert.equal(wrapper.find('.Table-edit').length, 0)
+  })
+
+  it('should hide the overlay when enter key is pressed', () => {
+    const table = (
+      <table>
+        <tbody>
+          <tr>
+            <TableBodyCell textfield={<input />}>
+              hello world
+            </TableBodyCell>
+          </tr>
+        </tbody>
+      </table>
+    )
+    const wrapper = mount(table)
+    wrapper.find('.Table-body-row-cell-edit-wrapper').simulate('click')
+    // simulate enter key
+    wrapper.find('.Table-edit-container').simulate('submit')
     // make sure overlay isn't visible anymore
     assert.equal(wrapper.find('.Table-edit').length, 0)
   })
