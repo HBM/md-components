@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [10.0.0] - 2017-02-24
+
+### Changed
+
+- table component allows full access to underlying `<Textfield />` component to be able to use all its properties, like `onFocus`.
+
+Old
+
+```js
+<TableBodyCell editable onChange={this.onChange}>
+  {this.state.value}
+</TableBodyCell>
+```
+
+New
+
+```js
+<TableBodyCell
+  textfield={
+    <Textfield
+      onChange={this.onChange}
+      value={this.state.value}
+      onFocus={this.onFocus}
+    />
+  }
+>
+  {this.state.value}
+</TableBodyCell>
+```
+
+### Added
+
+- select: add `name` property to underlying button element
+
 ## [9.0.0] - 2017-02-22
 
 ### Changed
