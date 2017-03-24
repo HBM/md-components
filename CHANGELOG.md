@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [11.0.0] - 2017-03-24
+
+### Changed
+
+- all routable components, e.g. tabs, list, bottom navigation, stepper and navigation now use the final version 4 of [react-router](https://github.com/ReactTraining/react-router). That means you have to use the same version for your own app.
+- select: drop `Object.assign` polyfill and rely on default browser behaviour
+
+### Fixed
+
+- list: make test work where list contains link from router
+- list: fix spacing for list with three lines
+- list: improve css by not using wildcard selectors
+- snackbar: fix pointer events so snackbar does not block access to underlying content
+- checkbox: fix left alignment to checkbox component aligns properly with other components, e.g. textfield
+- button: fix typo in test file
+- select: fix horizontal overflow when select overlay is close to browser borders
+- bottom navigation: fix scroll top and improve test
+- padding top on mobile devices
+- update all dependencies including jsdom
+- use [nyc](https://github.com/istanbuljs/nyc) instead istanbul for testing and code coverage
+
 ## [10.0.0] - 2017-02-24
 
 ### Changed
