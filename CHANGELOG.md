@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [11.1.0] - 2017-04-10
+
+### Added
+
+- select: add `name` property to callback to indicate origin of `event`
+
+### Changed
+
+- normalize.css: update to version [6.0.0](https://github.com/necolas/normalize.css/compare/5.0.0...6.0.0)
+
+### Fixed
+
+- navigation: fix event propagation to underlying elements on mobile
+
 ## [11.0.0] - 2017-03-24
 
 ### Changed
