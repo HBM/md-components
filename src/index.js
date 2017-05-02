@@ -1,7 +1,7 @@
 
 import './css/index.scss'
 
-export BottomNavigation from './js/bottomnavigation/index.js'
+export {BottomNavigation, BottomNavigationText} from './js/bottomnavigation/index.js'
 export Button from './js/button/index.js'
 export {Card, Title, Actions, Text, Content} from './js/card/index.js'
 export Checkbox from './js/checkbox/index.js'
@@ -18,7 +18,7 @@ export Shell from './js/shell/index.js'
 export Select from './js/select/index.js'
 export Slider from './js/slider/index.js'
 export Snackbar from './js/snackbar/index.js'
-export {Stepper, StepperStepFooter} from './js/stepper/index.js'
+// export {Stepper, StepperStepFooter} from './js/stepper/index.js'
 export Switch from './js/switch/index.js'
 export {
   Table,
