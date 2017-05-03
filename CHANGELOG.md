@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [12.0.1] - 2017-05-03
+
+### Changed
+
+- Roboto font removed: The Roboto font must be provided by the user, e.g. through `@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');`
+
+### Fixed
+
+- examples build
+
+
 ## [12.0.0] - 2017-05-02
 
 ### Added
