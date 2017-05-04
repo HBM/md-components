@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [12.1.0] - 2017-05-04
+
+### Added
+
+- base.scss: added `$header-height` variable
+
+### Changed
+
+- case.scss: use percentages for `<main>` width
+
+### Fixed
+
+- Bottom Navigation: Menu position on large screens
+
 ## [12.0.1] - 2017-05-03
 
 ### Changed
