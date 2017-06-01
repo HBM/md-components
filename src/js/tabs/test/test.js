@@ -85,7 +85,7 @@ describe('Tabs', () => {
         <Tabs />
       </MemoryRouter>
     )
-    assert.equal(wrapper.find('.Tabs').length, 1)
+    assert.equal(wrapper.find('.mdc-Tabs').length, 1)
   })
 
   it('should make the first tab active by default', () => {
@@ -97,7 +97,7 @@ describe('Tabs', () => {
         ]} />
       </MemoryRouter>
     )
-    assert(wrapper.find('.Tabs-Item a').at(0).hasClass('active'))
+    assert(wrapper.find('.mdc-Tabs-Item a').at(0).hasClass('active'))
   })
 
   xit('should render given tabs', () => {

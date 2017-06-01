@@ -8,16 +8,16 @@ import {Card, Title} from '../'
 describe('Card', () => {
   it('should work', () => {
     const wrapper = shallow(<Card />)
-    assert.equal(wrapper.find('.Card').length, 1)
+    assert.equal(wrapper.find('.mdc-Card').length, 1)
   })
 
   it('should render the title', () => {
     const wrapper = shallow(<Title>some title</Title>)
-    assert.equal(wrapper.find('.Card-title').text(), 'some title')
+    assert.equal(wrapper.find('.mdc-Card-title').text(), 'some title')
   })
 
   it('should pass down className prop', () => {
     const wrapper = shallow(<Card className='foo' />)
-    assert.equal(wrapper.find('.Card.foo').length, 1)
+    assert.equal(wrapper.find('.mdc-Card.foo').length, 1)
   })
 })
