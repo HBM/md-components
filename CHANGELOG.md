@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [13.0.1] - 2017-06-01
+
+### Fixed
+
+- removed `.npmignore` since folders like `es/` and `scss/` were missing from bundle
+
 ## [13.0.0] - 2017-06-01
 
 ### Added
