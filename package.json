@@ -1,11 +1,16 @@
 {
   "name": "md-components",
-  "version": "12.1.0",
+  "version": "13.0.0",
   "description": "Material Design React components",
   "main": "lib/index.js",
   "module": "es/index.js",
   "style": "style.css",
-  "files": ["scss", "lib", "es", "style.css"],
+  "files": [
+    "scss",
+    "lib",
+    "es",
+    "style.css"
+  ],
   "scripts": {
     "stylelint": "stylelint src/scss/*.scss",
     "build:css": "node-sass src/scss/index.scss style.css",
