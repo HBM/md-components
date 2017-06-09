@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [13.1.0] - 2017-06-09
+
+### Added
+
+- textfield: allow access to underlying input element, e.g. for setting focus
+
+### Fixed
+
+- select: set button type to `'button'` to fix weird behavior inside form
+
 ## [13.0.1] - 2017-06-01
 
 ### Fixed
