@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [13.2.0] - 2017-07-13
+
+### Added
+
+- select: make component keyboard accessible
+- textarea: pass through all properties to underyling real textarea to enable `onFocus` and `onBlur`
+
+### Fixed
+
+- navigation: remove focus outline
+- tabs: use PureComponent and fix unnecessary rerenders
+- tabs: fix ink bar behaviour in IE11
+- checkbox: fix focus shadow location
+- textfield: remove focus styles for readOnly textfields
+- update dependencies to remove warnings about React PropType
+
 ## [13.1.0] - 2017-06-09
 
 ### Added
