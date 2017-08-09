@@ -1,7 +1,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Motion, spring} from 'react-motion'
+import classnames from 'classnames'
+
+const isActive = percentage => (percentage > 0) && (percentage < 99)
 
 class Linear extends React.Component {
   static propTypes = {
@@ -12,32 +14,15 @@ class Linear extends React.Component {
     percentage: 75
   }
 
-  state = {
-    isDone: false
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.percentage >= 100) {
-      window.setTimeout(() => {
-        this.setState({
-          isDone: true
-        })
-      }, 500)
-    }
-  }
-
   render () {
     return (
-      <Motion defaultStyle={{x: 0}} style={{x: spring(this.state.isDone ? 0 : 4)}}>
-        {
-          (value) => value.x !== 0 &&
-          <div className='mdc-Progress-linear'>
-            <div className='mdc-Progress-linear-background' style={{height: value.x}}>
-              <div className='mdc-Progress-linear-inner' style={{width: `${this.props.percentage}%`}} />
-            </div>
-          </div>
-        }
-      </Motion>
+      <div className='mdc-Progress-linear'>
+        <div className={classnames('mdc-Progress-linear-background', {
+          'is-active': isActive(this.props.percentage)
+        })}>
+          <div className='mdc-Progress-linear-inner' style={{width: `${this.props.percentage}%`}} />
+        </div>
+      </div>
     )
   }
 }
