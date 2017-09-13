@@ -3,15 +3,31 @@
 import assert from 'assert'
 import React from 'react'
 import {mount} from 'enzyme'
-import Select from '../'
+import Select, {List} from '../'
 import keycode from 'keycode'
 
 const noop = () => {}
+const initState = {
+  top: 300,
+  left: 10,
+  width: 100
+}
+
+const refWrapper = {
+  getBoundingClientRect: () => ({...initState})
+}
 
 describe('Select', () => {
   it('should render a simple example', () => {
     const wrapper = mount(<Select onChange={noop} />)
-    assert(wrapper.find('.mdc-Select'))
+    assert.equal(wrapper.find(Select).length, 1)
+    assert(wrapper.find(Select))
+  })
+
+  it('should unmount a simple example', () => {
+    const wrapper = mount(<Select onChange={noop} />)
+    wrapper.unmount()
+    assert.equal(wrapper.find(Select).length, 0)
   })
 
   it('should render some default items', () => {
@@ -70,6 +86,16 @@ describe('Select', () => {
     assert.equal(wrapper.find('.mdc-Select-list').length, 0)
   })
 
+  it('should again open the list when it is opened', () => {
+    const wrapper = mount(<Select onChange={noop} />)
+    // open list
+    wrapper.find('.mdc-Select-body').simulate('click')
+    assert.equal(wrapper.find('.mdc-Select-list').length, 1)
+    // open again list
+    wrapper.find('.mdc-Select-body').simulate('click')
+    assert.equal(wrapper.find('.mdc-Select-list').length, 1)
+  })
+
   it('should close the list on click on an item', () => {
     const callback = () => {}
     const wrapper = mount(
@@ -93,10 +119,9 @@ describe('Select', () => {
     assert.equal(wrapper.find('.mdc-Select-list').length, 0)
   })
 
-  it('should render the list directly above the selected item', () => {
+  it('should render the list directly', () => {
     const wrapper = mount(
-      <Select
-        value='rabbit'
+      <List
         options={[
           {value: 'fox', label: 'Fox'},
           {value: 'rabbit', label: 'Rabbit'},
@@ -107,18 +132,17 @@ describe('Select', () => {
           {value: 'unicorn', label: 'Unicorn'},
           {value: 'wookiee', label: 'Wookiee'}
         ]}
-        onChange={noop}
+        selectedIndex={1}
+        onClick={noop}
+        refWrapper={refWrapper}
       />
     )
-    // open list
-    wrapper.find('.mdc-Select-body').simulate('click')
-    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '-60px')
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, `${initState.top - 60}px`)
   })
 
   it('should render a list item always in the middle of the list when list is too large', () => {
     const wrapper = mount(
-      <Select
-        value='dragon'
+      <List
         options={[
           {value: 'fox', label: 'Fox'},
           {value: 'cat', label: 'Cat'},
@@ -130,18 +154,17 @@ describe('Select', () => {
           {value: 'unicorn', label: 'Unicorn'},
           {value: 'wookiee', label: 'Wookiee'}
         ]}
-        onChange={noop}
+        selectedIndex={6}
+        onClick={noop}
+        refWrapper={refWrapper}
       />
     )
-    // open list
-    wrapper.find('.mdc-Select-body').simulate('click')
-    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '-108px')
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, `${initState.top - 108}px`)
   })
 
   it('should not show the second last item in the center of the list', () => {
     const wrapper = mount(
-      <Select
-        value='unicorn'
+      <List
         options={[
           {value: 'fox', label: 'Fox'},
           {value: 'cat', label: 'Cat'},
@@ -153,17 +176,17 @@ describe('Select', () => {
           {value: 'unicorn', label: 'Unicorn'},
           {value: 'wookiee', label: 'Wookiee'}
         ]}
-        onChange={noop}
+        selectedIndex={7}
+        onClick={noop}
+        refWrapper={refWrapper}
       />
     )
-    wrapper.find('.mdc-Select-body').simulate('click')
-    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '-156px')
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, `${initState.top - 156}px`)
   })
 
   it('should show the last item at the end of the list', () => {
     const wrapper = mount(
-      <Select
-        value='wookiee'
+      <List
         options={[
           {value: 'fox', label: 'Fox'},
           {value: 'cat', label: 'Cat'},
@@ -175,14 +198,15 @@ describe('Select', () => {
           {value: 'unicorn', label: 'Unicorn'},
           {value: 'wookiee', label: 'Wookiee'}
         ]}
-        onChange={noop}
+        selectedIndex={8}
+        onClick={noop}
+        refWrapper={refWrapper}
       />
     )
-    wrapper.find('.mdc-Select-body').simulate('click')
-    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '-204px')
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, `${initState.top - 204}px`)
   })
 
-  it('should change its position top when inside a table', () => {
+  it('should render the Select inside a table', () => {
     const wrapper = mount(
       <table>
         <tbody>
@@ -208,23 +232,99 @@ describe('Select', () => {
         </tbody>
       </table>
     )
-    wrapper.find('.mdc-Select-body').simulate('click')
-    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '-209px')
+    assert.equal(wrapper.find(Select).length, 1)
   })
 
-  // it('specifies a name attribute for the button', () => {
-  //   const wrapper = mount(<Select name='donald' onChange={noop} />)
-  //   assert.equal(wrapper.find('button').node.name, 'donald')
-  // })
+  it('should change its position top when inside a table', () => {
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <List
+                isInsideTable
+                options={[
+                  {value: 'fox', label: 'Fox'},
+                  {value: 'cat', label: 'Cat'},
+                  {value: 'rabbit', label: 'Rabbit'},
+                  {value: 'dog', label: 'Dog'},
+                  {value: 'horse', label: 'Horse'},
+                  {value: 'mouse', label: 'mouse'},
+                  {value: 'dragon', label: 'Dragon'},
+                  {value: 'unicorn', label: 'Unicorn'},
+                  {value: 'wookiee', label: 'Wookiee'}
+                ]}
+                selectedIndex={8}
+                onClick={noop}
+                refWrapper={refWrapper}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    )
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, `${initState.top - 209}px`)
+  })
+
+  it('should render the list at the top', () => {
+    const wrapper = mount(
+      <Select
+        value='rabbit'
+        options={[
+          {value: 'fox', label: 'Fox'},
+          {value: 'rabbit', label: 'Rabbit'},
+          {value: 'dog', label: 'Dog'},
+          {value: 'horse', label: 'Horse'},
+          {value: 'mouse', label: 'mouse'},
+          {value: 'dragon', label: 'Dragon'},
+          {value: 'unicorn', label: 'Unicorn'},
+          {value: 'wookiee', label: 'Wookiee'}
+        ]}
+        onChange={noop}
+      />
+    )
+    wrapper.setState({
+      top: 50,
+      left: 10,
+      width: 100
+    })
+    // open list
+    wrapper.find('.mdc-Select-body').simulate('click')
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.top, '0px')
+  })
 
   it('should handle window resize events', () => {
-    const wrapper = mount(<Select onChange={noop} />)
-    wrapper.setState({width: 100})
-    assert.equal(wrapper.state().width, 100)
+    const wrapper = mount(
+      <List
+        options={[
+          {value: 'fox', label: 'Fox'},
+          {value: 'cat', label: 'Cat'},
+          {value: 'rabbit', label: 'Rabbit'},
+          {value: 'dog', label: 'Dog'},
+          {value: 'horse', label: 'Horse'},
+          {value: 'mouse', label: 'mouse'},
+          {value: 'dragon', label: 'Dragon'},
+          {value: 'unicorn', label: 'Unicorn'},
+          {value: 'wookiee', label: 'Wookiee'}
+        ]}
+        selectedIndex={8}
+        onClick={noop}
+        refWrapper={refWrapper}
+      />
+    )
+    assert.equal(wrapper.props().refWrapper.getBoundingClientRect().width, 100)
+    const changeSize = {
+      getBoundingClientRect: () => ({
+        top: 50,
+        left: 10,
+        width: 10
+      })
+    }
+    wrapper.setProps({refWrapper: changeSize})
     const event = new window.Event('resize')
     window.dispatchEvent(event)
-    // in jsdom the window width and height is always zero
-    assert.equal(wrapper.state().width, 0)
+
+    assert.equal(wrapper.find('.mdc-Select-list').node.style.width, '26px')
   })
 
   it('should scroll down on arrow down', done => {
