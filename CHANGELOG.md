@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [14.0.0] - 2017-09-13
+
+### Changed
+
+- simplify main container CSS
+- remove `react-motion` and use CSS animations transitions instead
+- card: remove larger font-size and line-height
+
+### Fixed
+
+- select: overlay is now properly positioned above underlying div element
+- select: overlay has higher z-index than header
+- select, snackbar: use `height` instead `min-height` to fix IE11 issues
+- checkbox: fix position of underlying input element
+
 ## [13.2.0] - 2017-07-13
 
 ### Added
