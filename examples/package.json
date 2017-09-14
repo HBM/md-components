@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "preinstall": "npm link ../"
+    "preinstall": "sudo npm link ../"
   },
   "homepage": "https://hbm.github.io/md-components"
 }
