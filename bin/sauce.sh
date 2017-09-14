@@ -32,7 +32,11 @@ rm -rf out/* || exit 0
 git rebase master
 # npm run build:examples:all
 npm link
-cd examples && npm link md-components && npm install && npm run build && cd ..
+cd examples
+npm link md-components
+npm install
+npm run build
+cd ..
 cp -r examples/build/* out/
 
 cd out
