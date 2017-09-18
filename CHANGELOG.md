@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [14.0.1] - 2017-09-18
+
+### Changed
+
+- update stylelint config
+
+### Fixed
+
+- fix build issues with `create-react-app`
+- select: fix overlay not properly positioned in Firefox
+- select: fix position for very long lists
+
 ## [14.0.0] - 2017-09-13
 
 ### Changed
