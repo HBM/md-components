@@ -33,8 +33,8 @@ git rebase master
 # npm run build:examples:all
 npm link
 cd examples
-npm link md-components
 npm install
+npm link md-components
 npm run build
 cd ..
 cp -r examples/build/* out/
