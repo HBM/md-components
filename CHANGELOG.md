@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.0.0] - 2017-10-06
+
+## Changed
+
+- transpile code in `es/` folder to make `create-react-app` `npm run build` work
+- use `react-transition-group` for snackbar to be able to remove from DOM when invisible. fixes overflow scroll in safari.
+- use unitless value for `line-height` in `base.css` to fix box sizing issues
+
+## Added
+
+- add new component expansion panel
+
 ## [14.0.1] - 2017-09-18
 
 ### Changed
