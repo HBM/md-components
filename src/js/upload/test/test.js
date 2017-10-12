@@ -1,4 +1,4 @@
-/* global describe, it */
+/* global describe, it, before, after */
 
 import assert from 'assert'
 import React from 'react'
@@ -80,8 +80,10 @@ describe('Upload', () => {
   it('should toggle "is-over-window" css class on document dragenter and dragleave', () => {
     const wrapper = mount(<Upload onChange={noop} />)
     document.dispatchEvent(new window.Event('dragenter'))
+    wrapper.update()
     assert(wrapper.find('.Upload').hasClass('is-over-window'))
     document.dispatchEvent(new window.Event('dragleave'))
+    wrapper.update()
     assert.equal(wrapper.find('.Upload').hasClass('is-over-window'), false)
   })
 
@@ -103,24 +105,37 @@ describe('Upload', () => {
     assert.equal(instance.hasClass('is-over-window'), false)
   })
 
-  it('should remove dragleave event listener when component is unmounted', () => {
+  it('should remove dragleave event listener when component is unmounted', done => {
+    let tmp
+    before(() => {
+      tmp = document.removeEventListener
+    })
+
+    after(() => {
+      document.removeEventListener = tmp
+    })
     const wrapper = mount(<Upload onChange={noop} />)
-    const instance = wrapper.find('.Upload')
     document.dispatchEvent(new window.Event('dragenter'))
     // make sure component has correct class
-    assert(instance.hasClass('is-over-window'))
+    wrapper.update()
+    assert(wrapper.find('.Upload').hasClass('is-over-window'))
+    let names = []
+    document.removeEventListener = name => {
+      names.push(name)
+      if (names.length === 2) {
+        assert.deepEqual(['dragenter', 'dragleave'], names)
+        done()
+      }
+    }
     // now simulate unmount
     wrapper.unmount()
-    // now simulate dragleave event and make sure component does not loose its class
-    document.dispatchEvent(new window.Event('dragleave'))
-    assert(instance.hasClass('is-over-window'))
   })
 
   it('should propagate button click event to input element', () => {
     const wrapper = mount(<Upload onChange={noop} />)
     // attach dummy click event handler to input dom element
     let clicked = false
-    wrapper.find('.Upload-fileInput').node.addEventListener('click', () => { clicked = true })
+    wrapper.find('.Upload-fileInput').instance().addEventListener('click', () => { clicked = true })
     // simulate click event on top level node which is the div
     wrapper.find('.Upload-fileInput').simulate('click')
     assert.equal(clicked, false)
