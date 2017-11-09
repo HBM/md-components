@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.0.2] - 2017-11-09
+
+### Fixed
+
+- switch: add `id` attribute to make labels with `htmlFor` work
+- select: add color to label when focused similar to `Textfield` component
+
 ## [15.0.1] - 2017-10-23
 
 ### Fixed
