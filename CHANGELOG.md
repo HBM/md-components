@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.1.0] - 2017-11-20
+
+### Added
+
+- `suffix` prop for `Textfield` component
+- Allow custom (JSX) content in `Snackbar` and `Select` components 
+
 ## [15.0.2] - 2017-11-09
 
 ### Fixed
