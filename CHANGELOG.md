@@ -4,12 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.2.0] - 2017-12-05
+
+### Added
+
+- `TabsControlled` component which uses state instead of URLs
+- `SelectNative` component which uses native `Select` and its dropdown
+
+### Fixed
+
+- height for `Tabs` is 48px again
+- style for `readOnly` Textfield is similar to disabled to see difference to normal one
+
 ## [15.1.0] - 2017-11-20
 
 ### Added
 
 - `suffix` prop for `Textfield` component
-- Allow custom (JSX) content in `Snackbar` and `Select` components 
+- Allow custom (JSX) content in `Snackbar` and `Select` components
 
 ## [15.0.2] - 2017-11-09
 
