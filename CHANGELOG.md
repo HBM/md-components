@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.2.1] - 2017-12-07
+
+### Fixed
+
+- select: fix height to fix alignment of `Textfield` next to `Select`
+- chip: make CSS selector more precise to prevent influencing independent elements
+
 ## [15.2.0] - 2017-12-05
 
 ### Added
