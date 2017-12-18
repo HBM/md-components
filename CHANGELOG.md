@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.2.2] - 2017-12-18
+
+### Fixed
+
+- select: fix part of overlay showing outside view
+
 ## [15.2.1] - 2017-12-07
 
 ### Fixed
