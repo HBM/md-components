@@ -379,6 +379,34 @@ describe('Select', () => {
     })
   })
 
+  it('should find on keydown', done => {
+    const onChange = ({target}) => {
+      assert.equal(target.value, 'dog')
+      assert.equal(target.label, 'Dog')
+      done()
+    }
+    const wrapper = mount(
+      <Select
+        options={[
+          {value: 'fox', label: 'Fox'},
+          {value: 'rabbit', label: 'Rabbit'},
+          {value: 'dog', label: 'Dog'}
+        ]}
+        onChange={onChange}
+      />
+    )
+    wrapper.find('.mdc-Select-body').simulate('click')
+    wrapper.find('.mdc-Select-listItem').at(0).simulate('keydown', {
+      key: 'o'
+    })
+    wrapper.find('.mdc-Select-listItem').at(0).simulate('keydown', {
+      key: 'o'
+    })
+    wrapper.find('.mdc-Select-listItem').at(2).simulate('keydown', {
+      which: keycode('enter')
+    })
+  })
+
   it('should close the list on blur', () => {
     const wrapper = mount(
       <Select
@@ -490,6 +518,52 @@ describe('Select', () => {
     )
     wrapper.find('.mdc-Select-input').simulate('keydown', {
       which: keycode('right')
+    })
+  })
+
+  it('should find on "Dog" when the list is closed', done => {
+    const onChange = ({target}) => {
+      assert.equal(target.value, 'dog')
+      assert.equal(target.label, 'Dog')
+      done()
+    }
+    const wrapper = mount(
+      <Select
+        options={[
+          {value: 'fox', label: 'Fox'},
+          {value: 'rabbit', label: 'Rabbit'},
+          {value: 'dog', label: 'Dog'}
+        ]}
+        onChange={onChange}
+      />
+    )
+    wrapper.find('.mdc-Select-input').simulate('keydown', {
+      which: keycode('d'),
+      key: 'd'
+    })
+  })
+
+  it('should custom findIndex', done => {
+    const propOptions = [
+      {value: 'fox', label: 'Fox'},
+      {value: 'rabbit', label: 'Rabbit'},
+      {value: 'dog', label: 'Dog'}
+    ]
+    const findIndex = (options, filterValue, startIndex) => {
+      assert.deepEqual(propOptions, options)
+      assert.equal(filterValue, 'd')
+      assert.equal(startIndex, -1)
+      done()
+    }
+    const wrapper = mount(
+      <Select
+        options={propOptions}
+        findIndex={findIndex}
+        onChange={noop}
+      />
+    )
+    wrapper.find('.mdc-Select-input').simulate('keydown', {
+      key: 'd'
     })
   })
 

@@ -10,6 +10,15 @@ const LIST_ITEM_HEIGHT = 48
 // list length
 const MAX_LIST_LENGTH = 5
 
+const defaultFindIndex = (options, filterValue, startIndex) => {
+  filterValue = filterValue.toLowerCase()
+  let findIndex = options.findIndex(({label}, i) => (i > startIndex && label.toLowerCase().startsWith(filterValue)))
+  if (findIndex === -1) {
+    findIndex = options.findIndex(({label}) => (label.toLowerCase().startsWith(filterValue)))
+  }
+  return findIndex
+}
+
 export default class Select extends React.Component {
   static propTypes = {
     disabled: PropTypes.bool,
@@ -17,7 +26,8 @@ export default class Select extends React.Component {
     options: PropTypes.array,
     placeholder: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    name: PropTypes.string
+    name: PropTypes.string,
+    findIndex: PropTypes.func
   }
 
   static defaultProps = {
@@ -27,7 +37,8 @@ export default class Select extends React.Component {
       {value: 'three', label: 'three'}
     ],
     placeholder: 'Placeholder',
-    value: ''
+    value: '',
+    findIndex: defaultFindIndex
   }
 
   state = {
@@ -40,12 +51,12 @@ export default class Select extends React.Component {
       this.open()
       return
     }
+    const {options, value} = this.props
+    const index = options.findIndex(option => option.value === value)
     if (event.which === keycode('up') || event.which === keycode('left')) {
       event.preventDefault()
-      const {options, value} = this.props
-      const i = options.findIndex(option => option.value === value)
-      if (i > 0) {
-        const prev = options[i - 1]
+      if (index > 0) {
+        const prev = options[index - 1]
         return this.props.onChange({
           target: {
             name: this.props.name,
@@ -56,10 +67,22 @@ export default class Select extends React.Component {
     }
     if (event.which === keycode('down') || event.which === keycode('right')) {
       event.preventDefault()
-      const {options, value} = this.props
-      const i = options.findIndex(option => option.value === value)
-      if (i < options.length - 1) {
-        const next = options[i + 1]
+      if (index < options.length - 1) {
+        const next = options[index + 1]
+        return this.props.onChange({
+          target: {
+            name: this.props.name,
+            ...next
+          }
+        })
+      }
+    }
+
+    if (event.key) {
+      const findIndex = this.props.findIndex(options, event.key, index)
+      if (findIndex !== -1) {
+        event.preventDefault()
+        const next = options[findIndex]
         return this.props.onChange({
           target: {
             name: this.props.name,
@@ -176,6 +199,7 @@ export default class Select extends React.Component {
             refWrapper={this.refWrapper}
             isInsideTable={this.state.isInsideTable}
             onEscape={this.onEscape}
+            findIndex={this.props.findIndex}
           />
         }
       </div>
@@ -189,7 +213,8 @@ export class List extends React.Component {
     isInsideTable: PropTypes.bool,
     selectedIndex: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,
-    refWrapper: PropTypes.object.isRequired
+    refWrapper: PropTypes.object.isRequired,
+    findIndex: PropTypes.func
   }
 
   state = {
@@ -260,6 +285,12 @@ export class List extends React.Component {
       if (event.target.previousSibling) {
         return event.target.previousSibling.focus()
       }
+    }
+
+    const findIndex = this.props.findIndex(this.props.options, event.key, index)
+    if (findIndex !== -1) {
+      event.preventDefault()
+      this[`li${findIndex}`].focus()
     }
   }
 
