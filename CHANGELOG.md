@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.4.0] - 2018-01-17
+
+### Added
+
+- select: add `dense` property for smaller select components
+
+### Fixed
+
+- textfield: fix moving content when error message appears
+- textfield: fix dense label font size when empty
+- textfield: make line red on focus in error case
+
 ## [15.3.0] - 2018-01-05
 
 ### Added
