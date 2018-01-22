@@ -34,10 +34,15 @@ $error-color: $color-textfield-error;
 
 .mdc-Textfield-suffix {
   position: absolute;
-  top: 37px;
+  top: 40px;
   right: 0;
   font-size: $font-big;
   color: $color-textfield-suffix;
+}
+
+.mdc-Textfield-suffix--dense {
+  top: 30px;
+  font-size: 13px;
 }
 
 .mdc-Textfield-icon {
@@ -74,9 +79,11 @@ $error-color: $color-textfield-error;
   margin-top: 8px;
   margin-bottom: 4px;
   font-size: 13px;
+  transform: translate3d(0, 22px, 0);
 }
 
 .mdc-Textfield-input {
+  line-height: 1.5;
   background: transparent;
   order: 2;
   color: $color-textfield-input;
@@ -89,15 +96,13 @@ $error-color: $color-textfield-error;
   border-bottom: 1px solid $color-textfield-border;
   transition: border-bottom-color $transition-duration;
   padding: 0;
-  line-height: 22px;
   box-sizing: content-box;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   margin-bottom: 8px;
 }
 
 .mdc-Textfield-input--dense {
   font-size: 13px;
-  line-height: inherit;
   margin-bottom: 4px;
   padding-bottom: 4px;
 }
