@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.5.0] - 2018-01-22
+
+### Added
+
+- expansion panel: add `dense` property for smaller expansion panels
+
+### Fixed
+
+- textfield: make `suffix` work with `dense` property
+
 ## [15.4.0] - 2018-01-17
 
 ### Added
