@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [15.7.0] - 2018-02-07
+
+### Added
+
+- table: add `<TableResponsive />` component for responsive tables
+- table: add `dense` property to `<Table />` for smaller table rows
+- table: add `selected` property to `<TableBodyRow />` to highlight selected rows
+
 ## [15.6.1] - 2018-02-05
 
 ### Fixed
