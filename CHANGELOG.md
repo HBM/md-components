@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [16.0.0] - 2018-02-15
+
+### Added
+
+- header: add `shadowOnScroll` property which is `false` by default
+- expansion panel: add `className` property to allow giving custom class names
+
 ## [15.7.0] - 2018-02-07
 
 ### Added
