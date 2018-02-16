@@ -26,7 +26,7 @@
     "watch:commonjs": "cross-env BABEL_ENV=commonjs babel -w src --out-dir lib",
     "dev": "npm-run-all --parallel watch:*",
     "examples": "cd examples && npm run start",
-    "test": "standard && npm run stylelint && nyc mocha src/js/**/test/test.js",
+    "test": "eslint src && npm run stylelint && nyc mocha src/js/**/test/test.js",
     "prepublish": "npm run build && cpx './src/scss/*.*' ./scss"
   },
   "repository": {
@@ -54,7 +54,12 @@
     "cross-env": "^5.0.5",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.1",
+    "eslint": "^4.17.0",
     "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
     "flow-bin": "^0.64.0",
     "flow-copy-source": "^1.2.2",
     "jsdom": "11.6.2",
@@ -66,7 +71,6 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
     "react-test-renderer": "^15.6.1",
-    "standard": "^11.0.0-beta.0",
     "stylelint": "^8.2.0",
     "stylelint-config-recommended-scss": "^3.0.0",
     "stylelint-config-standard": "^18.0.0",
@@ -93,17 +97,5 @@
     "keycode": "^2.1.9",
     "prop-types": "^15.5.10",
     "react-transition-group": "^2.2.0"
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
-    "ignore": [
-      "es/",
-      "src/js/icon/index.js",
-      "build/",
-      "bin/gen.js"
-    ]
   }
 }
