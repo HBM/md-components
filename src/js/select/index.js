@@ -43,6 +43,12 @@ export default class Select extends React.Component {
     dense: false
   }
 
+  // instance vars
+  _previousHTMLStyles = {
+    top: '',
+    left: ''
+  }
+
   state = {
     open: false
   }
@@ -100,6 +106,7 @@ export default class Select extends React.Component {
     this.setState({
       open: true
     })
+    this.disableScroll()
     document.addEventListener('click', this.close)
   }
 
@@ -107,7 +114,52 @@ export default class Select extends React.Component {
     this.setState({
       open: false
     })
+    this.enableScroll()
     document.removeEventListener('click', this.close)
+  }
+
+  enableScroll = () => {
+    const html = document.documentElement
+    const body = document.body
+    const previousHtmlScrollBehavior = html.style['scrollBehavior'] || ''
+    const previousBodyScrollBehavior = body.style['scrollBehavior'] || ''
+
+    html.style.left = this._previousHTMLStyles.left
+    html.style.top = this._previousHTMLStyles.top
+    html.classList.remove('mdc-Select-scroll-block')
+
+    html.style['scrollBehavior'] = body.style['scrollBehavior'] = 'auto'
+
+    window.scroll(this._previousScrollPosition.left, this._previousScrollPosition.top)
+
+    html.style['scrollBehavior'] = previousHtmlScrollBehavior
+    body.style['scrollBehavior'] = previousBodyScrollBehavior
+  }
+
+  // https://github.com/angular/material2/blob/10e26a53114e439a29f280a7482ec70409d3cf5e/src/cdk/scrolling/viewport-ruler.ts#L89
+  getScrollPosition = () => {
+    const documentRect = document.documentElement.getBoundingClientRect()
+
+    const top = -documentRect.top || document.body.scrollTop || window.scrollY ||
+      document.documentElement.scrollTop || 0
+
+    const left = -documentRect.left || document.body.scrollLeft || window.scrollX ||
+      document.documentElement.scrollLeft || 0
+
+    return {top, left}
+  }
+
+  disableScroll = () => {
+    const root = document.documentElement
+
+    this._previousScrollPosition = this.getScrollPosition()
+
+    this._previousHTMLStyles.left = root.style.left || ''
+    this._previousHTMLStyles.top = root.style.top || ''
+
+    root.style.left = `${-this._previousScrollPosition.left}px`
+    root.style.top = `${-this._previousScrollPosition.top}px`
+    root.classList.add('mdc-Select-scroll-block')
   }
 
   findTableTag = (node) => {

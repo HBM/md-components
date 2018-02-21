@@ -182,3 +182,9 @@
 .mdc-Select-helper--error {
   color: #f44336;
 }
+
+.mdc-Select-scroll-block {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
