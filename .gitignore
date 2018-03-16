@@ -1,0 +1,16 @@
+node_modules/
+script.bundle.js
+script.min.js
+styles.bundle.css
+styles.min.css
+npm-debug.log
+*.swp
+coverage/
+npm-debug.log*
+
+# ignore auto generated es5 directory
+lib/
+es/
+style.css
+/scss/
+.nyc_output/
