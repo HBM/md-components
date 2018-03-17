@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [17.0.0] - 2018-03-17
+
+### Fixed
+
+- header: show shadow on first touch move
+- modal: prevent click through and scroll when open
+
+### Changed
+
+- update to React 16.2
+- update several dependencies
+
 ## [16.1.0] - 2018-02-23
 
 ### Added
